@@ -20,9 +20,9 @@ router.get('/member/member_login', function(req, res) {  // url(get) : '/member/
 
     // data + session
     // req.session.save(function() {
-console.log(memberId)
+
         if (loginCaution == '' || loginCaution == undefined) {
-            var loginCaution = '아이디와 비밀번호를 입력후 로그인을 눌러 주세요.'   // 주의문구
+            var loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.'   // 주의문구
         };
 
         // render

@@ -2,9 +2,9 @@
 
 /* 공통 */
 :root {
-    --color-main: navy;  /* 메인 */
+    --color-main: rgb(155, 0, 155);  /* 메인 */
 
-    --color-box: gray;  /* 박스 */
+    --color-box: rgb(125, 125, 125);  /* 박스 */
 }
 
 

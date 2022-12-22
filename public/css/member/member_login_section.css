@@ -26,10 +26,11 @@ section {  /* 전체 */
 }
 
 .memberlogin-caution {  /* 회원로그인-주의문구 */
+    text-align: center;
     width: 100%;
     height: 50px;
     margin: 5px 0 0 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: red;
 }
 
@@ -56,10 +57,12 @@ section {  /* 전체 */
 
 .section-text {  /* 전체-문구 */
     width: calc(100% - 20%);
-    margin: 200px 10% 0 10%;
+    margin: 150px 10% 0 10%;
 }
 .text-app {  /* 문구-앱 */
     text-align: center;
+    font-size: 1.0rem;
+    font-weight: 500;
     color: var(--color-main);
 }
 

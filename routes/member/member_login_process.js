@@ -21,12 +21,23 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
     // post
 
     // 계정 입력 확인
+    var loginCheck = 'N';   // 로그인 채크
     if (memberId == '' && memberPassword == '') {  // 아이디(회원), 비밀번호 미입력시
-        var loginCaution = '아이디와 비밀번호를 입력후 로그인을 눌러 주세요.';   // 주의문구
+        var loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.';   // 주의문구
     } else if (memberId == '') {   // 아아디(회원) 미입력시
         var loginCaution = '아이디를 입력해 주세요.';   // 주의문구
     } else if (memberPassword == '') {   // 비밀번호 미입력시
         var loginCaution = '비밀번호를 입력해 주세요.';   // 주의문구
+    } else {
+
+        // 계정 정보 확인
+        if (memberId == '1' && memberPassword == '1') {   // 정보 일치시
+            var loginCheck = 'Y';   // 로그인 채크
+        } else {   // 정보 미일치시
+            var loginCaution = '아이디와 비밀번호를 확인후 다시 입력해 주세요.';   // 주의문구
+        };
+        // 계정 정보 확인
+
     };
     // 계정 입력 확인
 
@@ -43,9 +54,17 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
     // });
     // // render
 
-    // render
-    res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=${loginCaution}`);
-    // render
+    // 로그인 체크에 따른 페이지 이동
+    if (loginCheck == 'Y') {
+        // redirect
+        res.redirect(`/main/main`);
+        // redirect
+    } else if (loginCheck == 'N') {
+        // redirect
+        res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=${loginCaution}`);
+        // redirect
+    };
+    // 로그인 체크에 따른 페이지 이동
 
 });
 
