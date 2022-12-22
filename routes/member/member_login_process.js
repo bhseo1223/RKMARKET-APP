@@ -2,6 +2,15 @@
 
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+var mysqlConfig = require('../../config/mysql_config.json');
+var connection = mysql.createConnection({
+        host: mysqlConfig.host, 
+        user: mysqlConfig.user,
+        password: mysqlConfig.password,
+        database: mysqlConfig.database
+    });
+connection.connect();
 var moment = require('moment');
 
 
@@ -20,51 +29,87 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
     var memberPassword   = (req.body.memberpassword).trim();   // 비밀번호
     // post
 
-    // 계정 입력 확인
-    var loginCheck = 'N';   // 로그인 채크
+    // data + session 
     if (memberId == '' && memberPassword == '') {  // 아이디(회원), 비밀번호 미입력시
-        var loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.';   // 주의문구
+
+        // redirect
+        res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=아이디와 비밀번호를 입력후 로그인을 클릭하세요.`);
+        // redirect
+
     } else if (memberId == '') {   // 아아디(회원) 미입력시
-        var loginCaution = '아이디를 입력해 주세요.';   // 주의문구
+
+        // redirect
+        res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=아이디를 입력해 주세요.`);
+        // redirect
+
     } else if (memberPassword == '') {   // 비밀번호 미입력시
-        var loginCaution = '비밀번호를 입력해 주세요.';   // 주의문구
+
+        // redirect
+        res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=비밀번호를 입력해 주세요.`);
+        // redirect
+
     } else {
 
-        // 계정 정보 확인
-        if (memberId == '1' && memberPassword == '1') {   // 정보 일치시
-            var loginCheck = 'Y';   // 로그인 채크
-        } else {   // 정보 미일치시
-            var loginCaution = '아이디와 비밀번호를 확인후 다시 입력해 주세요.';   // 주의문구
-        };
-        // 계정 정보 확인
+        // 계정 확인
+        var sqlMemberLOGIN = `SELECT * FROM member WHERE id = ? AND password = ?`;
+        var paramsMemberLOGIN = [memberId, memberPassword];
+        connection.query(sqlMemberLOGIN, paramsMemberLOGIN, function(err, rowsMemberLOGIN, fields) {
+
+            // 로그인
+            if (rowsMemberLOGIN.length == 1) { // 로그인 성공
+
+                // session
+                // req.session.memberid    = rowsMemberLOGIN[0].id;    // 로그인후 아이디 부분
+                // req.session.memberhname = rowsMemberLOGIN[0].hname; // 로그인후 회원명 부분
+                // req.session.isLogined   = true;
+                // session
+
+                // log_member_loginout save
+                var logmemberloginoutMemberid      = memberId;                                 // (post)log_member_loginout: member_id - 아이디(회원)
+                var logmemberloginoutMemberhname   = rowsMemberLOGIN[0].hname;                 // log_member_loginout: member_hname - 회원명
+                var logmemberloginoutLog           = `회원_로그인_성공`;                       // log_member_loginout: log - 로그
+                var logmemberloginoutregdate       = moment().format('YYYY-MM-DD HH:mm:ss');   // log_member_loginout: logdate - 로그일시
+                var sqlLogmemberINSERT = `INSERT INTO log_member_loginout(uid, member_id, member_hname, log, logdate) 
+                        VALUES (null, ?, ?, ?, ?);`;
+                var paramsLogmemberINSERT = [logmemberloginoutMemberid, logmemberloginoutMemberhname, logmemberloginoutLog, logmemberloginoutregdate];
+                connection.query(sqlLogmemberINSERT, paramsLogmemberINSERT, function(err, rowsLogmemberINSERT, fields) {
+
+                //     // session save
+                //     req.session.save(function() {
+                        res.redirect(`/main/main`);
+                //     });
+                //     // session save
+
+                });
+                // log_member_loginout save
+
+            } else { // 로그인 실패
+
+                // log_member_loginout save
+                var logmemberloginoutMemberid      = memberId;                                 // (post)log_member_loginout: member_id - 아이디(회원)
+                var logmemberloginoutMemberhname   = '';                                       // log_member_loginout: member_hname - 회원명
+                var logmemberloginoutLog           = `회원_로그인_실패 오류(${memberPassword})`;    // log_member_loginout: log - 로그
+                var logmemberloginoutregdate       = moment().format('YYYY-MM-DD HH:mm:ss');   // log_member_loginout: logdate - 로그일시
+                var sqlLogmemberINSERT = `INSERT INTO log_member_loginout(uid, member_id, member_hname, log, logdate) 
+                        VALUES (null, ?, ?, ?, ?);`;
+                var paramsLogmemberINSERT = [logmemberloginoutMemberid, logmemberloginoutMemberhname, logmemberloginoutLog, logmemberloginoutregdate];
+                connection.query(sqlLogmemberINSERT, paramsLogmemberINSERT, function(err, rowsLogmemberINSERT, fields) {
+
+                    // redirect
+                    res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=아이디와 비밀번호를 확인후 다시 입력해 주세요.`);
+                    // redirect
+
+                });
+                // log_save
+
+            };
+            // 로그인
+
+        });
+        // 계정 확인
 
     };
-    // 계정 입력 확인
-
-    // // render
-    // res.render('member/member_login', {
-    //     // 타이틀
-    //     title:              '로그인',
-    //     // 타이틀
-    //     // 데이터
-    //     memberid:           memberId,           // 아이디(회원)
-    //     memberpassword:     memberPassword,     // 비밀번호
-    //     logincaution:       loginCaution        // 주의문구
-    //     // 데이터
-    // });
-    // // render
-
-    // 로그인 체크에 따른 페이지 이동
-    if (loginCheck == 'Y') {
-        // redirect
-        res.redirect(`/main/main`);
-        // redirect
-    } else if (loginCheck == 'N') {
-        // redirect
-        res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=${loginCaution}`);
-        // redirect
-    };
-    // 로그인 체크에 따른 페이지 이동
+    // data + session
 
 });
 
