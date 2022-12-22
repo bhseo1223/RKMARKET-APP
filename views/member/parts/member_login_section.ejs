@@ -4,7 +4,7 @@
     <div class="section-memberlogin">
         <form action="/member/member_login_process" method="post">
             <div class="memberlogin-member">
-                <input type="text" class="member-column column-id" name="memberid" id="memberId" placeholder="아이디를 입력해 주세요.">
+                <input type="text" class="member-column column-id" name="memberid" id="memberId" placeholder="아이디를 입력해 주세요." value="<%- memberid; %>">
                 <input type="password" class="member-column column-password" name="memberpassword" id="memberPassword" placeholder="비밀번호를 입력해 주세요.">
             </div>
 
