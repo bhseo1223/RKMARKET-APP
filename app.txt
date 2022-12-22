@@ -1,0 +1,10 @@
+npm
+    express
+    ejs
+    moment
+    supervisor -g
+    pm2@latest -g
+
+
+실행
+    pm2 start app.js --watch

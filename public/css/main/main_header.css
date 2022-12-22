@@ -1,0 +1,17 @@
+/* bhseo1223 nodejs : css - main_header : rkmarket_app */
+
+header {  /* 전체 */
+    width: 100%;
+    height: 50px;
+    font-size: 2rem;
+    background: yellow;
+}
+
+.header-mainheader {  /* 전체-헤더 */
+    width: 100%;
+    display: flex;
+    background: goldenrod;
+}
+
+
+/* bhseo1223 nodejs : css - main_header : rkmarket_app */
