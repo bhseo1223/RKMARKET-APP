@@ -2,7 +2,6 @@
 
 var express = require('express');
 var router = express.Router();
-var moment = require('moment');
 
 
 router.get('/member/member_login', function(req, res) {  // url(get) : '/member/member_login'

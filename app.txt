@@ -1,9 +1,10 @@
 npm
-    express
+    express --save
     ejs
     moment
     supervisor -g
     pm2@latest -g
+    mysql -s
 
 
 실행

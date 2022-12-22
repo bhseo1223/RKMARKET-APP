@@ -14,6 +14,17 @@ var router = express.Router();
 // app
 var app = express();
 
+// npm install mysql -s
+var mysql = require('mysql');
+var mysqlConfig = require('./config/mysql_config.json');
+var connection = mysql.createConnection({
+        host: mysqlConfig.host, 
+        user: mysqlConfig.user,
+        password: mysqlConfig.password,
+        database: mysqlConfig.database
+    });
+connection.connect();
+
 // npm install body-parser
 var bodyParser = require('body-parser');
 
