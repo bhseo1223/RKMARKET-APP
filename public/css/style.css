@@ -2,13 +2,15 @@
 
 /* 공통 */
 :root {
-    --color-main: rgb(155, 0, 155);  /* 메인 */
+    --color-main: rgb(155, 0, 155); /* 메인 */
 
     /* 백그라운드 */
-    --color-main-header-backgroud: rgb(255, 255, 255);   /* 메인 헤더 백그라운드 */
+    --color-main-header-backgroud: rgb(255, 155, 255); /* 메인 헤더 백그라운드 */
+    --color-main-section-backgroud: rgb(255, 155, 255); /* 메인 섹션 백그라운드 */
+    --color-main-footer-backgroud: rgb(255, 255, 255); /* 메인 푸터 백그라운드 */
 
     /* 박스 */
-    --color-box: rgb(125, 125, 125);  /* 박스 */
+    --color-box: rgb(125, 125, 125); /* 박스 */
 }
 
 

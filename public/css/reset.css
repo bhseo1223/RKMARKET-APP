@@ -13,9 +13,8 @@ hr {
     text-decoration: none;
     font-family: 'Noto Sans KR', sans-serif;
     color: black;
-    font-size: 12pt;
-    font-weight: normal;
-    background: white;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 /* 개별 */
