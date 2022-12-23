@@ -4,13 +4,31 @@ header {  /* 전체 */
     width: 100%;
     height: 50px;
     font-size: 2rem;
-    background: yellow;
+    background: var(--color-main-header-backgroud);
 }
 
 .header-mainheader {  /* 전체-헤더 */
-    width: 100%;
     display: flex;
-    background: goldenrod;
+    justify-content: space-between;
+    width: 90%;
+    height: 50px;
+    margin: auto;
+    background: var(--color-main-header-backgroud);
+}
+.mainheader-top{   /* 헤더-상단 */
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: var(--color-main-header-backgroud);
+}
+.top-left {   /* 상단-좌 */
+    width: 50px;
+}
+.top-center {   /* 상단-가운데 */
+    width: 200px;
+}
+.top-right {   /* 상단-우 */
+    width: 50px;
 }
 
 
