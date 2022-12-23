@@ -2,7 +2,7 @@
 
 header { /* 전체 */
     width: 100%;
-    height: 60px;
+    height: 70px;
     background: white;
 }
 
@@ -10,24 +10,27 @@ header { /* 전체 */
     display: flex;
     justify-content: space-between;
     width: 94%;
-    height: 50px;
+    height: 60px;
     margin: auto;
     background: var(--color-main-header-backgroud);
 }
 .mainheader-top{ /* 헤더-상단 */
     text-align: center;
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    line-height: 60px;
     background: var(--color-main-header-backgroud);
 }
+.mainheader-top > p {
+    color: white;
+}
 .top-left { /* 상단-좌 */
-    width: 50px;
+    width: 60px;
 }
 .top-center { /* 상단-가운데 */
     width: 200px;
 }
 .top-right { /* 상단-우 */
-    width: 50px;
+    width: 60px;
 }
 
 .mainheader-hr { /* 전체-라인*/
@@ -35,7 +38,7 @@ header { /* 전체 */
     height: 10px;
     margin: auto;
     border: 0;
-    box-shadow: 0 10px 10px -10px gray inset;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 55) inset;
     background: var(--color-main-header-backgroud);
 }
 
