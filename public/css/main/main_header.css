@@ -2,43 +2,45 @@
 
 header { /* 전체 */
     width: 100%;
-    height: 70px;
+    height: 10vh;
     background: white;
 }
 
 .header-mainheader { /* 전체-헤더 */
     display: flex;
     justify-content: space-between;
-    width: 94%;
-    height: 60px;
+    width: 96vw;
+    height: 8vh;
     margin: auto;
     background: var(--color-main-header-backgroud);
 }
 .mainheader-top{ /* 헤더-상단 */
     text-align: center;
-    height: 60px;
-    line-height: 60px;
+    height: 7vh;
+    margin: 1vh 0 0 0;
+    line-height: 7vh;
     background: var(--color-main-header-backgroud);
 }
-.mainheader-top > p {
+.mainheader-top > p { /* 헤더-상단 > p */
+    font-size: 2vh;
     color: white;
 }
 .top-left { /* 상단-좌 */
-    width: 60px;
+    width: 15vw;
 }
 .top-center { /* 상단-가운데 */
-    width: 200px;
+    width: 50vw;
 }
 .top-right { /* 상단-우 */
-    width: 60px;
+    width: 15vw;
 }
 
 .mainheader-hr { /* 전체-라인*/
-    width: 94%;
-    height: 10px;
+    width: 96vw;
+    height: 2.1vh;
     margin: auto;
     border: 0;
-    box-shadow: 0 5px 5px -5px rgba(0, 0, 55) inset;
+    box-shadow: 0 1vh 1vh -1vh rgba(0, 0, 55) inset;
     background: var(--color-main-header-backgroud);
 }
 

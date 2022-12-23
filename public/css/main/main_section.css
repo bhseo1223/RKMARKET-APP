@@ -6,34 +6,96 @@ section {  /* 전체 */
 }
 
 .section-member {   /* 전체-회원정보 */
-    width: 94%;
-    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    width: 96vw;
+    height: 30vh;
     margin: auto;
     background: var(--color-main-section-backgroud);
 }
-.member-top {
-    height: 20px;
+.member-left { /*  회원정보-좌 */
+    margin: 2vh 0 0 3vh;
 }
-.member-left {
-}
-.left-image {
-    width: 60px;
-    height: 60px;
-    margin: 0 0 0 20px;
+.left-image { /* 좌-이미지 */
+    width: 8vh;
+    height: 8vh;
     border-radius: 50%;
     border: 1px solid gray;
     background: white;
 }
-.left-nickname {
-    width: 50px;
-    margin: 5px 0 0 20px;
+.left-nickname { /* 좌-닉네임 */
+    width: 8vh;
+    margin: 1vh 0 0 0;
 }
-.nickname-data {
+.nickname-data { /* 닉네임-데이터 */
     text-align: center;
-    width: 60px;
-    font-size: 0.8rem;
+    width: 8vh;
+    font-size: 1.8vh;
     color: white;
 }
+.member-right { /*  회원정보-우 */
+    margin: 3vh 3vh 0 0;
+}
+.right-levelnickname { /* 우-레벨닉네임 */
+    display: flex;
+    justify-content: flex-end;
+    margin: 2vh 0 0 0;
+}
+.levelnickname-level { /* 우-레벨 */
+    height: 1vh;
+    margin: 0 1vh 0 0;
+    line-height: 1vh;
+    font-size: 2vh;
+    font-weight: 500;
+    color: white;
+}
+.levelnickname-nickname { /* 우-닉네임 */
+    height: 1vh;
+    margin: 0 0.3vh 0 0;
+    line-height: 1vh;
+    font-size: 2vh;
+    font-weight: 500;
+    color: white;
+}
+.levelnickname-end { /* 우-님 */
+    height: 1vh;
+    line-height: 1vh;
+    font-size: 1.9vh;
+    font-weight: 400;
+    color: white
+}
+.right-cp { /* 우-CP */
+    display: flex;
+    justify-content: flex-end;
+    margin: 2vh 0 0 0;
+}
+.cp-symbol { /* CP-심볼 */
+    width: 1vh;
+    height: 1vh;
+        line-height: 1vh;
+        font-size: 2vh;
+        font-weight: 500;
+        color: white
+}
+.cp-point { /* CP-포인트 */
+    height: 1vh;
+    margin: 0 0 0 1.5vh;
+    line-height: 1vh;
+    font-size: 2vh;
+    font-weight: 500;
+    color: white
+}
+.cp-value { /* CP-가치 */
+    height: 1vh;
+    margin: 0 0 0 0.5vh;
+    line-height: 1vh;
+    font-size: 1.9vh;
+    font-weight: 400;
+    color: white
+}
+
+
+
 
 
 /* bhseo1223 nodejs : css - main_section : rkmarket_app */
