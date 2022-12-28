@@ -1,20 +1,29 @@
 /* bhseo1223 nodejs : css - main_section : rkmarket_app */
 
 section {  /* 전체 */
+    position: fixed;
+    z-index: 9;
+    top: 10vh;
     width: 100%;
-    background: white;
+    background: transparent;
 }
 
-.section-member {   /* 전체-회원정보 */
+.section-infor { /* 전체-정보 */
+    width: 92vw;
+    height: 29vh;
+    margin: auto;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 2px 5px 0 gray;
+    background: white;
+}
+.infor-member { /* 정보-회원 */
     display: flex;
     justify-content: space-between;
-    width: 96vw;
-    height: 30vh;
-    margin: auto;
-    background: var(--color-main-section-backgroud);
 }
-.member-left { /*  회원정보-좌 */
-    margin: 2vh 0 0 3vh;
+.member-left { /* 회원-좌 */
+    width: 8vh;
+    height: 8vh;
+    margin: 3vh 0 0 3vh;
 }
 .left-image { /* 좌-이미지 */
     width: 8vh;
@@ -23,17 +32,8 @@ section {  /* 전체 */
     border: 1px solid gray;
     background: white;
 }
-.left-nickname { /* 좌-닉네임 */
-    width: 8vh;
-    margin: 1vh 0 0 0;
-}
-.nickname-data { /* 닉네임-데이터 */
-    text-align: center;
-    width: 8vh;
-    font-size: 1.8vh;
-    color: white;
-}
-.member-right { /*  회원정보-우 */
+.member-right { /* 회원-우 */
+    height: 8vh;
     margin: 3vh 3vh 0 0;
 }
 .right-levelnickname { /* 우-레벨닉네임 */
@@ -47,7 +47,7 @@ section {  /* 전체 */
     line-height: 1vh;
     font-size: 2vh;
     font-weight: 500;
-    color: white;
+    color: var(--color-main);
 }
 .levelnickname-nickname { /* 우-닉네임 */
     height: 1vh;
@@ -55,14 +55,14 @@ section {  /* 전체 */
     line-height: 1vh;
     font-size: 2vh;
     font-weight: 500;
-    color: white;
+    color: var(--color-main);
 }
 .levelnickname-end { /* 우-님 */
     height: 1vh;
     line-height: 1vh;
     font-size: 1.9vh;
     font-weight: 400;
-    color: white
+    color: var(--color-main);
 }
 .right-cp { /* 우-CP */
     display: flex;
@@ -75,7 +75,7 @@ section {  /* 전체 */
         line-height: 1vh;
         font-size: 2vh;
         font-weight: 500;
-        color: white
+        color: var(--color-main);
 }
 .cp-point { /* CP-포인트 */
     height: 1vh;
@@ -83,7 +83,7 @@ section {  /* 전체 */
     line-height: 1vh;
     font-size: 2vh;
     font-weight: 500;
-    color: white
+    color: var(--color-main);
 }
 .cp-value { /* CP-가치 */
     height: 1vh;
@@ -91,11 +91,85 @@ section {  /* 전체 */
     line-height: 1vh;
     font-size: 1.9vh;
     font-weight: 400;
-    color: white
+    color: var(--color-main);
 }
-
-
-
+.infor-hr { /* 회원정보-라인 */
+    height: 5px;
+    margin: 3vh 2vh 0 2vh;
+    border: 0;
+    box-shadow: 0 3px 3px -3px gray inset;
+}
+.infor-icons { /* 정보-아이콘s */
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3vh 0 3vh;
+}
+.icons-icon { /* 아이콘s-아이콘 */
+    width: 7vh;
+    height: 7vh;
+    margin: 4vh 0 3vh 0;
+}
+.icon-icon { /* 아이콘-아이콘 */
+    width: 3vh;
+    margin: 0 2vh 0 2vh;
+}
+.icon-text { /* 아이콘-텍스트 */
+    margin: 0.5vh 0 0 0;
+    text-align: center;
+    font-size: 1.5vh;
+    font-weight: 500;
+    color: var(--color-main);
+}
+.section-main { /* 전체-메인 */
+    width: 92vw;
+    margin: 3vh auto 0 auto;
+    background: white;
+}
+.main-box { /* 메인-박스 */
+    display: flex;
+    justify-content: space-between;
+    width: 92vw;
+    height: 13vh;
+    border-radius: 15px 15px 15px 15px;
+    background: white;
+}
+.box-left { /* 박스-좌 */
+    margin: auto 0 auto 3vh;
+}
+.box-category { /* 좌-카테고리 */
+    font-size: 1.8vh;
+    font-weight: 400;
+    color: white;
+}
+.box-name { /* 좌-콘텐츠명 */
+    font-size: 2.1vh;
+    font-weight: 600;
+    color: white;
+}
+.box-descript { /* 좌-설명 */
+    font-size: 1.9vh;
+    font-weight: 500;
+    color: white;
+}
+.box-right { /* 박스-우 */
+    width: 7vh;
+    height: 7vh;
+    margin: auto 3vh auto 0;
+    border-radius: 50%;
+    background: white;
+}
+.box-shopping { /* 박스-쇼핑하기 */
+    margin: 2vh auto 0 auto;
+    background: rgba(255, 75, 0, 0.8);
+}
+.box-pay { /* 박스-크립토페이 */
+    margin: 2vh auto 0 auto;
+    background: rgba(75, 0, 255, 0.8);
+}
+.box-trade { /* 박스-거래하기 */
+    margin: 2vh auto 0 auto;
+    background: rgba(255, 0, 75, 0.8);
+}
 
 
 /* bhseo1223 nodejs : css - main_section : rkmarket_app */

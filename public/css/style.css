@@ -2,7 +2,7 @@
 
 /* 공통 */
 :root {
-    --color-main: rgb(0155, 0, 255); /* 메인 */
+    --color-main: rgb(105, 0, 255); /* 메인 */
 
     /* 백그라운드 */
     --color-main-header-backgroud: rgb(105, 0, 255); /* 메인 헤더 백그라운드 */

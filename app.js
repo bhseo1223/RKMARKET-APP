@@ -7,12 +7,16 @@ var express = require('express');
 // var https = require('https');
 var http = require('http');
 var fs = require('fs');
+// sslOtions
 
 // express
 var router = express.Router();
 
 // app
 var app = express();
+
+// npm install path
+var path = require('path');
 
 // npm install mysql -s
 var mysql = require('mysql');
@@ -25,13 +29,19 @@ var connection = mysql.createConnection({
     });
 connection.connect();
 
+// npm express-session
+// npm express-mysql-session
+
 // npm install body-parser
 var bodyParser = require('body-parser');
 
 // npm install moment
 var moment = require('moment');
 
+// npm install request
+
 // npm install supervisor
+// npm install pm2 -g
 
 // view(EJS) : npm ejs install
 app.set('views', __dirname + '/views');
