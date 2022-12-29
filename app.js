@@ -41,7 +41,7 @@ var option = {
         database: mysqlStoreConfig.database,
         createDatabaseTable: false,
         schema: {
-            tableName: 'sessiont_member',
+            tableName: 'session_member',
             columnNames: {
                 session_id: 'session_id',
                 expires: 'expires',
@@ -75,7 +75,7 @@ app.use(express.static('public'));
 // use : post
 app.use(bodyParser.urlencoded({ extended: false }));
 // use : session
-app.use(sessio({
+app.use(session({
     secret: mysqlStoreConfig.password,
     resave: false,
     saveUninitialized: true,
@@ -92,6 +92,14 @@ var indexRouter = require('./routes');
 // main
 var mainRouter = require('./routes/main/main');
     app.use('/', mainRouter);  // 메인
+    // var mainshoppingRouter = require('./routes/main/main_shopping');
+        // app.use('/', mainshoppingRouter);  // 메인_쇼핑하기
+    var mainpayRouter = require('./routes/main/main_pay');
+        app.use('/', mainpayRouter);  // 메인_크립토페이
+    // var mainpointRouter = require('./routes/main/main_point');
+    //     app.use('/', mainpointRouter);  // 메인_포인트
+    // var maintradeRouter = require('./routes/main/main_trade');
+    //     app.use('/', maintradeRouter);  // 메인_거래하기
 
 // member
 var memberloginRouter = require('./routes/member/member_login');

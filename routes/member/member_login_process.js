@@ -59,9 +59,9 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
             if (rowsMemberLOGIN.length == 1) { // 로그인 성공
 
                 // session
-                // req.session.memberid    = rowsMemberLOGIN[0].id;    // 로그인후 아이디 부분
-                // req.session.memberhname = rowsMemberLOGIN[0].hname; // 로그인후 회원명 부분
-                // req.session.isLogined   = true;
+                req.session.memberid    = rowsMemberLOGIN[0].id;    // 로그인후 아이디 부분
+                req.session.memberhname = rowsMemberLOGIN[0].hname; // 로그인후 회원명 부분
+                req.session.isLogined   = true;
                 // session
 
                 // log_member_loginout save
@@ -74,11 +74,11 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
                 var paramsLogmemberINSERT = [logmemberloginoutMemberid, logmemberloginoutMemberhname, logmemberloginoutLog, logmemberloginoutregdate];
                 connection.query(sqlLogmemberINSERT, paramsLogmemberINSERT, function(err, rowsLogmemberINSERT, fields) {
 
-                //     // session save
-                //     req.session.save(function() {
+                    // session save
+                    req.session.save(function() {
                         res.redirect(`/main/main`);
-                //     });
-                //     // session save
+                    });
+                    // session save
 
                 });
                 // log_member_loginout save

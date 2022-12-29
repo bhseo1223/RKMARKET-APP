@@ -12,13 +12,13 @@ router.get('/member/member_login', function(req, res) {  // url(get) : '/member/
     // get
 
     // session delete
-    // delete req.session.memberid;
-    // delete req.session.memberhname;
-    // delete req.session.isLogined;
+    delete req.session.memberid;
+    delete req.session.memberhname;
+    delete req.session.isLogined;
     // session delete
 
     // data + session
-    // req.session.save(function() {
+    req.session.save(function() {
 
         if (loginCaution == '' || loginCaution == undefined) {
             var loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.'   // 주의문구
@@ -37,7 +37,7 @@ router.get('/member/member_login', function(req, res) {  // url(get) : '/member/
         });
         // render
 
-    // });
+    });
     // data + session
 
 });
