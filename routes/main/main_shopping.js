@@ -1,4 +1,4 @@
-// bhseo1223 nodejs : routes - main_pay : rkmarket_app
+// bhseo1223 nodejs : routes - main_shopping : rkmarket_app
 
 var express = require('express');
 var router = express.Router();
@@ -14,7 +14,7 @@ connection.connect();
 var moment = require('moment');
 
 
-router.get('/main/main_pay', function(req, res) {  // url(get) : '/main/main_pay'
+router.get('/main/main_shopping', function(req, res) {  // url(get) : '/main/main_shopping'
 
     // data + session
     if (req.session.memberid == undefined) { // 미로그인시
@@ -42,9 +42,9 @@ router.get('/main/main_pay', function(req, res) {  // url(get) : '/main/main_pay
             // code_class color에 따라 color, backgroud CSS 적용
 
             // render
-            res.render('main/main_pay', {
+            res.render('main/main_shopping', {
                 // 타이틀
-                title:          '크립토페이',
+                title:          '쇼핑하기',
                 // 타이틀
                 // 데이터
                 member:         rowsMember,     // 회원
@@ -65,4 +65,4 @@ router.get('/main/main_pay', function(req, res) {  // url(get) : '/main/main_pay
 module.exports = router;
 
 
-// bhseo1223 nodejs : routes - main_pay : rkmarket_app
+// bhseo1223 nodejs : routes - main_shopping : rkmarket_app

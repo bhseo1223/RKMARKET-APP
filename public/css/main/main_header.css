@@ -4,8 +4,6 @@ header { /* 전체 */
     z-index: 1;
     top: 0;
     width: 100vw;
-    height: 11vh;
-    background: var(--color-main-header-backgroud);
 }
 
 .header-mainheader { /* 전체-헤더 */

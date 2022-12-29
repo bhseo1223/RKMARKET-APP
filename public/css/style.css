@@ -9,6 +9,16 @@
     --color-main-section-backgroud: rgb(105, 0, 255); /* 메인 섹션 백그라운드 */
     --color-main-footer-backgroud: rgb(155, 0, 255); /* 메인 푸터 백그라운드 */
 
+    /* 지정 색상 */
+    --color-shopping: rgba(105, 0, 205, 0.8); /* 쇼핑하기 색상 */
+    --color-shopping-deep: rgb(105, 0, 205); /* 쇼핑하기 색상 DEEP */
+    --color-pay: rgb(75, 0, 255, 0.8); /* 크립토페이 색상 */
+    --color-pay-deep: rgb(75, 0, 255); /* 크립토페이 색상 DEEP*/
+    --color-point: rgb(0, 155, 75, 0.8); /* 포인트 색상 */
+    --color-point-deep: rgb(0, 155, 75); /* 포인트 색상 DEEP*/
+    --color-trade: rgb(255, 0, 75, 0.8); /* 거래하기 색상 */
+    --color-trade-deep: rgb(255, 0, 75); /* 거래하기 색상 DEEP*/
+
     /* 박스 */
     --color-box: rgb(125, 125, 125); /* 박스 */
 }

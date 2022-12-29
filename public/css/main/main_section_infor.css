@@ -1,11 +1,11 @@
-/* bhseo1223 nodejs : css - main_section : rkmarket_app */
+/* bhseo1223 nodejs : css - main_section_infor : rkmarket_app */
 
 section {  /* 전체 */
     position: fixed;
     z-index: 9;
     top: 10vh;
     width: 100vw;
-    background: transparent;
+    height: 100vh;
 }
 
 .section-infor { /* 전체-정보 */
@@ -58,7 +58,6 @@ section {  /* 전체 */
     font-size: 3.5vw;
     font-weight: 500;
     border-radius: 5px 5px 5px 5px;
-    /* box-shadow: 0 1px 1px gray; */
 }
 .member-right { /* 회원-우 */
     height: 8vh;
@@ -119,72 +118,5 @@ section {  /* 전체 */
     color: var(--color-main);
 }
 
-.section-main { /* 전체-메인 */
-    width: 92vw;
-    margin: 3vh auto 0 auto;
-    background: white;
-}
-.main-box { /* 메인-박스 */
-    display: flex;
-    justify-content: space-between;
-    width: 92vw;
-    height: 13vh;
-    border-radius: 15px 15px 15px 15px;
-    background: white;
-}
-.box-left { /* 박스-좌 */
-    margin: auto 0 auto 5vw;
-}
-.box-category { /* 좌-카테고리 */
-    font-size: 3.6vw;
-    font-weight: 400;
-    color: white;
-}
-.box-name { /* 좌-콘텐츠명 */
-    margin: 0.3vh 0 0 0;
-    font-size: 4.2vw;
-    font-weight: 600;
-    color: white;
-}
-.box-descript { /* 좌-설명 */
-    font-size: 3.8vw;
-    font-weight: 500;
-    color: white;
-}
-.box-right { /* 박스-우 */
-    width: 18vw;
-    height: 18vw;
-    margin: auto 5vw auto 0;
-    border-radius: 50%;
-    background: white;
-}
-.box-icon { /* 박스-아이콘 */
-    width: 10vw;
-    height: 10vw;
-    margin: 4vw 4vw 4vw 4vw;
-    filter: invert();
-}
-.box-shopping { /* 박스-쇼핑하기 */
-    margin: 2vh auto 0 auto;
-    background: rgba(255, 75, 0, 0.8);
-}
-.right-shopping { /* 우-쇼핑하기 */
-    background: rgba(255, 75, 0, 0.8);
-}
-.box-pay { /* 박스-크립토페이 */
-    margin: 2vh auto 0 auto;
-    background: rgba(75, 0, 255, 0.8);
-}
-.right-pay { /* 우-크립토페이 */
-    background: rgba(75, 0, 255, 0.8);
-}
-.box-trade { /* 박스-거래하기 */
-    margin: 2vh auto 0 auto;
-    background: rgba(255, 0, 75, 0.8);
-}
-.right-trade { /* 우-거래하기 */
-    background: rgba(255, 0, 75, 0.8);
-}
 
-
-/* bhseo1223 nodejs : css - main_section : rkmarket_app */
+/* bhseo1223 nodejs : css - main_section_infor : rkmarket_app */

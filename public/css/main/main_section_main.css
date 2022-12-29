@@ -1,0 +1,71 @@
+/* bhseo1223 nodejs : css - main_section_main : rkmarket_app */
+
+.section-main { /* 전체-메인 */
+    width: 92vw;
+    margin: 3vh auto 0 auto;
+    background: white;
+}
+.main-box { /* 메인-박스 */
+    display: flex;
+    justify-content: space-between;
+    width: 92vw;
+    height: 13vh;
+    border-radius: 15px 15px 15px 15px;
+    background: white;
+}
+.box-left { /* 박스-좌 */
+    margin: auto 0 auto 5vw;
+}
+.box-category { /* 좌-카테고리 */
+    font-size: 3.6vw;
+    font-weight: 400;
+    color: white;
+}
+.box-name { /* 좌-콘텐츠명 */
+    margin: 0.3vh 0 0 0;
+    font-size: 4.2vw;
+    font-weight: 600;
+    color: white;
+}
+.box-descript { /* 좌-설명 */
+    font-size: 3.8vw;
+    font-weight: 500;
+    color: white;
+}
+.box-right { /* 박스-우 */
+    width: 18vw;
+    height: 18vw;
+    margin: auto 5vw auto 0;
+    border-radius: 50%;
+    background: white;
+}
+.box-icon { /* 박스-아이콘 */
+    width: 10vw;
+    height: 10vw;
+    margin: 4vw 4vw 4vw 4vw;
+    filter: invert();
+}
+.box-shopping { /* 박스-쇼핑하기 */
+    margin: 2vh auto 0 auto;
+    background: var(--color-shopping);
+}
+.right-shopping { /* 우-쇼핑하기 */
+    background: var(--color-shopping-deep);
+}
+.box-pay { /* 박스-크립토페이 */
+    margin: 2vh auto 0 auto;
+    background: var(--color-pay);
+}
+.right-pay { /* 우-크립토페이 */
+    background: var(--color-pay-deep);
+}
+.box-trade { /* 박스-거래하기 */
+    margin: 2vh auto 0 auto;
+    background: var(--color-trade);
+}
+.right-trade { /* 우-거래하기 */
+    background: var(--color-trade-deep);
+}
+
+
+/* bhseo1223 nodejs : css - main_section_main : rkmarket_app */
