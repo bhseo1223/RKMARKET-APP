@@ -7,7 +7,7 @@ var express = require('express');
 // var https = require('https');
 var http = require('http');
 var fs = require('fs');
-// sslOtions
+// ssl - sslOtions
 
 // express
 var router = express.Router();
@@ -15,22 +15,41 @@ var router = express.Router();
 // app
 var app = express();
 
-// npm install path
+// npm install path <==============================
 var path = require('path');
 
 // npm install mysql -s
 var mysql = require('mysql');
 var mysqlConfig = require('./config/mysql_config.json');
 var connection = mysql.createConnection({
-        host: mysqlConfig.host, 
+        host:mysqlConfig.host, 
         user: mysqlConfig.user,
         password: mysqlConfig.password,
         database: mysqlConfig.database
     });
 connection.connect();
 
-// npm express-session
-// npm express-mysql-session
+// npm install express-session -s
+var session = require('express-session')
+// npm install express-mysql-session --save
+var mysqlStore = require('express-mysql-session')(session);
+var mysqlStoreConfig = require('./config/mysql_config.json');
+var option = {
+        host: mysqlStoreConfig.host, 
+        user: mysqlStoreConfig.user,
+        password: mysqlStoreConfig.password,
+        database: mysqlStoreConfig.database,
+        createDatabaseTable: false,
+        schema: {
+            tableName: 'sessiont_member',
+            columnNames: {
+                session_id: 'session_id',
+                expires: 'expires',
+                data: 'data'
+            }
+        }
+    };
+var sessionStore = new mysqlStore(option)
 
 // npm install body-parser
 var bodyParser = require('body-parser');
@@ -55,6 +74,13 @@ app.use(express.static('public'));
 // app.use('/static', express.static(__dirname + '/public'));
 // use : post
 app.use(bodyParser.urlencoded({ extended: false }));
+// use : session
+app.use(sessio({
+    secret: mysqlStoreConfig.password,
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore
+}));
 
 
 // router

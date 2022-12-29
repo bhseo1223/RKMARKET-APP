@@ -1,55 +1,47 @@
 /* bhseo1223 nodejs : css - main_header : rkmarket_app */
 
 header { /* 전체 */
-    /* position: fixed; */
     z-index: 1;
-    top: 0px;
-    width: 100%;
-    height: 25vh;
-    background: white;
+    top: 0;
+    width: 100vw;
+    height: 11vh;
+    background: var(--color-main-header-backgroud);
 }
 
 .header-mainheader { /* 전체-헤더 */
     display: flex;
     justify-content: space-between;
+    width: 94vw;
     height: 7vh;
     margin: auto;
-    background: var(--color-main-header-backgroud);
 }
-.mainheader-top{ /* 헤더-상단 */
+.mainheader-headerleft{ /* 헤더-좌 */
     text-align: center;
-    height: 7vh;
-    margin: 1vh 0 0 0;
-    line-height: 7vh;
-    background: var(--color-main-header-backgroud);
+    width: 10vw;
+    margin: 3.5vh 0 0 0;
 }
-.top-left { /* 상단-좌 */
-    width: 15vw;
-}
-.left-icon { /* 좌-아이콘 */
-    width: 2.2vh;
+.headerleft-icon { /* 좌-아이콘 */
+    width: 4.5vw;
     filter: invert();
 }
-.top-center { /* 상단-가운데 */
+.mainheader-headercenter { /* 헤더-가운데 */
     width: 50vw;
 }
-.center-title { /* 가운데-타이틀 */
-    font-size: 2.2vh;
+.headercenter-title { /* 가운데-타이틀 */
+    text-align: center;
+    font-size: 4.5vw;
     font-weight: 500;
     color: white;
+    margin: 3vh 0 0 0;
 }
-.top-right { /* 상단-우 */
-    width: 15vw;
+.mainheader-headerright{ /* 헤더-우 */
+    text-align: center;
+    width: 10vw;
 }
-.left-icon { /* 우-아이콘 */
-    width: 2.2vh;
+.headerright-icon { /* 우-아이콘 */
+    width: 4.5vw;
     filter: invert();
-}
-
-.header-blank { /* 전체-공란 */
-    height: 17vh;
-    margin: auto;
-    background: var(--color-main-header-backgroud);
+    margin: 3.5vh 0 0 0;
 }
 
 

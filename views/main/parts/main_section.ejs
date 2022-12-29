@@ -4,22 +4,25 @@
     <div class="section-infor">
         <div class="infor-member">
             <div class="member-left">
-                <div class="left-image">
+                <div class="left-nickname">
+                    <p class="nickname-nickname">RK마켓조아</p>
+                    <p class="nickname-end">님</p>
+                </div>
 
+                <div class="left-classlevel">
+                    <p class="classlevel-label">LV</p>
+                    <p class="classlevel-name" style=<%- classlevelcss %>><%- member[0].classlevelhname; %></p>
                 </div>
             </div>
 
             <div class="member-right">
-                <div class="right-levelnickname">
-                    <p class="levelnickname-level">LV</p>
-                    <p class="levelnickname-nickname">RK마켓조아</p>
-                    <p class="levelnickname-end">님</p>
+                <div class="right-text">
+                    <p class="text-text">캐시포인트</p>
                 </div>
 
-                <div class="right-cp">
-                    <p class="cp-symbol">@</p>
-                    <p class="cp-point">110,500,000</p>
-                    <p class="cp-value">(110,000,000)</p>
+                <div class="right-cashpoint">
+                    <p class="cashpoint-ea"><%- member[0].cp.toLocaleString(); %></p>
+                    <p class="cashpoint-unit">CP</p>
                 </div>
             </div>
         </div>
@@ -28,22 +31,22 @@
 
         <div class="infor-icons">
             <div class="icons-icon">
-                <img class="icon-icon" src="../image/icon/shopping.svg" alt="">
+                <img class="icon-icon" src="../image/icon/shopping_line.svg" alt="">
                 <p class="icon-text">쇼핑하기</p>
             </div>
 
             <div class="icons-icon">
-                <img class="icon-icon" src="../image/icon/pay.svg" alt="">
+                <img class="icon-icon" src="../image/icon/pay_line.svg" alt="">
                 <p class="icon-text">크립토페이</p>
             </div>
 
             <div class="icons-icon">
-                <img class="icon-icon" src="../image/icon/coin.svg" alt="">
+                <img class="icon-icon" src="../image/icon/coin_line.svg" alt="">
                 <p class="icon-text">코인</p>
             </div>
 
             <div class="icons-icon">
-                <img class="icon-icon" src="../image/icon/trade.svg" alt="">
+                <img class="icon-icon" src="../image/icon/trade_line.svg" alt="">
                 <p class="icon-text">거래하기</p>
             </div>
         </div>
@@ -57,8 +60,8 @@
                 <p class="box-descript">캐시포인트로 비즈니스 쇼핑하자!</p>
             </div>
 
-            <div class="box-right">
-
+            <div class="box-right right-shopping">
+                <img class="box-icon" src="../image/icon/shopping.svg" alt="">
             </div>
         </div>
 
@@ -69,8 +72,8 @@
                 <p class="box-descript">크립토페이로 캐시포인트 충전!</p>
             </div>
 
-            <div class="box-right">
-
+            <div class="box-right right-pay">
+                <img class="box-icon" src="../image/icon/pay2.svg" alt="">
             </div>
         </div>
 
@@ -81,8 +84,8 @@
                 <p class="box-descript">캐시포인트와 코인 거래하기!</p>
             </div>
 
-            <div class="box-right">
-
+            <div class="box-right right-trade">
+                <img class="box-icon" src="../image/icon/trade2.svg" alt="">
             </div>
         </div>
     </div>

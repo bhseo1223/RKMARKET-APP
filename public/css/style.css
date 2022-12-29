@@ -13,5 +13,12 @@
     --color-box: rgb(125, 125, 125); /* 박스 */
 }
 
+@media ( max-width: 400px ) {
+    body { color: red; }
+  }
+  @media ( max-height: 800px ) {
+    body { color: red; }
+  }
+
 
 /* bhseo1223 nodejs : css - style : rkmarket_app */
