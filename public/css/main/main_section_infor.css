@@ -10,10 +10,10 @@ section {  /* 전체 */
 
 .section-infor { /* 전체-정보 */
     width: 92vw;
-    height: 26vh;
+    height: 25vh;
     margin: auto;
     border-radius: 20px 20px 20px 20px;
-    box-shadow: 0 2px 4px 0 gray;
+    box-shadow: 0 1px 2px 0 gray;
     background: white;
 }
 .infor-member { /* 정보-회원 */
@@ -21,22 +21,23 @@ section {  /* 전체 */
     justify-content: space-between;
 }
 .member-left { /* 회원-좌 */
-    margin: 3vh 0 0 3vh;
+    height: 8vh;
+    margin: 3vh 0 0 6vw;
 }
 .left-nickname { /* 좌-닉네임 */
     display: flex;
 }
 .nickname-nickname { /* 닉네임-닉네임 */
-    height: 2.5vh;
-    margin: 0 0.3vh 0 0;
-    line-height: 2.5vh;
-    font-size: 4.0vw;
+    height: 2.8vh;
+    margin: 0 0.3vw 0 0;
+    line-height: 2.8vh;
+    font-size: 3.8vw;
     font-weight: 500;
 }
 .nickname-end { /* 닉네임-님 */
-    height: 2.5vh;
-    line-height: 2.5vh;
-    font-size: 3.5vw;
+    height: 2.8vh;
+    line-height: 2.8vh;
+    font-size: 3.6vw;
     font-weight: 400;
 }
 .left-classlevel { /* 좌-구매등급 */
@@ -53,22 +54,22 @@ section {  /* 전체 */
 .classlevel-name { /* 구매등급-명칭 */
     text-align: center;
     width: 13vw;
-    height: 2.9vh;
-    line-height: 2.7vh;
+    height: 2.8vh;
+    line-height: 2.8vh;
     font-size: 3.5vw;
     font-weight: 500;
     border-radius: 5px 5px 5px 5px;
 }
 .member-right { /* 회원-우 */
     height: 8vh;
-    margin: 3vh 3vh 0 0;
+    margin: 3vh 6vw 0 0;
 }
 .right-text { /* 좌-문구 */
     display: flex;
 }
 .text-text { /* 문구-문구 */
-    height: 2.5vh;
-    line-height: 2.5vh;
+    height: 2.8vh;
+    line-height: 2.8vh;
     font-size: 3.5vw;
     font-weight: 500;
 }
@@ -77,25 +78,23 @@ section {  /* 전체 */
     margin: 0.5vh 0 0 0;
 }
 .cashpoint-ea { /* 캐시포인트-수량 */
-    height: 3vh;
-    margin: 0 0.3vh 0 0;
-    line-height: 3vh;
-    font-size: 5.0vw;
+    height: 2.8vh;
+    margin: 0 0.3vw 0 0;
+    line-height: 2.8vh;
+    font-size: 4.5vw;
     font-weight: 600;
-    color: var(--color-main);
 }
 .cashpoint-unit { /* 캐시포인트-단위 */
-    height: 3vh;
-    line-height: 3.2vh;
+    height: 2.8vh;
+    line-height:2.8vh;
     font-size: 4.5vw;
     font-weight: 500;
-    color: var(--color-main);
 }
 .infor-hr { /* 회원정보-라인 */
     height: 1vh;
     margin: 1vh 2vh 0 2vh;
     border: 0;
-    box-shadow: 0 3px 3px -3px gray inset;
+    box-shadow: 0 2px 2px -2px black inset;
 }
 .infor-icons { /* 정보-아이콘s */
     display: flex;
@@ -112,10 +111,9 @@ section {  /* 전체 */
 }
 .icon-text { /* 아이콘-텍스트 */
     text-align: center;
-    margin: 0.5vh 0 0 0;
+    margin: 0.3vh 0 0 0;
     font-size: 3.0vw;
     font-weight: 500;
-    color: var(--color-main);
 }
 
 

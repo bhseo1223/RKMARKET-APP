@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/main/main_header.css">
         <link rel="stylesheet" href="../css/main/main_section_infor.css">
-        <link rel="stylesheet" href="../css/main/main_section_trade.css">
+        <link rel="stylesheet" href="../css/main/main_section_main.css">
         <link rel="stylesheet" href="../css/main/main_footer.css">
     </head>
 
@@ -29,12 +29,21 @@
         section {
             background: var(--color-trade);
         }
+        .cashpoint-ea, .cashpoint-unit {
+            color: var(--color-trade);
+        }
+        .box-category, .box-name, .box-descript {
+            color: var(--color-trade);
+        }
+        .box-right {
+            background: var(--color-trade-lite);
+        }
     </style>
 
     <body>
         <%- include('parts/main_header'); %>
         <%- include('parts/main_section_infor'); %>
-        <%- include('parts/main_section_pay'); %>
+        <%- include('parts/main_section_trade'); %>
         <%- include('parts/main_footer'); %>
     </body>
 </html>

@@ -36,7 +36,7 @@ section { /* 전체 */
 }
 .memberlogin-submit { /* 회원로그인-로그인 */
     width: 80vw;
-    height: 11vw;
+    height: 12vw;
     margin: 2vw auto 2vw auto;
     color: white;
     background: var(--color-main);
