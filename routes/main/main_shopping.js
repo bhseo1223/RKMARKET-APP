@@ -29,10 +29,12 @@ router.get('/main/main_shopping', function(req, res) {  // url(get) : '/main/mai
         // get
 
         // select : member - 회원
-        var sqlMember = `SELECT member.hname, member.cp, member.class_level, 
-                    code_class_level.hname AS classlevelhname, code_class_level.color AS classlevelcolor, code_class_level.background AS classlevelbackground 
+        var sqlMember = `SELECT member.hname, member.class_level, 
+                    code_class_level.hname AS classlevelhname, code_class_level.color AS classlevelcolor, code_class_level.background AS classlevelbackground, 
+                    point_member.cp AS membercp 
                 FROM member 
                 LEFT JOIN code_class_level ON member.class_level = code_class_level.code 
+                LEFT JOIN point_member ON member.id = point_member.member_id 
                 WHERE member.id = ?`;
         var paramsMember = [req.session.memberid];
         connection.query(sqlMember, paramsMember, function(err, rowsMember, fields) {

@@ -5,7 +5,7 @@
         <div class="infor-member">
             <div class="member-left">
                 <div class="left-nickname">
-                    <p class="nickname-nickname">RK마켓조아</p>
+                    <p class="nickname-nickname"><%- member[0].hname; %></p>
                     <p class="nickname-end">님</p>
                 </div>
 
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="right-cashpoint">
-                    <p class="cashpoint-ea"><%- member[0].cp.toLocaleString(); %></p>
+                    <p class="cashpoint-ea"><%- member[0].membercp.toLocaleString(); %></p>
                     <p class="cashpoint-unit">CP</p>
                 </div>
             </div>

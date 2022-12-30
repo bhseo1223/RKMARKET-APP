@@ -1,4 +1,4 @@
-<!-- bhseo1223 nodejs : ejs - main : rkmarket_app -->
+<!-- bhseo1223 nodejs : ejs - point_swap : rkmarket_app -->
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -15,35 +15,30 @@
 
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/main/main_header.css">
-        <link rel="stylesheet" href="../css/main/main_section_infor.css">
-        <link rel="stylesheet" href="../css/main/main_section_main.css">
-        <link rel="stylesheet" href="../css/main/main_footer.css">
+        <link rel="stylesheet" href="../css/point/point_header.css">
+        <link rel="stylesheet" href="../css/point/point_swap_section.css">
+        <link rel="stylesheet" href="../css/point/point_footer.css">
     </head>
 
     <style>
         header {
-            height: 22vh;
-            background: var(--color-main);
+            height: 8vh;
+            background: white;
         }
         section {
-            background: transparent;
+            background: var(--color-point-background);
         }
         .cashpoint-ea, .cashpoint-unit {
-            color: var(--color-main);
-        }
-        .box-category, .box-name, .box-descript {
-            color: white;
+            color: var(--color-point-text);
         }
     </style>
 
     <body>
-        <%- include('parts/main_header'); %>
-        <%- include('parts/main_section_infor'); %>
-        <%- include('parts/main_section_main'); %>
-        <%- include('parts/main_footer'); %>
+        <%- include('parts/point_header'); %>
+        <%- include('parts/point_swap_section'); %>
+        <%- include('parts/point_footer'); %>
     </body>
 </html>
 
 
-<!-- bhseo1223 nodejs : ejs - main : rkmarket_app -->
+<!-- bhseo1223 nodejs : ejs - point_swap : rkmarket_app -->

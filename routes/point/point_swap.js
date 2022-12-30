@@ -1,4 +1,4 @@
-// bhseo1223 nodejs : routes - main : rkmarket_app
+// bhseo1223 nodejs : routes - point_swap : rkmarket_app
 
 var express = require('express');
 var router = express.Router();
@@ -14,7 +14,7 @@ connection.connect();
 var moment = require('moment');
 
 
-router.get('/main/main', function(req, res) {  // url(get) : '/main/main'
+router.get('/point/point_swap', function(req, res) {  // url(get) : '/point/point_swap'
 
     // data + session
     if (req.session.memberid == undefined) { // 미로그인시
@@ -44,9 +44,9 @@ router.get('/main/main', function(req, res) {  // url(get) : '/main/main'
             // code_class color에 따라 color, backgroud CSS 적용
 
             // render
-            res.render('main/main', {
+            res.render('point/point_swap', {
                 // 타이틀
-                title:          '크립토 마켓 플레이스',
+                title:          '스왑(SWAP)',
                 // 타이틀
                 // 데이터
                 member:         rowsMember,     // 회원
@@ -67,4 +67,4 @@ router.get('/main/main', function(req, res) {  // url(get) : '/main/main'
 module.exports = router;
 
 
-// bhseo1223 nodejs : routes - main : rkmarket_app
+// bhseo1223 nodejs : routes - point_swap : rkmarket_app

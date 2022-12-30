@@ -3,7 +3,6 @@
 /* 공통 */
 :root {
     --color-main: rgb(225, 0, 105); /* 메인 */
-    color: rgb(154, 205, 50);
 
     /* 백그라운드 */
     --color-main-header-backgroud: rgb(105, 0, 255); /* 메인 헤더 백그라운드 */
@@ -11,14 +10,19 @@
     --color-main-footer-backgroud: rgb(155, 0, 255); /* 메인 푸터 백그라운드 */
 
     /* 지정 색상 */
-    --color-shopping: rgb(255, 25, 0); /* 쇼핑하기 색상 */
-    --color-shopping-lite: rgba(255, 25, 0, 0.8); /* 쇼핑하기 색상 LITE */
-    --color-pay: rgb(225, 0, 105); /* 크립토페이 색상 */
-    --color-pay-lite: rgba(225, 0, 105, 0.8); /* 크립토페이 색상 LITE*/
-    --color-point: rgba(155, 0, 255); /* 포인트 색상 */
-    --color-point-lite: rgb(155, 0, 255, 0.8); /* 포인트 색상 LITE*/
-    --color-trade: rgb(155, 185, 55); /* 거래하기 색상 */
-    --color-trade-lite: rgba(155, 185, 55, 0.8); /* 거래하기 색상 LITE*/
+    --color-shopping: rgb(255, 100, 100); /* 쇼핑하기 색상 */
+    --color-shopping-deep: rgb(255, 75, 75); /* 쇼핑하기 색상 DEEP */
+    --color-shopping-text: rgb(255, 25, 25); /* 쇼핑하기 색상 TEXT */
+    --color-pay: rgb(200, 100, 255); /* 크립토페이 색상 */
+    --color-pay-deep: rgb(175, 75, 255); /* 크립토페이 색상 DEEP*/
+    --color-pay-text: rgb(125, 25, 255); /* 크립토페이 색상 TEXT*/
+    --color-point: rgba(100, 100, 255); /* 포인트 색상 */
+    --color-point-deep: rgb(75, 75, 255); /* 포인트 색상 DEEP*/
+    --color-point-text: rgb(25, 25, 255); /* 포인트 색상 TEXT*/
+    --color-point-background: rgba(100, 100, 255, 0.03); /* 포인트 색상 백그라운드*/
+    --color-trade: rgb(255, 175, 75); /* 거래하기 색상 */
+    --color-trade-deep: rgb(255, 150, 50); /* 거래하기 색상 DEEP*/
+    --color-trade-text: rgb(255, 100, 0); /* 거래하기 색상 TEXT*/
 
     /* 박스 */
     --color-box: rgb(125, 125, 125); /* 박스 */

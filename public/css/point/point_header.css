@@ -1,0 +1,51 @@
+/* bhseo1223 nodejs : css - point_header : rkmarket_app */
+
+header { /* 전체 */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100vw;
+    height: calc(8vh + 0.5px);
+}
+
+.header-header { /* 전체-헤더 */
+    display: flex;
+    justify-content: space-between;
+    width: 94vw;
+    height: 8vh;
+    margin: auto;
+}
+.header-headerleft{ /* 헤더-좌 */
+    text-align: center;
+    width: 10vw;
+    margin: 3.5vh 0 0 0;
+}
+.headerleft-icon { /* 좌-아이콘 */
+    width: 4.5vw;
+}
+.header-headercenter { /* 헤더-가운데 */
+    width: 50vw;
+}
+.headercenter-title { /* 가운데-타이틀 */
+    text-align: center;
+    font-size: 4vw;
+    font-weight: 500;
+    color: black;
+    margin: 3vh 0 0 0;
+}
+.header-headerright{ /* 헤더-우 */
+    text-align: center;
+    width: 10vw;
+}
+.headerright-icon { /* 우-아이콘 */
+    width: 4.5vw;
+    margin: 3.5vh 0 0 0;
+}
+
+.header-hr { /* 전체-라인 */
+    height: 0.5px;
+    background: black;
+}
+
+
+/* bhseo1223 nodejs : css - point_header : rkmarket_app */

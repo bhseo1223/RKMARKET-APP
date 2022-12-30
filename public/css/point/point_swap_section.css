@@ -1,0 +1,105 @@
+/* bhseo1223 nodejs : css - point_swap_section : rkmarket_app */
+
+section {
+    position: fixed;
+    z-index: 9;
+    top: calc(8vh + 1px);
+    width: 100vw;
+    height: 100vh;
+}
+
+.section-section { /* 전체-정보 */
+    width: 100vw;
+    height: 12vh;
+}
+
+.section-member { /* 정보-회원 */
+    display: flex;
+    justify-content: space-between;
+}
+.member-left { /* 회원-좌 */
+    height: 8vh;
+    margin: 1.5vh 0 0 6vw;
+}
+.left-nickname { /* 좌-닉네임 */
+    display: flex;
+}
+.nickname-nickname { /* 닉네임-닉네임 */
+    height: 2.8vh;
+    margin: 0 0.3vw 0 0;
+    line-height: 2.8vh;
+    font-size: 3.8vw;
+    font-weight: 500;
+}
+.nickname-end { /* 닉네임-님 */
+    height: 2.8vh;
+    line-height: 2.8vh;
+    font-size: 3.6vw;
+    font-weight: 400;
+}
+.left-classlevel { /* 좌-구매등급 */
+    display: flex;
+    margin: 0.5vh 0 0 0;
+}
+.classlevel-label { /* 구매등급-라벨 */
+    height: 2.8vh;
+    margin: 0 1.5vw 0 0;
+    line-height: 2.8vh;
+    font-size: 3.8vw;
+    font-weight: 500;
+}
+.classlevel-name { /* 구매등급-명칭 */
+    text-align: center;
+    width: 13vw;
+    height: 2.8vh;
+    line-height: 2.8vh;
+    font-size: 3.5vw;
+    font-weight: 500;
+    border-radius: 5px 5px 5px 5px;
+}
+.member-right { /* 회원-우 */
+    height: 8vh;
+    margin: 1.5vh 6vw 0 0;
+}
+.right-text { /* 좌-문구 */
+    display: flex;
+}
+.text-text { /* 문구-문구 */
+    height: 2.8vh;
+    line-height: 2.8vh;
+    font-size: 3.5vw;
+    font-weight: 500;
+}
+.right-cashpoint { /* 좌-캐시포인트 */
+    display: flex;
+    margin: 0.5vh 0 0 0;
+}
+.cashpoint-ea { /* 캐시포인트-수량 */
+    height: 2.8vh;
+    margin: 0 0.3vw 0 0;
+    line-height: 2.8vh;
+    font-size: 4.5vw;
+    font-weight: 600;
+}
+.cashpoint-unit { /* 캐시포인트-단위 */
+    height: 2.8vh;
+    line-height:2.8vh;
+    font-size: 4.5vw;
+    font-weight: 500;
+}
+
+.section-point { /* 전체-포인트 */
+    width: 90vw;
+    margin: 0 auto 0 auto;
+}
+.point-point { /* 포인트-포인트 */
+    height: 15vh;
+    margin: 1vh 0 2vh 0;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 1px 3px gray;
+    background: white;
+}
+
+
+
+/* bhseo1223 nodejs : css - point_swap_section : rkmarket_app */

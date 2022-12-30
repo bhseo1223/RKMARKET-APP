@@ -101,6 +101,10 @@ var mainRouter = require('./routes/main/main');
     var maintradeRouter = require('./routes/main/main_trade');
         app.use('/', maintradeRouter);  // 메인_거래하기
 
+// point
+var pointswapRouter = require('./routes/point/point_swap');
+    app.use('/', pointswapRouter);  // 포인트_스왑
+
 // member
 var memberloginRouter = require('./routes/member/member_login');
     app.use('/', memberloginRouter);  // 회원_로그인

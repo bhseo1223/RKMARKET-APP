@@ -47,21 +47,21 @@
     background: var(--color-shopping);
 }
 .right-shopping { /* 우-쇼핑하기 */
-    background: orangered;
+    background: var(--color-shopping-deep);
 }
 .box-trade { /* 박스-거래하기 */
     margin: 2vh auto 0 auto;
     background: var(--color-trade);
 }
 .right-trade { /* 우-거래하기 */
-    background: yellowgreen;
+    background: var(--color-trade-deep);
 }
 .box-pay { /* 박스-크립토페이 */
     margin: 2vh auto 0 auto;
     background: var(--color-pay);
 }
 .right-pay { /* 우-크립토페이 */
-    background: deeppink;
+    background: var(--color-pay-deep)
 }
 
 
