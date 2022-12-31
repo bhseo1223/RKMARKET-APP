@@ -42,7 +42,7 @@ router.get('/main/main_pay', function(req, res) {  // url(get) : '/main/main_pay
             // code_class color에 따라 color, backgroud CSS 적용
             var classlevelCSS = `"color: ${rowsMember[0].classlevelcolor}; background: ${rowsMember[0].classlevelbackground}"`
             // code_class color에 따라 color, backgroud CSS 적용
-
+console.log(`${req.session.memberid} : main_pay - ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
             // render
             res.render('main/main_pay', {
                 // 타이틀

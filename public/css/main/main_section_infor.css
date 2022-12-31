@@ -1,113 +1,99 @@
 /* bhseo1223 nodejs : css - main_section_infor : rkmarket_app */
 
-section {  /* 전체 */
-    position: fixed;
+section { /* 전체 */
+    position: relative;
     z-index: 9;
-    top: 10vh;
     width: 100vw;
-    height: 100vh;
 }
 
-.section-infor { /* 전체-정보 */
-    width: 92vw;
-    height: 25vh;
+/* .section-section {} 전체-섹션 */
+
+.section-infor { /* 섹션-정보 */
+    width: 94vw;
+    height: 23vh;
     margin: auto;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: 0 1px 2px 0 gray;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px 0 gray;
     background: white;
 }
 .infor-member { /* 정보-회원 */
     display: flex;
     justify-content: space-between;
 }
-.member-left { /* 회원-좌 */
+.member-memberleft { /* 회원-좌 */
     height: 8vh;
-    margin: 3vh 0 0 6vw;
+    margin: 2vh 0 0 5vw;
 }
-.left-nickname { /* 좌-닉네임 */
+.memberleft-nickname { /* 좌-닉네임 */
     display: flex;
 }
 .nickname-nickname { /* 닉네임-닉네임 */
-    height: 2.8vh;
     margin: 0 0.3vw 0 0;
-    line-height: 2.8vh;
     font-size: 3.8vw;
     font-weight: 500;
 }
 .nickname-end { /* 닉네임-님 */
-    height: 2.8vh;
-    line-height: 2.8vh;
-    font-size: 3.6vw;
+    font-size: 3.8vw;
     font-weight: 400;
 }
-.left-classlevel { /* 좌-구매등급 */
+.memberleft-classlevel { /* 좌-구매등급 */
     display: flex;
     margin: 0.5vh 0 0 0;
 }
 .classlevel-label { /* 구매등급-라벨 */
-    height: 2.8vh;
     margin: 0 1.5vw 0 0;
-    line-height: 2.8vh;
     font-size: 3.8vw;
     font-weight: 500;
 }
 .classlevel-name { /* 구매등급-명칭 */
     text-align: center;
-    width: 13vw;
-    height: 2.8vh;
-    line-height: 2.8vh;
+    padding: 0 2vw 0 2vw;
     font-size: 3.5vw;
     font-weight: 500;
     border-radius: 5px 5px 5px 5px;
 }
-.member-right { /* 회원-우 */
+.member-memberright { /* 회원-우 */
     height: 8vh;
-    margin: 3vh 6vw 0 0;
+    margin: 2vh 5vw 0 0;
 }
-.right-text { /* 좌-문구 */
+.memberright-text { /* 우-문구 */
     display: flex;
 }
 .text-text { /* 문구-문구 */
-    height: 2.8vh;
-    line-height: 2.8vh;
     font-size: 3.5vw;
     font-weight: 500;
 }
-.right-cashpoint { /* 좌-캐시포인트 */
+.memberright-cashpoint { /* 우-캐시포인트 */
     display: flex;
     margin: 0.5vh 0 0 0;
 }
 .cashpoint-ea { /* 캐시포인트-수량 */
-    height: 2.8vh;
-    margin: 0 0.3vw 0 0;
-    line-height: 2.8vh;
+    margin: 0 0.5vw 0 0;
     font-size: 4.5vw;
     font-weight: 600;
 }
 .cashpoint-unit { /* 캐시포인트-단위 */
-    height: 2.8vh;
-    line-height:2.8vh;
     font-size: 4.5vw;
     font-weight: 500;
 }
 .infor-hr { /* 회원정보-라인 */
     height: 1vh;
-    margin: 1vh 2vh 0 2vh;
+    margin: 0 4vw 0 4vw;
     border: 0;
     box-shadow: 0 2px 2px -2px black inset;
 }
 .infor-icons { /* 정보-아이콘s */
     display: flex;
     justify-content: space-between;
-    margin: 0 3vh 0 3vh;
+    width: 88vw;
+    margin: 2vh auto 0 auto;
 }
 .icons-icon { /* 아이콘s-아이콘 */
-    width: 20vw;
-    margin: 2.5vh 0 2vh 0;
+    width: 22vw;
 }
 .icon-icon { /* 아이콘-아이콘 */
     width: 6vw;
-    margin: 0 7vw 0 7vw;
+    margin: 0 8vw 0 8vw;
 }
 .icon-text { /* 아이콘-텍스트 */
     text-align: center;

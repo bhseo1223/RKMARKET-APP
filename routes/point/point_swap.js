@@ -42,7 +42,7 @@ router.get('/point/point_swap', function(req, res) {  // url(get) : '/point/poin
             // code_class color에 따라 color, backgroud CSS 적용
             var classlevelCSS = `"color: ${rowsMember[0].classlevelcolor}; background: ${rowsMember[0].classlevelbackground}"`
             // code_class color에 따라 color, backgroud CSS 적용
-
+console.log(`${req.session.memberid} : point_swap - ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
             // render
             res.render('point/point_swap', {
                 // 타이틀

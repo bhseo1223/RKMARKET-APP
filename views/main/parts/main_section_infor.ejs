@@ -1,64 +1,65 @@
 <!-- bhseo1223 nodejs : ejs - main_section_infor : rkmarket_app -->
 
 <section>
-    <div class="section-infor">
-        <div class="infor-member">
-            <div class="member-left">
-                <div class="left-nickname">
-                    <p class="nickname-nickname"><%- member[0].hname; %></p>
-                    <p class="nickname-end">님</p>
+    <div class="section-section">
+        <div class="section-infor">
+            <div class="infor-member">
+                <div class="member-memberleft">
+                    <div class="memberleft-nickname">
+                        <p class="nickname-nickname"><%- member[0].hname; %></p>
+                        <p class="nickname-end">님</p>
+                    </div>
+
+                    <div class="memberleft-classlevel">
+                        <p class="classlevel-label">LV</p>
+                        <p class="classlevel-name" style=<%- classlevelcss %>><%- member[0].classlevelhname; %></p>
+                    </div>
                 </div>
 
-                <div class="left-classlevel">
-                    <p class="classlevel-label">LV</p>
-                    <p class="classlevel-name" style=<%- classlevelcss %>><%- member[0].classlevelhname; %></p>
+                <div class="member-memberright">
+                    <div class="memberright-text">
+                        <p class="text-text">캐시포인트</p>
+                    </div>
+
+                    <div class="memberright-cashpoint">
+                        <p class="cashpoint-ea"><%- member[0].membercp.toLocaleString(); %></p>
+                        <p class="cashpoint-unit">CP</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="member-right">
-                <div class="right-text">
-                    <p class="text-text">캐시포인트</p>
+            <hr class="infor-hr">
+
+            <div class="infor-icons">
+                <div class="icons-icon">
+                    <a href="/main/main_shopping">
+                        <img class="icon-icon" src="/icon/line_shopping.png" alt="">
+                        <p class="icon-text">쇼핑하기</p>
+                    </a>
                 </div>
 
-                <div class="right-cashpoint">
-                    <p class="cashpoint-ea"><%- member[0].membercp.toLocaleString(); %></p>
-                    <p class="cashpoint-unit">CP</p>
+                <div class="icons-icon">
+                    <a href="/main/main_pay">
+                        <img class="icon-icon" src="/icon/line_pay.png" alt="">
+                        <p class="icon-text">크립토페이</p>
+                    </a>
+                </div>
+
+                <div class="icons-icon">
+                    <a href="/main/main_point">
+                        <img class="icon-icon" src="/icon/line_point.png" alt="">
+                        <p class="icon-text">포인트</p>
+                    </a>
+                </div>
+
+                <div class="icons-icon">
+                    <a href="/main/main_trade">
+                        <img class="icon-icon" src="/icon/line_trade.png" alt="">
+                        <p class="icon-text">거래하기</p>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <hr class="infor-hr">
-
-        <div class="infor-icons">
-            <div class="icons-icon">
-                <a href="/main/main_shopping">
-                    <img class="icon-icon" src="../image/icon/line_shopping.png" alt="">
-                    <p class="icon-text">쇼핑하기</p>
-                </a>
-            </div>
-
-            <div class="icons-icon">
-                <a href="/main/main_pay">
-                    <img class="icon-icon" src="../image/icon/line_pay.png" alt="">
-                    <p class="icon-text">크립토페이</p>
-                </a>
-            </div>
-
-            <div class="icons-icon">
-                <a href="/main/main_point">
-                    <img class="icon-icon" src="../image/icon/line_point.png" alt="">
-                    <p class="icon-text">포인트</p>
-                </a>
-            </div>
-
-            <div class="icons-icon">
-                <a href="/main/main_trade">
-                    <img class="icon-icon" src="../image/icon/line_trade.png" alt="">
-                    <p class="icon-text">거래하기</p>
-                </a>
-            </div>
-        </div>
-    </div>
 
 
 <!-- bhseo1223 nodejs : ejs - main_section_infor : rkmarket_app -->

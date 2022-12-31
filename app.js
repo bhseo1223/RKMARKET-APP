@@ -72,6 +72,13 @@ app.use(express.static('public'));
 
 // use : public
 // app.use('/static', express.static(__dirname + '/public'));
+
+// use : /css
+app.use('/css', express.static(__dirname + '/public/css'));
+
+// use : ic/csson
+app.use('/icon', express.static(__dirname + '/public/image/icon'));
+
 // use : post
 app.use(bodyParser.urlencoded({ extended: false }));
 // use : session
@@ -110,6 +117,10 @@ var memberloginRouter = require('./routes/member/member_login');
     app.use('/', memberloginRouter);  // 회원_로그인
     var memberloginprocessRouter = require('./routes/member/member_login_process');
         app.use('/', memberloginprocessRouter);  // 회원_로그인_프로세스
+
+// test
+var testRouter = require('./routes/test/test');
+    app.use('/', testRouter);  // 테스트
 
 
 // listen

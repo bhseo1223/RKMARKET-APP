@@ -2,50 +2,140 @@
 
 <section>
     <div class="section-section">
-        <div class="section-member">
-            <div class="member-left">
-                <div class="left-nickname">
-                    <p class="nickname-nickname"><%- member[0].hname; %></p>
-                    <p class="nickname-end">님</p>
+        <div class="section-infor">
+            <div class="infor-member">
+                <div class="member-memberleft">
+                    <div class="memberleft-nickname">
+                        <p class="nickname-nickname"><%- member[0].hname; %></p>
+                        <p class="nickname-end">님</p>
+                    </div>
+
+                    <div class="memberleft-classlevel">
+                        <p class="classlevel-label">LV</p>
+                        <p class="classlevel-name" style=<%- classlevelcss %>><%- member[0].classlevelhname; %></p>
+                    </div>
                 </div>
 
-                <div class="left-classlevel">
-                    <p class="classlevel-label">LV</p>
-                    <p class="classlevel-name" style=<%- classlevelcss %>><%- member[0].classlevelhname; %></p>
-                </div>
-            </div>
+                <div class="member-memberright">
+                    <div class="memberright-text">
+                        <p class="text-text">캐시포인트(보유)</p>
+                    </div>
 
-            <div class="member-right">
-                <div class="right-text">
-                    <p class="text-text">캐시포인트</p>
-                </div>
-
-                <div class="right-cashpoint">
-                    <p class="cashpoint-ea"><%- member[0].membercp.toLocaleString(); %></p>
-                    <p class="cashpoint-unit">CP</p>
+                    <div class="memberright-cashpoint">
+                        <p class="cashpoint-ea"><%- member[0].membercp.toLocaleString(); %></p>
+                        <p class="cashpoint-unit">CP</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="section-point">
-            <div class="point-point point-exp">
+        <div class="section-points">
+            <div class="points-point point-mctk">
+                <div class="point-infor">
+                    <div class="infor-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">Mine Token</p>
+                    </div>
 
+                    <div class="infor-value">
+                        <p class="value-ea">55.1241</p>
+                        <p class="value-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="point-own">
+                    <div class="own-point">
+                        <p class="point-ea">4,928,223</p>
+                        <p class="point-unit">MCTK</p>
+                    </div>
+
+                    <div class="own-exchange">
+                        <p class="exchange-ea">271,663,857</p>
+                        <p class="exchange-unit">CP</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="point-point point-nton">
-                
+            <div class="points-point point-nton">
+                <div class="point-infor">
+                    <div class="infor-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">NTON point</p>
+                    </div>
+
+                    <div class="infor-value">
+                        <p class="value-ea">3,384.6731</p>
+                        <p class="value-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="point-own">
+                    <div class="own-point">
+                        <p class="point-ea">24,928</p>
+                        <p class="point-unit">NTON</p>
+                    </div>
+
+                    <div class="own-exchange">
+                        <p class="exchange-ea">84,373,131</p>
+                        <p class="exchange-unit">CP</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="point-point point-trv">
-                
+            <div class="points-point point-trvt">
+                <div class="point-infor">
+                    <div class="infor-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">TRV Token</p>
+                    </div>
+
+                    <div class="infor-value">
+                        <p class="value-ea">11.0000</p>
+                        <p class="value-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="point-own">
+                    <div class="own-point">
+                        <p class="point-ea">145,000</p>
+                        <p class="point-unit">TRVT</p>
+                    </div>
+
+                    <div class="own-exchange">
+                        <p class="exchange-ea">1,595,000</p>
+                        <p class="exchange-unit">CP</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="point-point point-mctk">
-                
-            </div>
+            <div class="points-point point-exp">
+                <div class="point-infor">
+                    <div class="infor-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">EXP</p>
+                    </div>
 
+                    <div class="infor-value">
+                        <p class="value-ea">1,000.000</p>
+                        <p class="value-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="point-own">
+                    <div class="own-point">
+                        <p class="point-ea">48,000</p>
+                        <p class="point-unit">EXP</p>
+                    </div>
+
+                    <div class="own-exchange">
+                        <p class="exchange-ea">48,000,000</p>
+                        <p class="exchange-unit">CP</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <div class="section-blank"></div>
     </div>
 </section>
 

@@ -73,7 +73,7 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
                         VALUES (null, ?, ?, ?, ?);`;
                 var paramsLogmemberINSERT = [logmemberloginoutMemberid, logmemberloginoutMemberhname, logmemberloginoutLog, logmemberloginoutregdate];
                 connection.query(sqlLogmemberINSERT, paramsLogmemberINSERT, function(err, rowsLogmemberINSERT, fields) {
-
+console.log(`${req.session.memberid} : login_success - ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
                     // session save
                     req.session.save(function() {
                         res.redirect(`/main/main`);
@@ -94,7 +94,7 @@ router.post('/member/member_login_process', function(req, res) {  // url(post) :
                         VALUES (null, ?, ?, ?, ?);`;
                 var paramsLogmemberINSERT = [logmemberloginoutMemberid, logmemberloginoutMemberhname, logmemberloginoutLog, logmemberloginoutregdate];
                 connection.query(sqlLogmemberINSERT, paramsLogmemberINSERT, function(err, rowsLogmemberINSERT, fields) {
-
+console.log(`${memberId} : login_fail - ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
                     // redirect
                     res.redirect(`/member/member_login?memberid=${memberId}&memberpassword=&logincaution=아이디와 비밀번호를 확인후 다시 입력해 주세요.`);
                     // redirect
