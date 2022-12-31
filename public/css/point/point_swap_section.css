@@ -154,6 +154,18 @@ section { /* 전체 */
     font-weight: 400;
     color: var(--color-point-text)
 }
+.color-mctk { /* 색상-MCTK */
+    color: green
+}
+.color-nton { /* 색상-NTON */
+    color: darkcyan
+}
+.color-trvt { /* 색상-TRVT */
+    color: purple
+}
+.color-exp { /* 색상-EXP */
+    color: navy
+}
 
 .section-blank { /* 전체-공란 */
     height: 22.5vh;
