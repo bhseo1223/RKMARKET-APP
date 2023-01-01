@@ -28,7 +28,7 @@
 
                     <div class="memberright-cashpointexchange">
                         <p class="cashpointexchange-text">미전환</p>
-                        <p class="cashpointexchange-ea">405,631,988</p>
+                        <p class="cashpointexchange-ea"><%- ((member[0].memberpointexp * 1000) + (member[0].memberpointmctk * 55) + (member[0].memberpointnton * 3300) + (member[0].memberpointtrvt * 11)).toLocaleString()  %></p>
                         <p class="cashpointexchange-unit">CP</p>
                     </div>
                 </div>
@@ -38,6 +38,33 @@
         <hr class="section-hr">
 
         <div class="section-points">
+            <div class="points-point point-exp">
+                <div class="point-infor">
+                    <div class="infor-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">EXP</p>
+                    </div>
+
+                    <div class="infor-rate">
+                        <p class="rate-ea1">1,000.</p>
+                        <p class="rate-ea2">0000</p>
+                        <p class="rate-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="point-own">
+                    <div class="own-point">
+                        <p class="point-ea color-exp"><%- member[0].memberpointexp.toLocaleString(); %></p>
+                        <p class="point-unit color-exp">EXP</p>
+                    </div>
+
+                    <div class="own-exchange">
+                        <p class="exchange-ea"><%- (member[0].memberpointexp * 1000).toLocaleString() %></p>
+                        <p class="exchange-unit">CP</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="points-point point-mctk">
                 <div class="point-infor">
                     <div class="infor-pointname">
@@ -47,19 +74,19 @@
 
                     <div class="infor-rate">
                         <p class="rate-ea1">55.</p>
-                        <p class="rate-ea2">1241</p>
+                        <p class="rate-ea2">0000</p>
                         <p class="rate-unit">CP</p>
                     </div>
                 </div>
 
                 <div class="point-own">
                     <div class="own-point">
-                        <p class="point-ea color-mctk">4,928,223</p>
+                        <p class="point-ea color-mctk"><%- member[0].memberpointmctk.toLocaleString(); %></p>
                         <p class="point-unit color-mctk">MCTK</p>
                     </div>
 
                     <div class="own-exchange">
-                        <p class="exchange-ea">271,663,857</p>
+                        <p class="exchange-ea"><%- (member[0].memberpointmctk * 55).toLocaleString() %></p>
                         <p class="exchange-unit">CP</p>
                     </div>
                 </div>
@@ -73,20 +100,20 @@
                     </div>
 
                     <div class="infor-rate">
-                        <p class="rate-ea1">3,384.</p>
-                        <p class="rate-ea2">6731</p>
+                        <p class="rate-ea1">3,300.</p>
+                        <p class="rate-ea2">0000</p>
                         <p class="rate-unit">CP</p>
                     </div>
                 </div>
 
                 <div class="point-own">
                     <div class="own-point">
-                        <p class="point-ea color-nton">24,928</p>
+                        <p class="point-ea color-nton"><%- member[0].memberpointnton.toLocaleString(); %></p>
                         <p class="point-unit color-nton">NTON</p>
                     </div>
 
                     <div class="own-exchange">
-                        <p class="exchange-ea">84,373,131</p>
+                        <p class="exchange-ea"><%- (member[0].memberpointnton * 3300).toLocaleString() %></p>
                         <p class="exchange-unit">CP</p>
                     </div>
                 </div>
@@ -108,46 +135,17 @@
 
                 <div class="point-own">
                     <div class="own-point">
-                        <p class="point-ea color-trvt">145,000</p>
+                        <p class="point-ea color-trvt"><%- member[0].memberpointtrvt.toLocaleString(); %></p>
                         <p class="point-unit color-trvt">TRVT</p>
                     </div>
 
                     <div class="own-exchange">
-                        <p class="exchange-ea">1,595,000</p>
-                        <p class="exchange-unit">CP</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="points-point point-exp">
-                <div class="point-infor">
-                    <div class="infor-pointname">
-                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
-                        <p class="pointname-name">EXP</p>
-                    </div>
-
-                    <div class="infor-rate">
-                        <p class="rate-ea1">1,000.</p>
-                        <p class="rate-ea2">0000</p>
-                        <p class="rate-unit">CP</p>
-                    </div>
-                </div>
-
-                <div class="point-own">
-                    <div class="own-point">
-                        <p class="point-ea color-exp">48,000</p>
-                        <p class="point-unit color-exp">EXP</p>
-                    </div>
-
-                    <div class="own-exchange">
-                        <p class="exchange-ea">48,000,000</p>
+                        <p class="exchange-ea"><%- (member[0].memberpointtrvt * 11).toLocaleString() %></p>
                         <p class="exchange-unit">CP</p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="section-blank"></div>
     </div>
 </section>
 

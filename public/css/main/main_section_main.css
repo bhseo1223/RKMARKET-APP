@@ -49,13 +49,6 @@
 .right-shopping { /* 우-쇼핑하기 */
     background: var(--color-shopping-deep);
 }
-.box-trade { /* 박스-거래하기 */
-    margin: 4vw auto 0 auto;
-    background: var(--color-trade);
-}
-.right-trade { /* 우-거래하기 */
-    background: var(--color-trade-deep);
-}
 .box-pay { /* 박스-크립토페이 */
     margin: 4vw auto 0 auto;
     background: var(--color-pay);
@@ -63,6 +56,21 @@
 .right-pay { /* 우-크립토페이 */
     background: var(--color-pay-deep)
 }
+.box-point { /* 박스-포인트 */
+    margin: 4vw auto 0 auto;
+    background: var(--color-point);
+}
+.right-point { /* 우-포인트 */
+    background: var(--color-point-deep)
+}
+.box-trade { /* 박스-거래하기 */
+    margin: 4vw auto 0 auto;
+    background: var(--color-trade);
+}
+.right-trade { /* 우-거래하기 */
+    background: var(--color-trade-deep);
+}
+
 
 
 /* bhseo1223 nodejs : css - main_section_main : rkmarket_app */

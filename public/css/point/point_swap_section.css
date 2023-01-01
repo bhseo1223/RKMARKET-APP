@@ -8,9 +8,14 @@ section { /* 전체 */
 
 /* .section-section {} 전체-섹션 */
 
+.section-hr { /* 섹션-라인 */
+    height: 0.5px;
+    background: gray;
+}
+
 .section-infor { /* 섹션-정보 */
     width: 96vw;
-    height: 10.4vh;
+    height: 20vw;
     margin: 0 auto 0 auto;
 }
 
@@ -19,33 +24,33 @@ section { /* 전체 */
     justify-content: space-between;
 }
 .member-memberleft { /* 회원-좌 */
-    height: 8vh;
-    margin: 2vh 0 0 5vw;
+    height: 13vw;
+    margin: 3vw 0 0 5vw;
 }
 .memberleft-nickname { /* 좌-닉네임 */
     display: flex;
 }
 .nickname-nickname { /* 닉네임-닉네임 */
-    height: 3vh;
+    height: 6vw;
     margin: 0 0.3vw 0 0;
-    line-height: 3vh;
+    line-height: 6vw;
     font-size: 3.8vw;
     font-weight: 500;
 }
 .nickname-end { /* 닉네임-님 */
-    height: 3vh;
-    line-height: 3vh;
+    height: 6vw;
+    line-height: 6vw;
     font-size: 3.8vw;
     font-weight: 400;
 }
 .memberleft-classlevel { /* 좌-구매등급 */
     display: flex;
-    margin: 0.2vh 0 0 0;
+    margin: 1vw 0 0 0;
 }
 .classlevel-label { /* 구매등급-라벨 */
-    height: 3vh;
+    height: 6vw;
     margin: 0 1.5vw 0 0;
-    line-height: 3vh;
+    line-height: 6vw;
     font-size: 3.8vw;
     font-weight: 500;
 }
@@ -57,71 +62,66 @@ section { /* 전체 */
     border-radius: 5px 5px 5px 5px;
 }
 .member-memberright { /* 회원-우 */
-    height: 8vh;
-    margin: 2vh 5vw 0 0;
+    height: 13vw;
+    margin: 3vw 5vw 0 0;
 }
 .memberright-cashpointown { /* 우-보유 */
     display: flex;
     justify-content: flex-end;
 }
 .cashpointown-text { /* 보유-문구 */
-    height: 3vh;
+    height: 6vw;
     margin: 0 1vw 0 0;
-    line-height: 3vh;
+    line-height: 6vw;
     font-size: 3.2vw;
     font-weight: 400;
 }
 .cashpointown-ea { /* 보유-수량 */
-    height: 3vh;
+    height: 6vw;
     margin: 0 0.5vw 0 0;
-    line-height: 3vh;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
 }
 .cashpointown-unit { /* 보유-단위 */
-    height: 3vh;
-    line-height: 3vh;
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
 }
 .memberright-cashpointexchange { /* 우-전환 */
     display: flex;
     justify-content: flex-end;
-    margin: 0.2vh 0 0 0;
+    margin: 1vw 0 0 0;
 }
 .cashpointexchange-text { /* 전환-문구 */
-    height: 3vh;
+    height: 6vw;
     margin: 0 1vw 0 0;
-    line-height: 3vh;
+    line-height: 6vw;
     font-size: 3.2vw;
     font-weight: 400;
 }
 .cashpointexchange-ea { /* 전환-수량 */
-    height: 3vh;
+    height: 6vw;
     margin: 0 0.5vw 0 0;
-    line-height: 3vh;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
 }
 .cashpointexchange-unit { /* 전환-단위 */
-    height: 3vh;
-    line-height: 3vh;
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
 }
 
-.section-hr { /* 섹션-라인 */
-    height: 0.5px;
-    background: gray;
-}
-
 .section-points { /* 전체-포인트s */
     width: 90vw;
-    margin: 2.5vh auto 0 auto;
+    margin: 5vw auto 0 auto;
 }
 .points-point { /* 포인트s-포인트 */
-    height: 11vh;
-    margin: 0 0 2vh 0;
+    height: 22vw;
+    margin: 0 0 4vw 0;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0 1px 3px gray;
     background: white;
@@ -132,77 +132,80 @@ section { /* 전체 */
 }
 .infor-pointname { /* 정보-포인트명칭*/
     display: flex;
-    margin: 1vh 0 0 4vw;
+    margin: 4vw 2vw 0 4vw;
 }
 .pointname-image { /* 포인트명칭-이미지 */
-    width: 3vh;
+    height: 6vw;
     margin: 0 2vw 0 0;
 }
 .pointname-name { /* 포인트명칭-명칭 */
-    height: 5vh;
-    line-height: 5vh;
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
 }
 .infor-rate { /* 정보-시세 */
     display: flex;
-    margin: 1vh 4vw 0 0;
+    margin: 4vw 4vw 0 0;
 }
 .rate-ea1 { /* 시세-수량1 */
-    height: 5vh;
-    line-height: 5vh;
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
 }
 .rate-ea2 { /* 시세-수량2 */
-    height: 5vh;
+    height: 6vw;
     margin: 0 0.5vw 0 0;
-    line-height: 5vh;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
     color: dimgray;
 }
 .rate-unit { /* 가치-단위 */
-    height: 5vh;
-    line-height: 5vh;
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
 }
 .point-own { /* 포인트-보유 */
     display: flex;
     justify-content: space-between;
-    margin: 0 4vw 0 4vw;
 }
 .own-point { /* 보유-포인트 */
     display: flex;
     justify-content: flex-end;
+    margin: 2vw 2vw 0 4vw;
 }
 .point-ea { /* 포인트-수량 */
+    height: 6vw;
     margin: 0 0.5vw 0 0;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
 }
 .point-unit { /* 포인트-단위 */
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
 }
 .own-exchange { /* 보유-전환 */
     display: flex;
     justify-content: flex-end;
+    margin: 2vw 4vw 0 0;
 }
 .exchange-ea { /* 전환-수량 */
+    height: 6vw;
     margin: 0 0.5vw 0 0;
-    font-size: 4vw;
-    font-weight: 500;
-    color: var(--color-point-text)
-}
-.exchange-ea { /* 전환-수량 */
-    margin: 0 0.5vw 0 0;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
     color: var(--color-point-text)
 }
 .exchange-unit { /* 전환-단위 */
+    height: 6vw;
+    line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
     color: var(--color-point-text)
@@ -230,10 +233,6 @@ section { /* 전체 */
 }
 .point-exp { /* 배경-EXP */
     background: rgba(0, 0, 128, 0.05);
-}
-
-.section-blank { /* 전체-공란 */
-    height: 22.5vh;
 }
 
 

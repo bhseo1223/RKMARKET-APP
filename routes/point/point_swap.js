@@ -31,7 +31,7 @@ router.get('/point/point_swap', function(req, res) {  // url(get) : '/point/poin
         // select : member - 회원
         var sqlMember = `SELECT member.hname, member.class_level, 
                     code_class_level.hname AS classlevelhname, code_class_level.color AS classlevelcolor, code_class_level.background AS classlevelbackground, 
-                    point_member.cp AS membercp 
+                    point_member.cp AS membercp, point_member.point_exp AS memberpointexp, point_member.point_mctk AS memberpointmctk, point_member.point_nton AS memberpointnton, point_member.point_trvt AS memberpointtrvt 
                 FROM member 
                 LEFT JOIN code_class_level ON member.class_level = code_class_level.code 
                 LEFT JOIN point_member ON member.id = point_member.member_id 
