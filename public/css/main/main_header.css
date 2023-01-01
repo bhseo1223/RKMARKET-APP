@@ -10,36 +10,36 @@ header { /* 전체 */
     display: flex;
     justify-content: space-between;
     width: 94vw;
-    height: 7vh;
+    height: 15vw;
     margin: auto;
 }
 .header-headerleft{ /* 헤더-좌 */
     text-align: center;
     width: 10vw;
-    margin: 3vh 0 0 0;
+    margin: 6vw 0 0 0;
 }
 .headerleft-icon { /* 좌-아이콘 */
     width: 4vw;
     filter: invert();
 }
 .header-headercenter { /* 헤더-가운데 */
-    width: 50vw;
+    width: 80vw;
 }
 .headercenter-title { /* 가운데-타이틀 */
     text-align: center;
     font-size: 4vw;
     font-weight: 500;
     color: white;
-    margin: 2.5vh 0 0 0;
+    margin: 5.5vw 0 0 0;
 }
 .header-headerright{ /* 헤더-우 */
     text-align: center;
     width: 10vw;
+    margin: 6vw 0 0 0;
 }
 .headerright-icon { /* 우-아이콘 */
     width: 4vw;
     filter: invert();
-    margin: 3vh 0 0 0;
 }
 
 

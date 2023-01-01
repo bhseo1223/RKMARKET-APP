@@ -1,16 +1,16 @@
 /* bhseo1223 nodejs : css - main_section_main : rkmarket_app */
 
-.section-main { /* 전체-메인 */
+.section-main { /* 섹션-메인 */
     width: 92vw;
-    margin: 3vh auto 0 auto;
+    margin: 5vw auto 0 auto;
     background: transparent;
 }
 .main-box { /* 메인-박스 */
     display: flex;
     justify-content: space-between;
     width: 92vw;
-    height: 13vh;
-    margin: 2vh auto 0 auto;
+    height: 25vw;
+    margin: 4vw auto 0 auto;
     border-radius: 15px 15px 15px 15px;
     background: white;
 }
@@ -22,7 +22,7 @@
     font-weight: 400;
 }
 .box-name { /* 좌-콘텐츠명 */
-    margin: 0.3vh 0 0 0;
+    margin: 0.5vw 0 0 0;
     font-size: 4.2vw;
     font-weight: 600;
 }
@@ -43,21 +43,21 @@
     filter: invert();
 }
 .box-shopping { /* 박스-쇼핑하기 */
-    margin: 2vh auto 0 auto;
+    margin: 4vw auto 0 auto;
     background: var(--color-shopping);
 }
 .right-shopping { /* 우-쇼핑하기 */
     background: var(--color-shopping-deep);
 }
 .box-trade { /* 박스-거래하기 */
-    margin: 2vh auto 0 auto;
+    margin: 4vw auto 0 auto;
     background: var(--color-trade);
 }
 .right-trade { /* 우-거래하기 */
     background: var(--color-trade-deep);
 }
 .box-pay { /* 박스-크립토페이 */
-    margin: 2vh auto 0 auto;
+    margin: 4vw auto 0 auto;
     background: var(--color-pay);
 }
 .right-pay { /* 우-크립토페이 */

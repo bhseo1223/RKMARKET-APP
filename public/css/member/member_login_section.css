@@ -4,9 +4,13 @@ section { /* 전체 */
     background: white;
 }
 
-.section-title { /* 전체-타이틀 */
+.section-section { /* 전체-섹션 */
+    margin: auto;
+}
+
+.section-title { /* 섹션-타이틀 */
     width: 80vw;
-    margin: 8vh auto 0 auto;
+    margin: 10vw auto 0 auto;
 }
 .title-title { /* 타이틀-타이틀 */
     font-size: 5.0vw;
@@ -14,14 +18,14 @@ section { /* 전체 */
     color: var(--color-main);
 }
 .title-text { /* 타이틀-문구 */
-    margin: 1vh 0 0 1vw;
+    margin: 2vw 0 0 1vw;
     font-size: 3.5vw;
     font-weight: 400;
 }
 
-.section-memberlogin { /* 전체-회원로그인 */
+.section-memberlogin { /* 섹션-회원로그인 */
     width: 80vw;
-    margin: 5vh auto 0 auto;
+    margin: 10vw auto 0 auto;
 }
 .memberlogin-member { /* 회원로그인-회원 */
     margin: auto;
@@ -37,7 +41,9 @@ section { /* 전체 */
 .memberlogin-submit { /* 회원로그인-로그인 */
     width: 80vw;
     height: 12vw;
-    margin: 2vw auto 2vw auto;
+    margin: 1vw auto 0 auto;
+    font-size: 4vw;
+    font-weight: 500;
     color: white;
     background: var(--color-main);
 }
@@ -45,7 +51,7 @@ section { /* 전체 */
     text-align: center;
     width: 80vw;
     height: 11vw;
-    margin: 2vw auto 0 auto;
+    margin: 2vw auto 2vw auto;
     font-size: 3.5vw;
     color: red;
 }
@@ -59,7 +65,7 @@ section { /* 전체 */
 }
 .memberjoinsearch-link { /* 회원가입찾기-링크 */
     text-align: center;
-    width: 100px;
+    width: 30vw;
     font-size: 3.8vw;
     font-weight: 500;
     color: var(--color-main);
@@ -69,17 +75,6 @@ section { /* 전체 */
 }
 .link-searchpassword { /* 링크-비밀번호찾기 */
     text-align: right;
-}
-
-.section-text { /* 전체-문구 */
-    width: 80vw;
-    margin: 25vh 10vw 0 10vw;
-}
-.text-app { /* 문구-앱 */
-    text-align: center;
-    font-size: 4.0vw;
-    font-weight: 500;
-    color: var(--color-main);
 }
 
 

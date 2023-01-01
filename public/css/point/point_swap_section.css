@@ -10,8 +10,8 @@ section { /* 전체 */
 
 .section-infor { /* 섹션-정보 */
     width: 96vw;
-    height: 10vh;
-    margin: auto;
+    height: 10.4vh;
+    margin: 0 auto 0 auto;
 }
 
 .infor-member { /* 정보-회원 */
@@ -26,20 +26,26 @@ section { /* 전체 */
     display: flex;
 }
 .nickname-nickname { /* 닉네임-닉네임 */
+    height: 3vh;
     margin: 0 0.3vw 0 0;
+    line-height: 3vh;
     font-size: 3.8vw;
     font-weight: 500;
 }
 .nickname-end { /* 닉네임-님 */
+    height: 3vh;
+    line-height: 3vh;
     font-size: 3.8vw;
     font-weight: 400;
 }
 .memberleft-classlevel { /* 좌-구매등급 */
     display: flex;
-    margin: 0.5vh 0 0 0;
+    margin: 0.2vh 0 0 0;
 }
 .classlevel-label { /* 구매등급-라벨 */
+    height: 3vh;
     margin: 0 1.5vw 0 0;
+    line-height: 3vh;
     font-size: 3.8vw;
     font-weight: 500;
 }
@@ -54,34 +60,68 @@ section { /* 전체 */
     height: 8vh;
     margin: 2vh 5vw 0 0;
 }
-.memberright-text { /* 우-문구 */
+.memberright-cashpointown { /* 우-보유 */
     display: flex;
+    justify-content: flex-end;
 }
-.text-text { /* 문구-문구 */
-    font-size: 3.5vw;
-    font-weight: 500;
+.cashpointown-text { /* 보유-문구 */
+    height: 3vh;
+    margin: 0 1vw 0 0;
+    line-height: 3vh;
+    font-size: 3.2vw;
+    font-weight: 400;
 }
-.memberright-cashpoint { /* 우-캐시포인트 */
-    display: flex;
-    margin: 0.5vh 0 0 0;
-}
-.cashpoint-ea { /* 캐시포인트-수량 */
+.cashpointown-ea { /* 보유-수량 */
+    height: 3vh;
     margin: 0 0.5vw 0 0;
-    font-size: 4.5vw;
-    font-weight: 600;
-}
-.cashpoint-unit { /* 캐시포인트-단위 */
-    font-size: 4.5vw;
+    line-height: 3vh;
+    font-size: 4vw;
     font-weight: 500;
+}
+.cashpointown-unit { /* 보유-단위 */
+    height: 3vh;
+    line-height: 3vh;
+    font-size: 4vw;
+    font-weight: 400;
+}
+.memberright-cashpointexchange { /* 우-전환 */
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.2vh 0 0 0;
+}
+.cashpointexchange-text { /* 전환-문구 */
+    height: 3vh;
+    margin: 0 1vw 0 0;
+    line-height: 3vh;
+    font-size: 3.2vw;
+    font-weight: 400;
+}
+.cashpointexchange-ea { /* 전환-수량 */
+    height: 3vh;
+    margin: 0 0.5vw 0 0;
+    line-height: 3vh;
+    font-size: 4vw;
+    font-weight: 500;
+}
+.cashpointexchange-unit { /* 전환-단위 */
+    height: 3vh;
+    line-height: 3vh;
+    font-size: 4vw;
+    font-weight: 400;
+}
+
+.section-hr { /* 섹션-라인 */
+    height: 0.5px;
+    background: gray;
 }
 
 .section-points { /* 전체-포인트s */
     width: 90vw;
-    margin: 0 auto 0 auto;
+    margin: 2.5vh auto 0 auto;
 }
 .points-point { /* 포인트s-포인트 */
     height: 11vh;
-    margin: 1vh 0 2vh 0;
+    margin: 0 0 2vh 0;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0 1px 3px gray;
     background: white;
@@ -104,18 +144,25 @@ section { /* 전체 */
     font-size: 4vw;
     font-weight: 500;
 }
-.infor-value { /* 정보-가치 */
+.infor-rate { /* 정보-시세 */
     display: flex;
     margin: 1vh 4vw 0 0;
 }
-.value-ea { /* 가치-수량 */
+.rate-ea1 { /* 시세-수량1 */
     height: 5vh;
-    margin: 0 0.5vw 0 0;
     line-height: 5vh;
     font-size: 4vw;
     font-weight: 500;
 }
-.value-unit { /* 가치-단위 */
+.rate-ea2 { /* 시세-수량2 */
+    height: 5vh;
+    margin: 0 0.5vw 0 0;
+    line-height: 5vh;
+    font-size: 4vw;
+    font-weight: 400;
+    color: dimgray;
+}
+.rate-unit { /* 가치-단위 */
     height: 5vh;
     line-height: 5vh;
     font-size: 4vw;
@@ -149,22 +196,40 @@ section { /* 전체 */
     font-weight: 500;
     color: var(--color-point-text)
 }
+.exchange-ea { /* 전환-수량 */
+    margin: 0 0.5vw 0 0;
+    font-size: 4vw;
+    font-weight: 500;
+    color: var(--color-point-text)
+}
 .exchange-unit { /* 전환-단위 */
     font-size: 4vw;
     font-weight: 400;
     color: var(--color-point-text)
 }
-.color-mctk { /* 색상-MCTK */
+.color-mctk { /* 글자섹-MCTK */
     color: green
 }
-.color-nton { /* 색상-NTON */
+.color-nton { /* 글자섹-NTON */
     color: darkcyan
 }
-.color-trvt { /* 색상-TRVT */
+.color-trvt { /* 글자섹-TRVT */
     color: purple
 }
-.color-exp { /* 색상-EXP */
+.color-exp { /* 글자섹-EXP */
     color: navy
+}
+.point-mctk { /* 배경-MCTK */
+    background: rgba(0, 128, 0, 0.05);
+}
+.point-nton { /* 배경-NTON */
+    background:rgba(0, 139, 139, 0.05);
+}
+.point-trvt { /* 배경-TRVT */
+    background: rgba(128, 0, 128, 0.05);
+}
+.point-exp { /* 배경-EXP */
+    background: rgba(0, 0, 128, 0.05);
 }
 
 .section-blank { /* 전체-공란 */

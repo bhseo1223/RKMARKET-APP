@@ -1,33 +1,31 @@
 <!-- bhseo1223 nodejs : ejs - member_login_section : rkmarket_app -->
 
 <section>
-    <div class="section-title">
-        <p class="title-title">로그인</p>
+    <div class="section-section">
+        <div class="section-title">
+            <p class="title-title">로그인</p>
+    
+            <p class="title-text">서비스 이용을 위해 로그인해 주세요.</p>
+        </div>
 
-        <p class="title-text">서비스 이용을 위해 로그인해 주세요.</p>
-    </div>
+        <div class="section-memberlogin">
+            <form action="/member/member_login_process" method="post">
+                <div class="memberlogin-member">
+                    <input type="text" class="member-column" name="memberid" id="memberId" placeholder="아이디를 입력해 주세요." value="<%- memberid; %>">
+                    <input type="password" class="member-column" name="memberpassword" id="memberPassword" placeholder="비밀번호를 입력해 주세요.">
+                </div>
+    
+                <input type="submit" class="memberlogin-submit" value="로그인">
+    
+                <p class="memberlogin-caution"><%- logincaution; %></p>
+            </form>
+        </div>
 
-    <div class="section-memberlogin">
-        <form action="/member/member_login_process" method="post">
-            <div class="memberlogin-member">
-                <input type="text" class="member-column column-id" name="memberid" id="memberId" placeholder="아이디를 입력해 주세요." value="<%- memberid; %>">
-                <input type="password" class="member-column column-password" name="memberpassword" id="memberPassword" placeholder="비밀번호를 입력해 주세요.">
-            </div>
-
-            <input type="submit" class="memberlogin-submit" value="로그인">
-
-            <p class="memberlogin-caution"><%- logincaution; %></p>
-        </form>
-    </div>
-
-    <div class="section-memberjoinsearch">
-        <a class="memberjoinsearch-link link-join" href="#">회원가입</a>
-        <a class="memberjoinsearch-link link-searchid" href="#">아이디찾기</a>
-        <a class="memberjoinsearch-link link-searchpassword" href="#">비밀번호찾기</a>
-    </div>
-
-    <div class="section-text">
-        <p class="text-app">- CRYPTO MARKET PLACE -</p>
+        <div class="section-memberjoinsearch">
+            <a class="memberjoinsearch-link link-join" href="#">회원가입</a>
+            <a class="memberjoinsearch-link link-searchid" href="#">아이디찾기</a>
+            <a class="memberjoinsearch-link link-searchpassword" href="#">비밀번호찾기</a>
+        </div>
     </div>
 </section>
 
