@@ -37,7 +37,8 @@
         <hr class="section-hr">
 
         <div class="section-points">
-            <div class="points-point point-exp" id="pointExp" onclick="heightSizeChange('pointExp', 'detailExp');">
+        <% if (point == 'EXP') { %>
+            <div class="points-point point-exp">
                 <div class="point-infor">
                     <div class="infor-infortop">
                         <div class="infortop-pointname">
@@ -54,15 +55,7 @@
                     </div>
 
                     <div class="infor-infordown">
-                    <% if (swapdailyexp == 'Y') { %>
-                        <a href="/point/point_swap_exchange?point=EXP&remaindailyea=<%- remaindailyexp; %>">
-                            <p class="infordown-swap background-exp">스왑</p>
-                        </a>
-                    <% } else if (swapdailyexp == 'N') { %>
-                        <div>
-                            <p class="infordown-swap background-exp" style="background: dimgray;">스왑</p>
-                        </div>
-                    <% }; %>
+                        <div></div>
 
                         <div class="infordown-own">
                             <div class="own-cashpoint">
@@ -81,7 +74,7 @@
                     </div>
                 </div>
 
-                <div class="point-detail" id="detailExp">
+                <div class="point-detail">
                     <hr class="detail-hr">
 
                     <div class="detail-detailtext">
@@ -102,8 +95,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="points-point point-mc" id="pointMc" onclick="heightSizeChange('pointMc', 'detailMc');">
+        <% } else if (point == 'MC') { %>
+            <div class="points-point point-mc">
                 <div class="point-infor">
                     <div class="infor-infortop">
                         <div class="infortop-pointname">
@@ -120,15 +113,7 @@
                     </div>
 
                     <div class="infor-infordown">
-                    <% if (swapdailymc == 'Y') { %>
-                        <a href="/point/point_swap_exchange?point=MC&remaindailyea=<%- remaindailymc; %>">
-                            <p class="infordown-swap background-mc">스왑</p>
-                        </a>
-                    <% } else if (swapdailymc == 'N') { %>
-                        <div>
-                            <p class="infordown-swap background-mc" style="background: dimgray;">스왑</p>
-                        </div>
-                    <% }; %>
+                        <div></div>
 
                         <div class="infordown-own">
                             <div class="own-cashpoint">
@@ -147,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="point-detail" id="detailMc">
+                <div class="point-detail">
                     <hr class="detail-hr">
 
                     <div class="detail-detailtext">
@@ -168,8 +153,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="points-point point-mctk" id="pointMctk" onclick="heightSizeChange('pointMctk', 'detailMctk');">
+        <% } else if (point == 'MCTK') { %>
+            <div class="points-point point-mctk">
                 <div class="point-infor">
                     <div class="infor-infortop">
                         <div class="infortop-pointname">
@@ -186,15 +171,7 @@
                     </div>
 
                     <div class="infor-infordown">
-                    <% if (swapdailymctk == 'Y') { %>
-                        <a href="/point/point_swap_exchange?point=MCTK&remaindailyea=<%- remaindailymctk; %>">
-                            <p class="infordown-swap background-mctk">스왑</p>
-                        </a>
-                    <% } else if (swapdailymctk == 'N') { %>
-                        <div>
-                            <p class="infordown-swap background-mctk" style="background: dimgray;">스왑</p>
-                        </div>
-                    <% }; %>
+                        <div></div>
 
                         <div class="infordown-own">
                             <div class="own-cashpoint">
@@ -213,7 +190,7 @@
                     </div>
                 </div>
 
-                <div class="point-detail" id="detailMctk">
+                <div class="point-detail">
                     <hr class="detail-hr">
 
                     <div class="detail-detailtext">
@@ -234,7 +211,7 @@
                     </div>
                 </div>
             </div>
-
+        <% } else if (point == 'NTON') { %>
             <div class="points-point point-nton" id="pointNton" onclick="heightSizeChange('pointNton', 'detailNton');">
                 <div class="point-infor">
                     <div class="infor-infortop">
@@ -252,15 +229,7 @@
                     </div>
 
                     <div class="infor-infordown">
-                    <% if (swapdailynton == 'Y') { %>
-                        <a href="/point/point_swap_exchange?point=NTON&remaindailyea=<%- remaindailynton; %>">
-                            <p class="infordown-swap background-nton">스왑</p>
-                        </a>
-                    <% } else if (swapdailynton == 'N') { %>
-                        <div>
-                            <p class="infordown-swap background-nton" style="background: dimgray;">스왑</p>
-                        </div>
-                    <% }; %>
+                        <div></div>
 
                         <div class="infordown-own">
                             <div class="own-cashpoint">
@@ -279,7 +248,7 @@
                     </div>
                 </div>
 
-                <div class="point-detail" id="detailNton">
+                <div class="point-detail">
                     <hr class="detail-hr">
 
                     <div class="detail-detailtext">
@@ -300,7 +269,7 @@
                     </div>
                 </div>
             </div>
-
+        <% } else if (point == 'TRVT') { %>
             <div class="points-point point-trvt" id="pointTrvt" onclick="heightSizeChange('pointTrvt', 'detailTrvt');">
                 <div class="point-infor">
                     <div class="infor-infortop">
@@ -318,15 +287,7 @@
                     </div>
 
                     <div class="infor-infordown">
-                    <% if (swapdailytrvt == 'Y') { %>
-                        <a href="/point/point_swap_exchange?point=TRVT&remaindailyea=<%- remaindailytrvt; %>">
-                            <p class="infordown-swap background-trvt">스왑</p>
-                        </a>
-                    <% } else if (swapdailytrvt == 'N') { %>
-                        <div>
-                            <p class="infordown-swap background-trvt" style="background: dimgray;">스왑</p>
-                        </div>
-                    <% }; %>
+                        <div></div>
 
                         <div class="infordown-own">
                             <div class="own-cashpoint">
@@ -345,7 +306,7 @@
                     </div>
                 </div>
 
-                <div class="point-detail" id="detailTrvt">
+                <div class="point-detail">
                     <hr class="detail-hr">
 
                     <div class="detail-detailtext">
@@ -365,6 +326,73 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        <% }; %>
+
+        <div class="section-swap">
+            <div class="swap-condition">
+                <div class="condition-data">
+                    <p class="data-text">스왑수량</p>
+                    <input type="hidden" class="data-value value-point" number="valuepoint" id="valuePoint" value="<%- point; %>">
+                    <input type="hidden" class="data-value value-remaindailyea" number="valueremaindailyea" id="valueRemaindailyea" value="<%- remaindailyea; %>">
+                    <input type="hidden" class="data-value value-rateexp" number="valuerateexp" id="valueRateexp" value="<%- rateexp; %>">
+                    <input type="hidden" class="data-value value-ratemc" number="valueratemc" id="valueRatemc" value="<%- ratemc; %>">
+                    <input type="hidden" class="data-value value-ratemctk" number="valueratemctk" id="valueRatemctk" value="<%- ratemctk; %>">
+                    <input type="hidden" class="data-value value-ratenton" number="valueratenton" id="valueRatenton" value="<%- ratenton; %>">
+                    <input type="hidden" class="data-value value-ratetrvt" number="valueratetrvt" id="valueRatetrvt" value="<%- ratetrvt; %>">
+                    <input type="number" class="data-value value-sourceea" number="valuesourceea" id="valueSourceea" placeholder="일일잔여한도내에서 입력해 주세요." onkeyup="swapCheck();">
+                </div>
+
+                <div class="condition-data">
+                    <p class="data-text">대상포인트</p>
+                    <select class="data-value value-targetpoint" number="valuetargetpoint" id="valueTargetpoint" size="1" onchange="swapCheck();">
+                    <% if (point == 'EXP') { %>
+                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
+                        <option value="MC">(MC) Mine Cash</option>
+                        <option value="MCTK">(MCTK) Mine Token</option>
+                        <option value="NTON">(NTON) Nton Point</option>
+                        <option value="TRVT">(TRVT) Trv Token</option>
+                    <% } else if (point == 'MC') { %>
+                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
+                        <option value="MCTK">(MCTK) Mine Token</option>
+                        <option value="NTON">(NTON) Nton Point</option>
+                        <option value="TRVT">(TRVT) Trv Token</option>
+                    <% } else if (point == 'MCTK') { %>
+                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
+                        <option value="NTON">(NTON) Nton Point</option>
+                        <option value="TRVT">(TRVT) Trv Token</option>
+                    <% } else if (point == 'NTON') { %>
+                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
+                        <option value="MCTK">(MCTK) Mine Token</option>
+                        <option value="TRVT">(TRVT) Trv Token</option>
+                    <% } else if (point == 'TRVT') { %>
+                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
+                        <option value="MCTK">(MCTK) Mine Token</option>
+                        <option value="NTON">(NTON) Nton Point</option>
+                    <% }; %>
+                    </select>
+                </div>
+
+                <div class="condition-data">
+                    <p class="data-text">대상수량</p>
+                    <input type="number" class="data-value value-targetea" number="valuetargetea" id="valueTargetea" readonly>
+                </div>
+
+                <div class="condition-data">
+                    <p class="data-text">수수요율</p>
+                    <input type="text" class="data-value value-commissionrate" number="valuecommissionrate" id="valueCommissionrate" value="10.0000%" readonly>
+                </div>
+
+                <div class="condition-data">
+                    <p class="data-text">수수료</p>
+                    <input type="text" class="data-value value-commission" number="valuecommission" id="valueCommission" readonly>
+                </div>
+
+                <div class="condition-data">
+                    <p class="data-text">지급수량</p>
+                    <input type="number" class="data-value value-occurea" number="valueoccurea" id="valueOccurea" readonly>
+                </div>
+
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-// bhseo1223 nodejs : routes - point_swap : rkmarket_app
+// bhseo1223 nodejs : routes - point_swap_exchange : rkmarket_app
 
 var express = require('express');
 var router = express.Router();
@@ -14,7 +14,7 @@ connection.connect();
 var moment = require('moment');
 
 
-router.get('/point/point_swap', function(req, res) {  // url(get) : '/point/point_swap'
+router.get('/point/point_swap_exchange', function(req, res) {  // url(get) : '/point/point_swap_exchange'
 
     // data + session
     if (req.session.memberid == undefined) { // 미로그인시
@@ -26,7 +26,10 @@ router.get('/point/point_swap', function(req, res) {  // url(get) : '/point/poin
     } else { // 로그인시
 
         // get
+        var point           = req.query.point;          // 포인트 구분
+        var remainDailyEa   = req.query.remaindailyea;  // 포인트 일일잔여한도
         // get
+
 
         // SELECT : member - 회원
         var sqlMember = `SELECT member.hname, member.class_level, 
@@ -79,61 +82,38 @@ router.get('/point/point_swap', function(req, res) {  // url(get) : '/point/poin
                         var remainDailyMctk     = limitDailyMctk;
                         var remainDailyNton     = limitDailyNton;
                         var remainDailyTrvt     = limitDailyTrvt;
-                        var swapDailyExp        = 'Y';
-                        var swapDailyMc         = 'Y';
-                        var swapDailyMctk       = 'Y';
-                        var swapDailyNton       = 'Y';
-                        var swapDailyTrvt       = 'Y';
                         for (var i=0; rowsPointswap.length > i; i++) {
                             if (rowsPointswap[i].source_point == 'EXP') {
                                 remainDailyExp  = limitDailyExp - rowsPointswap[i].useea;   // EXP 일일잔여한도
-                                if (remainDailyExp > 0) {
-                                    swapDailyExp = 'Y';
-                                } else {
-                                    swapDailyExp = 'N';
-                                };
                             } else if (rowsPointswap[i].source_point == 'MC') {
                                 remainDailyMc   = limitDailyMc - rowsPointswap[i].useea;    // MC 일일잔여한도
-                                if (remainDailyMc > 0) {
-                                    swapDailyMc = 'Y';
-                                } else {
-                                    swapDailyMc = 'N';
-                                };
                             } else if (rowsPointswap[i].source_point == 'MCTK') {
                                 remainDailyMctk = limitDailyMctk - rowsPointswap[i].useea;  // MCTK 일일잔여한도
-                                if (remainDailyMctk > 0) {
-                                    swapDailyMctk = 'Y';
-                                } else {
-                                    swapDailyMctk = 'N';
-                                };
                             } else if (rowsPointswap[i].source_point == 'NTON') {
                                 remainDailyNton = limitDailyNton - rowsPointswap[i].useea;  // NTON 일일잔여한도
-                                if (remainDailyNton > 0) {
-                                    swapDailyNton = 'Y';
-                                } else {
-                                    swapDailyNton = 'N';
-                                };
                             } else if (rowsPointswap[i].source_point == 'TRVT') {
                                 remainDailyTrvt = limitDailyTrvt - rowsPointswap[i].useea;  // TRVT 일일잔여한도
-                                if (remainDailyTrvt > 0) {
-                                    swapDailyTrvt = 'Y';
-                                } else {
-                                    swapDailyTrvt = 'N';
-                                };
                             };
                         };
                         // 일일잔여한도
 
-console.log(`${req.session.memberid} : point_swap - ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+                        // 포인트간요율
+                        
+
+                        // 포인트간요율
+
+console.log(`${req.session.memberid} : point_swap_exchange - ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
 
                         // render
-                        res.render('point/point_swap', {
+                        res.render('point/point_swap_exchange', {
                             // 타이틀
                             title:              '스왑(SWAP)',
                             // 타이틀
                             // 데이터
                             member:             rowsMember,         // 회원
                             classlevelcss:      classlevelCSS,      // 구매등급색상
+                            point:              point,              // 포인트 구분
+                            remaindailyea:      remainDailyEa,      // 포인트 일일잔여한도
                             rateexp:            rateExp,            // 포인트_시세_EXP
                             ratemc:             rateMc,             // 포인트_시세_MC
                             ratemctk:           rateMctk,           // 포인트_시세_MCTK
@@ -148,12 +128,7 @@ console.log(`${req.session.memberid} : point_swap - ${moment().format('YYYY-MM-D
                             remaindailymc:      remainDailyMc,      // 포인트_일일스왑한도_MC
                             remaindailymctk:    remainDailyMctk,    // 포인트_일일잔여한도_MCTK
                             remaindailynton:    remainDailyNton,    // 포인트_일일잔여한도_NTON
-                            remaindailytrvt:    remainDailyTrvt,    // 포인트_일일잔여한도_TRVT
-                            swapdailyexp:       swapDailyExp,       // 포인트_일일잔여확인_EXP
-                            swapdailymc:        swapDailyMc,        // 포인트_일일잔여확인_MC
-                            swapdailymctk:      swapDailyMctk,      // 포인트_일일잔여확인_MCTK
-                            swapdailynton:      swapDailyNton,      // 포인트_일일잔여확인_NTON
-                            swapdailytrvt:      swapDailyTrvt       // 포인트_일일잔여확인_TRVT
+                            remaindailytrvt:    remainDailyTrvt     // 포인트_일일잔여한도_TRVT
                             // 데이터
                         });
                         // render
@@ -168,7 +143,7 @@ console.log(`${req.session.memberid} : point_swap - ${moment().format('YYYY-MM-D
             // select : point_rate - 포인트_시세
 
         });
-        // select : member (회원)
+        // SELECT : member - 회원
 
     };
     // data + session
@@ -179,4 +154,4 @@ console.log(`${req.session.memberid} : point_swap - ${moment().format('YYYY-MM-D
 module.exports = router;
 
 
-// bhseo1223 nodejs : routes - point_swap : rkmarket_app
+// bhseo1223 nodejs : routes - point_swap_exchange : rkmarket_app

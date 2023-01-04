@@ -21,7 +21,7 @@ router.get('/member/member_login', function(req, res) {  // url(get) : '/member/
     req.session.save(function() {
 
         if (loginCaution == '' || loginCaution == undefined) {
-            var loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.'   // 주의문구
+            loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.'   // 주의문구
         };
 
         // render
