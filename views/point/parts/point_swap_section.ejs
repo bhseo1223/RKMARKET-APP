@@ -21,14 +21,14 @@
 
                 <div class="member-memberright">
                     <div class="memberright-cashpointown">
-                        <p class="cashpointown-text">보유</p>
+                        <p class="cashpointown-text">보유CP</p>
                         <p class="cashpointown-ea"><%- member[0].membercp.toLocaleString(); %></p>
                         <p class="cashpointown-unit">CP</p>
                     </div>
 
                     <div class="memberright-cashpointexchange">
-                        <p class="cashpointexchange-text">미전환</p>
-                        <p class="cashpointexchange-ea"><%- ((member[0].memberpointexp * 1000) + (member[0].memberpointmctk * 55) + (member[0].memberpointnton * 3300) + (member[0].memberpointtrvt * 11)).toLocaleString()  %></p>
+                        <p class="cashpointexchange-text">포인트가치</p>
+                        <p class="cashpointexchange-ea"><%- (Math.floor(member[0].memberpointexp * rateexp) + Math.floor(member[0].memberpointmctk * ratemctk) + Math.floor(member[0].memberpointnton * ratenton) + Math.floor(member[0].memberpointtrvt * ratetrvt)).toLocaleString()  %></p>
                         <p class="cashpointexchange-unit">CP</p>
                     </div>
                 </div>
@@ -38,115 +38,339 @@
         <hr class="section-hr">
 
         <div class="section-points">
-            <div class="points-point point-exp">
+            <div class="points-point point-exp" id="pointExp" onclick="heightSizeChange('pointExp', 'detailExp');">
                 <div class="point-infor">
-                    <div class="infor-pointname">
-                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
-                        <p class="pointname-name">EXP</p>
+                    <div class="infor-infortop">
+                        <div class="infortop-pointname">
+                            <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                            <p class="pointname-name">EXP</p>
+                        </div>
+
+                        <div class="infortop-rate">
+                            <p class="rate-text">CP시세</p>
+                            <p class="rate-ea1"><%- Number((rateexp.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="rate-ea2"><%- ((rateexp.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="rate-unit">CP</p>
+                        </div>
                     </div>
 
-                    <div class="infor-rate">
-                        <p class="rate-ea1">1,000.</p>
-                        <p class="rate-ea2">0000</p>
-                        <p class="rate-unit">CP</p>
+                    <div class="infor-infordown">
+                    <% if (swapdailyexp == 'Y') { %>
+                        <a href="/point/point_swap_exchang?point=EXP&ea=<%- remaindailyexp; %>">
+                            <p class="infordown-swap background-exp">스왑</p>
+                        </a>
+                    <% } else if (swapdailyexp == 'N') { %>
+                        <div>
+                            <p class="infordown-swap background-exp" style="background: dimgray;">스왑</p>
+                        </div>
+                    <% }; %>
+
+                        <div class="infordown-own">
+                            <div class="own-cashpoint">
+                                <p class="cashpoint-text">보유포인트</p>
+                                <p class="cashpoint-ea1 color-exp"><%- Number(((member[0].memberpointexp).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-exp"><%- (((member[0].memberpointexp).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-unit color-exp">EXP</p>
+                            </div>
+    
+                            <div class="own-exchange">
+                                <p class="exchange-text">포인트가치</p>
+                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointexp * rateexp).toLocaleString() %></p>
+                                <p class="exchange-unit">CP</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="point-own">
-                    <div class="own-point">
-                        <p class="point-ea color-exp"><%- member[0].memberpointexp.toLocaleString(); %></p>
-                        <p class="point-unit color-exp">EXP</p>
+                <div class="point-detail" id="detailExp" >
+                    <hr class="detail-hr">
+
+                    <div class="detail-detailtext">
+                        <p class="detailtext-text">일일스왑한도</p>
+                        <p class="detailtext-text">일일잔여한도</p>   
                     </div>
 
-                    <div class="own-exchange">
-                        <p class="exchange-ea"><%- (member[0].memberpointexp * 1000).toLocaleString() %></p>
-                        <p class="exchange-unit">CP</p>
+                    <div class="detail-limitdaily">
+                        <div class="limitdaily-limit">
+                            <p class="limit-ea"><%- limitdailyexp.toLocaleString(); %></p>
+                            <p class="limit-unit">EXP</p>
+                        </div>
+
+                        <div class="limitdaily-remain">
+                            <p class="remain-ea color-exp"><%- remaindailyexp.toLocaleString(); %></p>
+                            <p class="remain-unit color-exp">EXP</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="points-point point-mctk">
+            <div class="points-point point-mc" id="pointMc" onclick="heightSizeChange('pointMc', 'detailMc');">
                 <div class="point-infor">
-                    <div class="infor-pointname">
-                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
-                        <p class="pointname-name">Mine Token</p>
+                    <div class="infor-infortop">
+                        <div class="infortop-pointname">
+                            <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                            <p class="pointname-name">Mine Cash</p>
+                        </div>
+
+                        <div class="infortop-rate">
+                            <p class="rate-text">CP시세</p>
+                            <p class="rate-ea1"><%- Number((ratemc.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="rate-ea2"><%- ((ratemc.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="rate-unit">CP</p>
+                        </div>
                     </div>
 
-                    <div class="infor-rate">
-                        <p class="rate-ea1">55.</p>
-                        <p class="rate-ea2">0000</p>
-                        <p class="rate-unit">CP</p>
+                    <div class="infor-infordown">
+                    <% if (swapdailymc == 'Y') { %>
+                        <a href="/point/point_swap_exchang?point=MC&ea=<%- remaindailymc; %>">
+                            <p class="infordown-swap background-mc">스왑</p>
+                        </a>
+                    <% } else if (swapdailymc == 'N') { %>
+                        <div>
+                            <p class="infordown-swap background-mc" style="background: dimgray;">스왑</p>
+                        </div>
+                    <% }; %>
+
+                        <div class="infordown-own">
+                            <div class="own-cashpoint">
+                                <p class="cashpoint-text">보유포인트</p>
+                                <p class="cashpoint-ea1 color-mc"><%- Number(((member[0].memberpointmc).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-mc"><%- (((member[0].memberpointmc).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-unit color-mc">MC</p>
+                            </div>
+    
+                            <div class="own-exchange">
+                                <p class="exchange-text">포인트가치</p>
+                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointmc * ratemc).toLocaleString() %></p>
+                                <p class="exchange-unit">CP</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="point-own">
-                    <div class="own-point">
-                        <p class="point-ea color-mctk"><%- member[0].memberpointmctk.toLocaleString(); %></p>
-                        <p class="point-unit color-mctk">MCTK</p>
+                <div class="point-detail" id="detailMc" >
+                    <hr class="detail-hr">
+
+                    <div class="detail-detailtext">
+                        <p class="detailtext-text">일일스왑한도</p>
+                        <p class="detailtext-text">일일잔여한도</p>   
                     </div>
 
-                    <div class="own-exchange">
-                        <p class="exchange-ea"><%- (member[0].memberpointmctk * 55).toLocaleString() %></p>
-                        <p class="exchange-unit">CP</p>
+                    <div class="detail-limitdaily">
+                        <div class="limitdaily-limit">
+                            <p class="limit-ea"><%- limitdailymc.toLocaleString(); %></p>
+                            <p class="limit-unit">MC</p>
+                        </div>
+
+                        <div class="limitdaily-remain">
+                            <p class="remain-ea color-mc"><%- remaindailymc.toLocaleString(); %></p>
+                            <p class="remain-unit color-mc">MC</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="points-point point-nton">
+            <div class="points-point point-mctk" id="pointMctk" onclick="heightSizeChange('pointMctk', 'detailMctk');">
                 <div class="point-infor">
-                    <div class="infor-pointname">
-                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
-                        <p class="pointname-name">NTON point</p>
+                    <div class="infor-infortop">
+                        <div class="infortop-pointname">
+                            <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                            <p class="pointname-name">Mine Token</p>
+                        </div>
+
+                        <div class="infortop-rate">
+                            <p class="rate-text">CP시세</p>
+                            <p class="rate-ea1"><%- Number((ratemctk.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="rate-ea2"><%- ((ratemctk.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="rate-unit">CP</p>
+                        </div>
                     </div>
 
-                    <div class="infor-rate">
-                        <p class="rate-ea1">3,300.</p>
-                        <p class="rate-ea2">0000</p>
-                        <p class="rate-unit">CP</p>
+                    <div class="infor-infordown">
+                    <% if (swapdailymctk == 'Y') { %>
+                        <a href="/point/point_swap_exchang?point=MCTK&ea=<%- remaindailymctk; %>">
+                            <p class="infordown-swap background-mctk">스왑</p>
+                        </a>
+                    <% } else if (swapdailymctk == 'N') { %>
+                        <div>
+                            <p class="infordown-swap background-mctk" style="background: dimgray;">스왑</p>
+                        </div>
+                    <% }; %>
+
+                        <div class="infordown-own">
+                            <div class="own-cashpoint">
+                                <p class="cashpoint-text">보유포인트</p>
+                                <p class="cashpoint-ea1 color-mctk"><%- Number(((member[0].memberpointmctk).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-mctk"><%- (((member[0].memberpointmctk).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-unit color-mctk">MCTK</p>
+                            </div>
+    
+                            <div class="own-exchange">
+                                <p class="exchange-text">포인트가치</p>
+                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointmctk * ratemctk).toLocaleString() %></p>
+                                <p class="exchange-unit">CP</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="point-own">
-                    <div class="own-point">
-                        <p class="point-ea color-nton"><%- member[0].memberpointnton.toLocaleString(); %></p>
-                        <p class="point-unit color-nton">NTON</p>
+                <div class="point-detail" id="detailMctk" >
+                    <hr class="detail-hr">
+
+                    <div class="detail-detailtext">
+                        <p class="detailtext-text">일일스왑한도</p>
+                        <p class="detailtext-text">일일잔여한도</p>   
                     </div>
 
-                    <div class="own-exchange">
-                        <p class="exchange-ea"><%- (member[0].memberpointnton * 3300).toLocaleString() %></p>
-                        <p class="exchange-unit">CP</p>
+                    <div class="detail-limitdaily">
+                        <div class="limitdaily-limit">
+                            <p class="limit-ea"><%- limitdailymctk.toLocaleString(); %></p>
+                            <p class="limit-unit">MCTK</p>
+                        </div>
+
+                        <div class="limitdaily-remain">
+                            <p class="remain-ea color-mctk"><%- remaindailymctk.toLocaleString(); %></p>
+                            <p class="remain-unit color-mctk">MCTK</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="points-point point-trvt">
+            <div class="points-point point-nton" id="pointNton" onclick="heightSizeChange('pointNton', 'detailNton');">
                 <div class="point-infor">
-                    <div class="infor-pointname">
-                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
-                        <p class="pointname-name">TRV Token</p>
+                    <div class="infor-infortop">
+                        <div class="infortop-pointname">
+                            <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                            <p class="pointname-name">NTON point</p>
+                        </div>
+
+                        <div class="infortop-rate">
+                            <p class="rate-text">CP시세</p>
+                            <p class="rate-ea1"><%- Number((ratenton.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="rate-ea2"><%- ((ratenton.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="rate-unit">CP</p>
+                        </div>
                     </div>
 
-                    <div class="infor-rate">
-                        <p class="rate-ea1">11.</p>
-                        <p class="rate-ea2">0000</p>
-                        <p class="rate-unit">CP</p>
+                    <div class="infor-infordown">
+                    <% if (swapdailynton == 'Y') { %>
+                        <a href="/point/point_swap_exchang?point=NTON&ea=<%- remaindailynton; %>">
+                            <p class="infordown-swap background-nton">스왑</p>
+                        </a>
+                    <% } else if (swapdailynton == 'N') { %>
+                        <div>
+                            <p class="infordown-swap background-nton" style="background: dimgray;">스왑</p>
+                        </div>
+                    <% }; %>
+
+                        <div class="infordown-own">
+                            <div class="own-cashpoint">
+                                <p class="cashpoint-text">보유포인트</p>
+                                <p class="cashpoint-ea1 color-nton"><%- Number(((member[0].memberpointnton).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-nton"><%- (((member[0].memberpointnton).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-unit color-nton">NTON</p>
+                            </div>
+    
+                            <div class="own-exchange">
+                                <p class="exchange-text">포인트가치</p>
+                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointnton * ratenton).toLocaleString() %></p>
+                                <p class="exchange-unit">CP</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="point-own">
-                    <div class="own-point">
-                        <p class="point-ea color-trvt"><%- member[0].memberpointtrvt.toLocaleString(); %></p>
-                        <p class="point-unit color-trvt">TRVT</p>
+                <div class="point-detail" id="detailNton" >
+                    <hr class="detail-hr">
+
+                    <div class="detail-detailtext">
+                        <p class="detailtext-text">일일스왑한도</p>
+                        <p class="detailtext-text">일일잔여한도</p>   
                     </div>
 
-                    <div class="own-exchange">
-                        <p class="exchange-ea"><%- (member[0].memberpointtrvt * 11).toLocaleString() %></p>
-                        <p class="exchange-unit">CP</p>
+                    <div class="detail-limitdaily">
+                        <div class="limitdaily-limit">
+                            <p class="limit-ea"><%- limitdailynton.toLocaleString(); %></p>
+                            <p class="limit-unit">NTON</p>
+                        </div>
+
+                        <div class="limitdaily-remain">
+                            <p class="remain-ea color-nton"><%- remaindailynton.toLocaleString(); %></p>
+                            <p class="remain-unit color-nton">NTON</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="points-point point-trvt" id="pointTrvt" onclick="heightSizeChange('pointTrvt', 'detailTrvt');">
+                <div class="point-infor">
+                    <div class="infor-infortop">
+                        <div class="infortop-pointname">
+                            <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                            <p class="pointname-name">TRV Token</p>
+                        </div>
+
+                        <div class="infortop-rate">
+                            <p class="rate-text">CP시세</p>
+                            <p class="rate-ea1"><%- Number((ratetrvt.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="rate-ea2"><%- ((ratetrvt.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="rate-unit">CP</p>
+                        </div>
+                    </div>
+
+                    <div class="infor-infordown">
+                    <% if (swapdailytrvt == 'Y') { %>
+                        <a href="/point/point_swap_exchang?point=TRVT&ea=<%- remaindailytrvt; %>">
+                            <p class="infordown-swap background-trvt">스왑</p>
+                        </a>
+                    <% } else if (swapdailytrvt == 'N') { %>
+                        <div>
+                            <p class="infordown-swap background-trvt" style="background: dimgray;">스왑</p>
+                        </div>
+                    <% }; %>
+
+                        <div class="infordown-own">
+                            <div class="own-cashpoint">
+                                <p class="cashpoint-text">보유포인트</p>
+                                <p class="cashpoint-ea1 color-trvt"><%- Number(((member[0].memberpointtrvt).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-trvt"><%- (((member[0].memberpointtrvt).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-unit color-trvt">TRVT</p>
+                            </div>
+    
+                            <div class="own-exchange">
+                                <p class="exchange-text">포인트가치</p>
+                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointtrvt * ratetrvt).toLocaleString() %></p>
+                                <p class="exchange-unit">CP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="point-detail" id="detailTrvt" >
+                    <hr class="detail-hr">
+
+                    <div class="detail-detailtext">
+                        <p class="detailtext-text">일일스왑한도</p>
+                        <p class="detailtext-text">일일잔여한도</p>   
+                    </div>
+
+                    <div class="detail-limitdaily">
+                        <div class="limitdaily-limit">
+                            <p class="limit-ea"><%- limitdailytrvt.toLocaleString(); %></p>
+                            <p class="limit-unit">TRVT</p>
+                        </div>
+
+                        <div class="limitdaily-remain">
+                            <p class="remain-ea color-trvt"><%- remaindailytrvt.toLocaleString(); %></p>
+                            <p class="remain-unit color-trvt">TRVT</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="section-blank"></div>
 </section>
 
 

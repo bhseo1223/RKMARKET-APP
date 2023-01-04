@@ -25,7 +25,7 @@ section { /* 전체 */
 }
 .member-memberleft { /* 회원-좌 */
     height: 13vw;
-    margin: 3vw 0 0 5vw;
+    margin: 3vw 0 0 3vw;
 }
 .memberleft-nickname { /* 좌-닉네임 */
     display: flex;
@@ -63,7 +63,7 @@ section { /* 전체 */
 }
 .member-memberright { /* 회원-우 */
     height: 13vw;
-    margin: 3vw 5vw 0 0;
+    margin: 3vw 3vw 0 0;
 }
 .memberright-cashpointown { /* 우-보유 */
     display: flex;
@@ -117,20 +117,23 @@ section { /* 전체 */
 
 .section-points { /* 전체-포인트s */
     width: 90vw;
-    margin: 5vw auto 0 auto;
+    margin: 5vw auto 10vw auto;
 }
 .points-point { /* 포인트s-포인트 */
-    height: 22vw;
+    height: 28vw;
     margin: 0 0 4vw 0;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0 1px 3px gray;
     background: white;
 }
 .point-infor { /* 포인트-정보 */
+    margin: 0;
+}
+.infor-infortop { /* 정보-상 */
     display: flex;
     justify-content: space-between;
 }
-.infor-pointname { /* 정보-포인트명칭*/
+.infortop-pointname { /* 상-포인트명칭*/
     display: flex;
     margin: 4vw 2vw 0 4vw;
 }
@@ -144,9 +147,17 @@ section { /* 전체 */
     font-size: 4vw;
     font-weight: 500;
 }
-.infor-rate { /* 정보-시세 */
+.infortop-rate { /* 상-시세 */
     display: flex;
+    justify-content: flex-end;
     margin: 4vw 4vw 0 0;
+}
+.rate-text { /* 시세-문구 */
+    height: 6vw;
+    margin: 0 1vw 0 0;
+    line-height: 6vw;
+    font-size: 3.2vw;
+    font-weight: 400;
 }
 .rate-ea1 { /* 시세-수량1 */
     height: 6vw;
@@ -162,38 +173,77 @@ section { /* 전체 */
     font-weight: 400;
     color: dimgray;
 }
-.rate-unit { /* 가치-단위 */
+.rate-unit { /* 시세-단위 */
     height: 6vw;
     line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
 }
-.point-own { /* 포인트-보유 */
+.infor-infordown { /* 포인트-하 */
     display: flex;
     justify-content: space-between;
+    margin: 2vw 4vw 4vw 4vw;
 }
-.own-point { /* 보유-포인트 */
+.infor-infordown > a { /* 포인트-하 */
+    margin: auto 0 auto 2vw;
+}
+.infor-infordown > div { /* 포인트-하 */
+    margin: auto 0 auto 2vw;
+}
+.infordown-swap { /* 하-스왑 */
+    text-align: center;
+    height: 7vw;
+    padding: 0 4vw 0 4vw;
+    line-height: 6.5vw;
+    font-size: 3.5vw;
+    font-weight: 500;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    background: var(--color-point);
+}
+.infordown-own { /* 하-보유 */
+    margin: 0;
+}
+.own-cashpoint { /* 보유-캐시포인트 */
     display: flex;
     justify-content: flex-end;
-    margin: 2vw 2vw 0 4vw;
 }
-.point-ea { /* 포인트-수량 */
+.cashpoint-text { /* 캐시포인트-문구 */
     height: 6vw;
-    margin: 0 0.5vw 0 0;
+    margin: 0 1vw 0 0;
+    line-height: 6vw;
+    font-size: 3.2vw;
+    font-weight: 400;
+}
+.cashpoint-ea1 { /* 캐시포인트-수량1 */
+    height: 6vw;
     line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
 }
-.point-unit { /* 포인트-단위 */
+.cashpoint-ea2 { /* 캐시포인트-수량2 */
+    height: 6vw;
+    margin: 0 0.5vw 0 0;
+    line-height: 6vw;
+    font-size: 4vw;
+    font-weight: 400;
+}
+.cashpoint-unit { /* 캐시포인트-단위 */
     height: 6vw;
     line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
 }
-.own-exchange { /* 보유-전환 */
+.own-exchange { /* 하-전환 */
     display: flex;
     justify-content: flex-end;
-    margin: 2vw 4vw 0 0;
+}
+.exchange-text { /* 전환-문구 */
+    height: 6vw;
+    margin: 0 1vw 0 0;
+    line-height: 6vw;
+    font-size: 3.2vw;
+    font-weight: 400;
 }
 .exchange-ea { /* 전환-수량 */
     height: 6vw;
@@ -201,26 +251,100 @@ section { /* 전체 */
     line-height: 6vw;
     font-size: 4vw;
     font-weight: 500;
-    color: var(--color-point-text)
 }
 .exchange-unit { /* 전환-단위 */
     height: 6vw;
     line-height: 6vw;
     font-size: 4vw;
     font-weight: 400;
-    color: var(--color-point-text)
 }
-.color-mctk { /* 글자섹-MCTK */
-    color: green
+
+.point-detail { /* 포인트-상세 */
+    visibility: hidden;
 }
-.color-nton { /* 글자섹-NTON */
-    color: darkcyan
+.detail-hr { /* 상세-라인 */
+    width: 86vw;
+    height: 0.5px;
+    margin: 4vw 2vw 4vw 2vw;
+    background: gray;
 }
-.color-trvt { /* 글자섹-TRVT */
-    color: purple
+.detail-detailtext { /* 상세-상세문구 */
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4vw 1vw 4vw;
 }
-.color-exp { /* 글자섹-EXP */
-    color: navy
+.detailtext-text { /* 상세문구-문구 */
+    height: 6vw;
+    line-height: 6vw;
+    font-size: 3.5vw;
+    font-weight: 400;
+}
+.detail-limitdaily { /* 상세-일일한도 */
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4vw 0 4vw;
+}
+.limitdaily-limit { /* 일일한도-한도 */
+    display: flex;
+}
+.limit-ea { /* 한도-문구 */
+    margin: 0 0.5vw 0 0;
+    font-size: 4vw;
+    font-weight: 500;
+    color: red;
+}
+.limit-unit { /* 한도-단위 */
+    font-size: 4vw;
+    font-weight: 400;
+    color: red;
+}.limitdaily-remain { /* 일일한도-잔여 */
+    display: flex;
+}
+.remain-ea { /* 잔여-문구 */
+    margin: 0 0.5vw 0 0;
+    font-size: 4vw;
+    font-weight: 500;
+}
+.remain-unit { /* 잔여-단위 */
+    font-size: 4vw;
+    font-weight: 400;
+}
+
+.color-exp { /* 글자색-EXP */
+    color: navy;
+}
+.color-mc { /* 글자색-MC */
+    color: green;
+}
+.color-mctk { /* 글자색-MCTK */
+    color: green;
+}
+.color-nton { /* 글자색-NTON */
+    color: darkcyan;
+}
+.color-trvt { /* 글자색-TRVT */
+    color: purple;
+}
+.background-exp { /* 배경-EXP */
+    background: navy;
+}
+.background-mc { /* 배경-MC */
+    background: green;
+}
+.background-mctk { /* 배경-MCTK */
+    background: green;
+}
+.background-nton { /* 배경-NTON */
+    background: darkcyan;
+}
+.background-trvt { /* 배경-TRVT */
+    background: purple;
+}
+.point-exp { /* 배경-EXP */
+    background: rgba(0, 0, 128, 0.05);
+}
+.point-mc { /* 배경-MC */
+    background: rgba(0, 128, 0, 0.05);
 }
 .point-mctk { /* 배경-MCTK */
     background: rgba(0, 128, 0, 0.05);
@@ -231,8 +355,9 @@ section { /* 전체 */
 .point-trvt { /* 배경-TRVT */
     background: rgba(128, 0, 128, 0.05);
 }
-.point-exp { /* 배경-EXP */
-    background: rgba(0, 0, 128, 0.05);
+
+.section-blank { /* 전체-공란 */
+    height: 1vw;
 }
 
 
