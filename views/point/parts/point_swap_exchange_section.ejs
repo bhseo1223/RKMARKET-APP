@@ -21,13 +21,13 @@
                 <div class="member-memberright">
                     <div class="memberright-cashpointown">
                         <p class="cashpointown-text">보유CP</p>
-                        <p class="cashpointown-ea"><%- member[0].membercp.toLocaleString(); %></p>
+                        <p class="cashpointown-ea"><%- pointmember[0].cp.toLocaleString(); %></p>
                         <p class="cashpointown-unit">CP</p>
                     </div>
 
                     <div class="memberright-cashpointexchange">
                         <p class="cashpointexchange-text">포인트가치</p>
-                        <p class="cashpointexchange-ea"><%- (Math.floor(member[0].memberpointexp * rateexp) + Math.floor(member[0].memberpointmctk * ratemctk) + Math.floor(member[0].memberpointnton * ratenton) + Math.floor(member[0].memberpointtrvt * ratetrvt)).toLocaleString()  %></p>
+                        <p class="cashpointexchange-ea"><%- (Math.floor(pointmember[0].point_exp * rateexp) + Math.floor(pointmember[0].point_mc * ratemc) + Math.floor(pointmember[0].point_mctk * ratemctk) + Math.floor(pointmember[0].point_nton * ratenton) + Math.floor(pointmember[0].point_trvt * ratetrvt)).toLocaleString()  %></p>
                         <p class="cashpointexchange-unit">CP</p>
                     </div>
                 </div>
@@ -60,14 +60,14 @@
                         <div class="infordown-own">
                             <div class="own-cashpoint">
                                 <p class="cashpoint-text">보유포인트</p>
-                                <p class="cashpoint-ea1 color-exp"><%- Number(((member[0].memberpointexp).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
-                                <p class="cashpoint-ea2 color-exp"><%- (((member[0].memberpointexp).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-ea1 color-exp"><%- Number(((pointmember[0].point_exp).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-exp"><%- (((pointmember[0].point_exp).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
                                 <p class="cashpoint-unit color-exp">EXP</p>
                             </div>
 
                             <div class="own-exchange">
                                 <p class="exchange-text">포인트가치</p>
-                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointexp * rateexp).toLocaleString() %></p>
+                                <p class="exchange-ea"><%- Math.floor(pointmember[0].point_exp * rateexp).toLocaleString() %></p>
                                 <p class="exchange-unit">CP</p>
                             </div>
                         </div>
@@ -118,14 +118,14 @@
                         <div class="infordown-own">
                             <div class="own-cashpoint">
                                 <p class="cashpoint-text">보유포인트</p>
-                                <p class="cashpoint-ea1 color-mc"><%- Number(((member[0].memberpointmc).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
-                                <p class="cashpoint-ea2 color-mc"><%- (((member[0].memberpointmc).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-ea1 color-mc"><%- Number(((pointmember[0].point_mc).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-mc"><%- (((pointmember[0].point_mc).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
                                 <p class="cashpoint-unit color-mc">MC</p>
                             </div>
 
                             <div class="own-exchange">
                                 <p class="exchange-text">포인트가치</p>
-                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointmc * ratemc).toLocaleString() %></p>
+                                <p class="exchange-ea"><%- Math.floor(pointmember[0].point_mc * ratemc).toLocaleString() %></p>
                                 <p class="exchange-unit">CP</p>
                             </div>
                         </div>
@@ -176,14 +176,14 @@
                         <div class="infordown-own">
                             <div class="own-cashpoint">
                                 <p class="cashpoint-text">보유포인트</p>
-                                <p class="cashpoint-ea1 color-mctk"><%- Number(((member[0].memberpointmctk).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
-                                <p class="cashpoint-ea2 color-mctk"><%- (((member[0].memberpointmctk).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-ea1 color-mctk"><%- Number(((pointmember[0].point_mctk).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-mctk"><%- (((pointmember[0].point_mctk).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
                                 <p class="cashpoint-unit color-mctk">MCTK</p>
                             </div>
 
                             <div class="own-exchange">
                                 <p class="exchange-text">포인트가치</p>
-                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointmctk * ratemctk).toLocaleString() %></p>
+                                <p class="exchange-ea"><%- Math.floor(pointmember[0].point_mctk * ratemctk).toLocaleString() %></p>
                                 <p class="exchange-unit">CP</p>
                             </div>
                         </div>
@@ -234,14 +234,14 @@
                         <div class="infordown-own">
                             <div class="own-cashpoint">
                                 <p class="cashpoint-text">보유포인트</p>
-                                <p class="cashpoint-ea1 color-nton"><%- Number(((member[0].memberpointnton).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
-                                <p class="cashpoint-ea2 color-nton"><%- (((member[0].memberpointnton).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-ea1 color-nton"><%- Number(((pointmember[0].point_nton).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-nton"><%- (((pointmember[0].point_nton).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
                                 <p class="cashpoint-unit color-nton">NTON</p>
                             </div>
 
                             <div class="own-exchange">
                                 <p class="exchange-text">포인트가치</p>
-                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointnton * ratenton).toLocaleString() %></p>
+                                <p class="exchange-ea"><%- Math.floor(pointmember[0].point_nton * ratenton).toLocaleString() %></p>
                                 <p class="exchange-unit">CP</p>
                             </div>
                         </div>
@@ -292,14 +292,14 @@
                         <div class="infordown-own">
                             <div class="own-cashpoint">
                                 <p class="cashpoint-text">보유포인트</p>
-                                <p class="cashpoint-ea1 color-trvt"><%- Number(((member[0].memberpointtrvt).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
-                                <p class="cashpoint-ea2 color-trvt"><%- (((member[0].memberpointtrvt).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                                <p class="cashpoint-ea1 color-trvt"><%- Number(((pointmember[0].point_trvt).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                                <p class="cashpoint-ea2 color-trvt"><%- (((pointmember[0].point_trvt).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
                                 <p class="cashpoint-unit color-trvt">TRVT</p>
                             </div>
 
                             <div class="own-exchange">
                                 <p class="exchange-text">포인트가치</p>
-                                <p class="exchange-ea"><%- Math.floor(member[0].memberpointtrvt * ratetrvt).toLocaleString() %></p>
+                                <p class="exchange-ea"><%- Math.floor(pointmember[0].point_trvt * ratetrvt).toLocaleString() %></p>
                                 <p class="exchange-unit">CP</p>
                             </div>
                         </div>
@@ -329,72 +329,98 @@
             </div>
         <% }; %>
 
-        <div class="section-swap">
-            <div class="swap-condition">
-                <div class="condition-data">
-                    <p class="data-text">스왑수량</p>
-                    <input type="hidden" class="data-value value-point" number="valuepoint" id="valuePoint" value="<%- point; %>">
-                    <input type="hidden" class="data-value value-remaindailyea" number="valueremaindailyea" id="valueRemaindailyea" value="<%- remaindailyea; %>">
-                    <input type="hidden" class="data-value value-rateexp" number="valuerateexp" id="valueRateexp" value="<%- rateexp; %>">
-                    <input type="hidden" class="data-value value-ratemc" number="valueratemc" id="valueRatemc" value="<%- ratemc; %>">
-                    <input type="hidden" class="data-value value-ratemctk" number="valueratemctk" id="valueRatemctk" value="<%- ratemctk; %>">
-                    <input type="hidden" class="data-value value-ratenton" number="valueratenton" id="valueRatenton" value="<%- ratenton; %>">
-                    <input type="hidden" class="data-value value-ratetrvt" number="valueratetrvt" id="valueRatetrvt" value="<%- ratetrvt; %>">
-                    <input type="number" class="data-value value-sourceea" number="valuesourceea" id="valueSourceea" placeholder="일일잔여한도내에서 입력해 주세요." onkeyup="swapCheck();">
-                </div>
+        <form action="/point/point_swap_exchange_process" method="post">
+            <div class="section-swap">
+                <div class="swap-condition">
+                    <div class="condition-data">
+                        <p class="data-text">스왑수량</p>
+                        <input type="hidden"  class="data-value value-point"           name="valuepoint"           id="valuePoint"           value="<%- point; %>">
+                        <input type="hidden"  class="data-value value-ownexp"          name="valueownexp"          id="valueOwnexp"          value="<%- pointmember[0].point_exp; %>">
+                        <input type="hidden"  class="data-value value-ownmc"           name="valueownmc"           id="valueOwnmc"           value="<%- pointmember[0].point_mc; %>">
+                        <input type="hidden"  class="data-value value-ownmctk"         name="valueownmctk"         id="valueOwnmctk"         value="<%- pointmember[0].point_mctk; %>">
+                        <input type="hidden"  class="data-value value-ownnton"         name="valueownnton"         id="valueOwnnton"         value="<%- pointmember[0].point_nton; %>">
+                        <input type="hidden"  class="data-value value-owntrvt"         name="valueowntrvt"         id="valueOwntrvt"         value="<%- pointmember[0].point_trvt; %>">
+                        <input type="hidden"  class="data-value value-remaindailyea"   name="valueremaindailyea"   id="valueRemaindailyea"   value="<%- remaindailyea; %>">
+                        <input type="hidden"  class="data-value value-rateexp"         name="valuerateexp"         id="valueRateexp"         value="<%- rateexp; %>">
+                        <input type="hidden"  class="data-value value-ratemc"          name="valueratemc"          id="valueRatemc"          value="<%- ratemc; %>">
+                        <input type="hidden"  class="data-value value-ratemctk"        name="valueratemctk"        id="valueRatemctk"        value="<%- ratemctk; %>">
+                        <input type="hidden"  class="data-value value-ratenton"        name="valueratenton"        id="valueRatenton"        value="<%- ratenton; %>">
+                        <input type="hidden"  class="data-value value-ratetrvt"        name="valueratetrvt"        id="valueRatetrvt"        value="<%- ratetrvt; %>">
+                        <input type="hidden"  class="data-value value-limitdailyexp"   name="valuelimitdailyexp"   id="valueLimitdailyexp"   value="<%- limitdailyexp; %>">
+                        <input type="hidden"  class="data-value value-limitdailymc"    name="valuelimitdailyemc"   id="valueLimitdailymc"    value="<%- limitdailymc; %>">
+                        <input type="hidden"  class="data-value value-limitdailymctk"  name="valuelimitdailymctk"  id="valueLimitdailymctk"  value="<%- limitdailymctk; %>">
+                        <input type="hidden"  class="data-value value-limitdailynton"  name="valuelimitdailynton"  id="valueLimitdailynton"  value="<%- limitdailynton; %>">
+                        <input type="hidden"  class="data-value value-limitdailytrvt"  name="valuelimitdailytrvt"  id="valueLimitdailytrvt"  value="<%- limitdailytrvt; %>">
 
-                <div class="condition-data">
-                    <p class="data-text">대상포인트</p>
-                    <select class="data-value value-targetpoint" number="valuetargetpoint" id="valueTargetpoint" size="1" onchange="swapCheck();">
-                    <% if (point == 'EXP') { %>
-                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
-                        <option value="MC">(MC) Mine Cash</option>
-                        <option value="MCTK">(MCTK) Mine Token</option>
-                        <option value="NTON">(NTON) Nton Point</option>
-                        <option value="TRVT">(TRVT) Trv Token</option>
-                    <% } else if (point == 'MC') { %>
-                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
-                        <option value="MCTK">(MCTK) Mine Token</option>
-                        <option value="NTON">(NTON) Nton Point</option>
-                        <option value="TRVT">(TRVT) Trv Token</option>
-                    <% } else if (point == 'MCTK') { %>
-                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
-                        <option value="NTON">(NTON) Nton Point</option>
-                        <option value="TRVT">(TRVT) Trv Token</option>
-                    <% } else if (point == 'NTON') { %>
-                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
-                        <option value="MCTK">(MCTK) Mine Token</option>
-                        <option value="TRVT">(TRVT) Trv Token</option>
-                    <% } else if (point == 'TRVT') { %>
-                        <option value="NONE" selected>스왑할 포인트를 선택해 주세요.</option>
-                        <option value="MCTK">(MCTK) Mine Token</option>
-                        <option value="NTON">(NTON) Nton Point</option>
-                    <% }; %>
-                    </select>
-                </div>
+                        <input type="number"  class="data-value value-sourceea"  name="valuesourceea"  id="valueSourceea"  step="any"  placeholder="일일잔여한도내에서 입력해 주세요."  onkeyup="swapCheck();">
+                    </div>
 
-                <div class="condition-data">
-                    <p class="data-text">대상수량</p>
-                    <input type="number" class="data-value value-targetea" number="valuetargetea" id="valueTargetea" readonly>
-                </div>
+                    <div class="condition-data">
+                        <p class="data-text">대상포인트</p>
+                        <select class="data-value value-targetpoint" name="valuetargetpoint" id="valueTargetpoint" size="1" onchange="swapCheck();">
+                        <% if (point == 'EXP') { %>
+                            <option value="NONE" selected>대상포인트를 선택해 주세요.</option>
+                            <option value="MC">(MC) Mine Cash</option>
+                            <option value="MCTK">(MCTK) Mine Token</option>
+                            <option value="NTON">(NTON) Nton Point</option>
+                            <option value="TRVT">(TRVT) Trv Token</option>
+                        <% } else if (point == 'MC') { %>
+                            <option value="NONE" selected>대상포인트를 선택해 주세요.</option>
+                            <option value="MCTK">(MCTK) Mine Token</option>
+                            <option value="NTON">(NTON) Nton Point</option>
+                            <option value="TRVT">(TRVT) Trv Token</option>
+                        <% } else if (point == 'MCTK') { %>
+                            <option value="NONE" selected>대상포인트를 선택해 주세요.</option>
+                            <option value="NTON">(NTON) Nton Point</option>
+                            <option value="TRVT">(TRVT) Trv Token</option>
+                        <% } else if (point == 'NTON') { %>
+                            <option value="NONE" selected>대상포인트를 선택해 주세요.</option>
+                            <option value="MCTK">(MCTK) Mine Token</option>
+                            <option value="TRVT">(TRVT) Trv Token</option>
+                        <% } else if (point == 'TRVT') { %>
+                            <option value="NONE" selected>대상포인트를 선택해 주세요.</option>
+                            <option value="MCTK">(MCTK) Mine Token</option>
+                            <option value="NTON">(NTON) Nton Point</option>
+                        <% }; %>
+                        </select>
+                    </div>
 
-                <div class="condition-data">
-                    <p class="data-text">수수요율</p>
-                    <input type="text" class="data-value value-commissionrate" number="valuecommissionrate" id="valueCommissionrate" value="10.0000%" readonly>
-                </div>
+                    <div class="condition-data">
+                        <p class="data-text">스왑요율</p>
+                        <input type="text" class="data-value value-swaprate" name="valueswaprate" id="valueSwaprate" readonly>
+                    </div>
 
-                <div class="condition-data">
-                    <p class="data-text">수수료</p>
-                    <input type="text" class="data-value value-commission" number="valuecommission" id="valueCommission" readonly>
-                </div>
+                    <div class="condition-data">
+                        <p class="data-text">대상수량</p>
+                        <input type="text" class="data-value value-targetea" name="valuetargetea" id="valueTargetea" readonly>
+                    </div>
 
-                <div class="condition-data">
-                    <p class="data-text">지급수량</p>
-                    <input type="number" class="data-value value-occurea" number="valueoccurea" id="valueOccurea" readonly>
-                </div>
+                    <div class="condition-data">
+                        <p class="data-text">수수료율</p>
+                        <input type="text" class="data-value value-commissionrate" name="valuecommissionrate" id="valueCommissionrate" value="10.0000%" readonly>
+                    </div>
 
+                    <div class="condition-data">
+                        <p class="data-text">수수료</p>
+                        <input type="text" class="data-value value-commission" name="valuecommission" id="valueCommission" readonly>
+                    </div>
+
+                    <div class="condition-data">
+                        <p class="data-text">지급수량</p>
+                        <input type="text" class="data-value value-occurea" name="valueoccurea" id="valueOccurea" readonly>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <hr class="section-hr">
+            
+            <div class="section-caution">
+                <p class="caution-text">※ 수수료는 대상수량에서 차감합니다.</p>
+                <p class="caution-text">※ 스왑후 되돌릴 수 없으니 이점 유의바랍니다.</p>
+            </div>
+
+            <input type="submit" class="data-button button-submit" id="buttonSubmit" value="스왑(SWAP)" onclick="return buttonSubmitInsert();">
+        </form>
     </div>
 
     <div class="section-blank"></div>

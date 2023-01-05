@@ -117,7 +117,7 @@ section { /* 전체 */
 
 .section-points { /* 전체-포인트s */
     width: 90vw;
-    margin: 5vw auto 10vw auto;
+    margin: 5vw auto 5vw auto;
 }
 .points-point { /* 포인트s-포인트 */
     height: 48vw;
@@ -357,7 +357,7 @@ section { /* 전체 */
 }
 
 .section-swap { /* 전체-스왑 */
-    margin: 0 auto 0 auto;
+    margin: 6vw auto 0 auto;
 }
 /* .swap-condition {} 스왑-조건 */
 .condition-data { /* 조건-데이터 */
@@ -387,17 +387,27 @@ section { /* 전체 */
 .value-targetpoint { /* 값-대상포인트 */
     width: calc(63vw + 4vw + 2px);
     padding: 0 2vw 0 1vw;
+    font-weight: 500;
+}
+.value-swaprate { /* 값-스왑요율 */
+    font-weight: 400;
+    background: var(--color-box-background);
 }
 .value-targetea { /* 값-대상수량 */
+    font-weight: 400;
     background: var(--color-box-background);
 }
 .value-commissionrate { /* 값-수수요율 */
+    font-weight: 400;
+    color: red;
     background: var(--color-box-background);
 }
 .value-commission { /* 값-수수료 */
+    font-weight: 400;
     background: var(--color-box-background);
 }
 .value-occurea { /* 값-지급수량 */
+    margin: 0 0 6vw 0;
     background: var(--color-box-background);
 }
 ::placeholder {
@@ -405,17 +415,29 @@ section { /* 전체 */
 }
 .value-sourceea:focus, 
 .value-targetpoint:focus { /* 데이터-값(포커스) */
-    border: 1px solid var(--color-point-border);
+    border: 1.5px solid var(--color-point-border);
     border-radius: 0;
     outline: 0;
 }
+.data-button { /* 데이터-버튼 */
+    width: 90vw;
+    height: 12vw;
+    line-height: 12vw;
+    margin: 6vw auto 0 auto;
+    color: white;
+    font-size: 4vw;
+    font-weight: 500;
+    background: gray;
+}
 
-
-
-
-
-
-
+.section-caution { /* 전체-주의 */
+    margin: 3vw 3vw 0 3vw;
+}
+.caution-text { /* 주의-문구 */
+    font-size: 3.5vw;
+    font-weight: 400;
+    color: red;
+}
 
 .section-blank { /* 전체-공란 */
     height: 1vw;

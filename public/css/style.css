@@ -19,7 +19,7 @@
     --color-point: rgba(100, 100, 255); /* 포인트 색상 */
     --color-point-deep: rgb(75, 75, 255); /* 포인트 색상 DEEP*/
     --color-point-text: rgb(25, 25, 255); /* 포인트 색상 TEXT*/
-    --color-point-border: rgb(25, 25, 155); /* 포인트 색상 테두리*/
+    --color-point-border: rgb(25, 25, 205); /* 포인트 색상 테두리*/
     --color-point-background: rgba(100, 100, 255, 0.03); /* 포인트 색상 백그라운드*/
     --color-trade: rgb(255, 175, 75); /* 거래하기 색상 */
     --color-trade-deep: rgb(255, 150, 50); /* 거래하기 색상 DEEP*/

@@ -116,6 +116,8 @@ var pointswapRouter = require('./routes/point/point_swap');
     app.use('/', pointswapRouter);  // 포인트_스왑
     var pointswapexchangeRouter = require('./routes/point/point_swap_exchange');
         app.use('/', pointswapexchangeRouter);  // 포인트_스왑_전환
+        var pointswapexchangeprocessRouter = require('./routes/point/point_swap_exchange_process');
+            app.use('/', pointswapexchangeprocessRouter);  // 포인트_스왑_전환_프로세스
 
 // member
 var memberloginRouter = require('./routes/member/member_login');

@@ -185,15 +185,27 @@ section { /* 전체 */
     margin: 2vw 4vw 4vw 4vw;
 }
 .infor-infordown > a { /* 포인트-하 */
-    margin: auto 0 auto 2vw;
+    margin: auto 0 auto 0;
 }
 .infor-infordown > div { /* 포인트-하 */
-    margin: auto 0 auto 2vw;
+    margin: auto 0 auto 0;
 }
 .infordown-swap { /* 하-스왑 */
     text-align: center;
     height: 7vw;
-    padding: 0 4vw 0 4vw;
+    padding: 0 3vw 0 3vw;
+    line-height: 6.5vw;
+    font-size: 3.5vw;
+    font-weight: 500;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    background: var(--color-point);
+}
+.infordown-list { /* 하-목록 */
+    text-align: center;
+    height: 7vw;
+    padding: 0 3vw 0 3vw;
+    margin: 0 0 0 0.5vw;
     line-height: 6.5vw;
     font-size: 3.5vw;
     font-weight: 500;
@@ -202,7 +214,7 @@ section { /* 전체 */
     background: var(--color-point);
 }
 .infordown-own { /* 하-보유 */
-    margin: 0;
+    width: 55vw;
 }
 .own-cashpoint { /* 보유-캐시포인트 */
     display: flex;
