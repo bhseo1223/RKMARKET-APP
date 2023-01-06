@@ -1,8 +1,18 @@
 <!-- bhseo1223 nodejs : ejs - test_section : rkmarket_app -->
 
 <section>
-    test
-    <img src="/icon/coin.svg" alt="">
+    <form action="https://rest.surem.com/sms/v1/json" id="article" method="post">
+        <input type="text" name="usercode" value="minechat">
+        <input type="text" name="deptcode" value="XX-XXX-XX">
+        <input type="text" name="messages" value="">
+        <input type="text" name="message_id" value="">
+        <input type="text" name="to" value="01092502724">
+        <input type="text" name="text" value="테스트">
+        <input type="text" name="from" value="16618235">
+        <input type="text" name="reserved_time" value="">
+
+        <input type="submit" value="전송">
+    </form>
 </section>
 
 

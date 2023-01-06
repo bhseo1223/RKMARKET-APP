@@ -7,8 +7,8 @@ var router = express.Router();
 router.get('/member/member_login', function(req, res) {  // url(get) : '/member/member_login'
     
     // get
-    var memberId       = req.query.memberid;       // 아이디(회원)
-    var loginCaution   = req.query.logincaution;   // 주의문구
+    var memberId      = req.query.memberid;      // 아이디(회원)
+    var loginCaution  = req.query.logincaution;  // 주의문구
     // get
 
     // session delete
@@ -21,18 +21,18 @@ router.get('/member/member_login', function(req, res) {  // url(get) : '/member/
     req.session.save(function() {
 
         if (loginCaution == '' || loginCaution == undefined) {
-            loginCaution = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.'   // 주의문구
+            loginCaution  = '아이디와 비밀번호를 입력후 로그인을 클릭하세요.'  // 주의문구
         };
 
         // render
         res.render('member/member_login', {
             // 타이틀
-            title:              '로그인',
+            title:           '로그인',
             // 타이틀
             // 데이터
-            memberid:         memberId,      // 아이디(회원)
-            memberpassword:   '',            // 비밀번호
-            logincaution:     loginCaution   // 주의문구
+            memberid:        memberId,     // 아이디(회원)
+            memberpassword:  '',           // 비밀번호
+            logincaution:    loginCaution  // 주의문구
             // 데이터
         });
         // render

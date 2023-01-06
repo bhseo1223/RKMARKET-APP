@@ -58,6 +58,7 @@ var bodyParser = require('body-parser');
 var moment = require('moment');
 
 // npm install request
+var request = require('request');
 
 // npm install supervisor
 // npm install pm2 -g
@@ -124,6 +125,10 @@ var memberloginRouter = require('./routes/member/member_login');
     app.use('/', memberloginRouter);  // 회원_로그인
     var memberloginprocessRouter = require('./routes/member/member_login_process');
         app.use('/', memberloginprocessRouter);  // 회원_로그인_프로세스
+var membersearchidRouter = require('./routes/member/member_searchid');
+    app.use('/', membersearchidRouter);  // 회원_아이디찾기
+    var membersearchidsmsRouter = require('./routes/member/member_searchid_sms');
+        app.use('/', membersearchidsmsRouter);  // 회원_아이디찾기_인증받기
 
 // test
 var testRouter = require('./routes/test/test');
