@@ -76,10 +76,8 @@ app.use(express.static('public'));
 
 // use : /css
 app.use('/css', express.static(__dirname + '/public/css'));
-
 // use : /icon
 app.use('/icon', express.static(__dirname + '/public/image/icon'));
-
 // use : /script
 app.use('/script', express.static(__dirname + '/public/script'));
 

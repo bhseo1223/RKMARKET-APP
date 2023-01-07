@@ -65,7 +65,7 @@ section { /* 전체 */
 .result-text { /* 결과-문구 */
     text-align: center;
     width: 80vw;
-    margin: 6vw auto 12vw auto;
+    margin: 3vw auto 0 auto;
     font-size: 4vw;
     font-weight: 500;
     color: var(--color-main);
@@ -84,9 +84,6 @@ section { /* 전체 */
     font-weight: 500;
     color: white;
     background: var(--color-main);
-}
-.text-reset {
-    margin: 6vw auto 12vw auto;
 }
 
 /* bhseo1223 nodejs : css - member_searchid_section : rkmarket_app */

@@ -16,9 +16,14 @@ function submitAuthnumberDiabled() { // submitAuthnumber 버튼 비활성화
     document.getElementById('submitAuthnumber').disabled = true;
 };
 
-function buttonSubmit() { /* 인증받기 */
+function submitMobilenumber() { /* 휴대전화번호 입력후 전송받기 버튼 */
     var checkSubmit = confirm('입력한 휴대전화번호로 인증번호를 발송합니다.\n인증받기를 실행하겠습니까?');
-    return checkSubmit;
+    if (checkSubmit == true) {
+        document.getElementById('searchProcess').value = '1';
+    } else {
+        document.getElementById('searchProcess').value = '0';
+    };
 };
+
 
 /* bhseo1223 nodejs : script - member_searchid : rkmarket_app */

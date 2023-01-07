@@ -11,16 +11,20 @@
         <div class="section-membersearchid">
             <form action="/member/member_searchid" id="articleMobilenumber" method="get">
                 <div class="membersearchid-datas">
-                    <input type="hidden" name="searchprocess" value="1">
+                    <input type="hidden" name="searchprocess" id="searchProcess" value="">
 
+                <% if (searchprocess == 0) { %>
                     <div class="datas-data">
-                        <input type="number" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" placeholder="숫자만 입력해 주세요." value="<%- mobilenumber; %>">
+                        <input type="number" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" placeholder="숫자만 입력해 주세요." value="">
                     </div>
 
-                <% if (searchprocess >= 1) { %>
-                    <input type="submit" class="data-submit submit-mobilenumber" value="전송받기" onclick="buttonSubmit();" style="background: gray;" disabled>
-                <% } else { %>
-                    <input type="submit" class="data-submit submit-mobilenumber" value="전송받기" onclick="buttonSubmit();">
+                    <input type="submit" class="data-submit submit-mobilenumber" value="전송받기" onclick="submitMobilenumber();">
+                <% } else if (searchprocess >= 1) { %>
+                    <div class="datas-data">
+                        <input type="number" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>" style="background: var(--color-box-background);" disabled>
+                    </div>
+
+                    <input type="submit" class="data-submit submit-mobilenumber" value="전송받기" style="background: gray;" disabled>
                 <% }; %>
                 </div>
 
@@ -29,18 +33,32 @@
 
             <form action="/member/member_searchid" method="get">
                 <div class="membersearchid-datas">
-                    <input type="hidden" name="searchprocess" value="2">
+                    <input type="hidden" name="searchprocess" id="searchProcess" value="2">
 
+                <% if (searchprocess == 0) { %>
+                    <div class="datas-data">
+                        <input type="hidden" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>">
+
+                        <input type="number" class="data-value value-authnumber" name="authnumber" id="authNumber" value="" style="background: var(--color-box-background);" disabled>
+                    </div>
+
+                    <input type="submit" class="data-submit submit-authnumber" id="submitAuthnumber" value="인증하기" style="background: gray;" disabled>
+                <% } else if (searchprocess == 1) { %>
                     <div class="datas-data">
                         <input type="hidden" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>">
 
                         <input type="number" class="data-value value-authnumber" name="authnumber" id="authNumber" placeholder="6자리 모두 입력해 주세요." value="">
                     </div>
 
-                <% if (searchprocess == 1) { %>
                     <input type="submit" class="data-submit submit-authnumber" id="submitAuthnumber" value="인증하기">
-                <% } else { %>
-                    <input type="submit" class="data-submit submit-authnumber" id="submitAuthnumber" value="인증하기"  style="background: gray;" disabled>
+                <% } else if (searchprocess == 2) { %>
+                    <div class="datas-data">
+                        <input type="hidden" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>">
+
+                        <input type="number" class="data-value value-authnumber" name="authnumber" id="authNumber" value="<%- authnumber; %>" style="background: var(--color-box-background);" disabled>
+                    </div>
+
+                    <input type="submit" class="data-submit submit-authnumber" id="submitAuthnumber" value="인증하기" style="background: gray;" disabled>
                 <% }; %>
                 </div>
 
@@ -49,7 +67,13 @@
         </div>
 
         <div class="section-result">
-            <p class="result-text"><%- resulttext; %></p>
+        <% if (resultcheck == 'Y') { %>
+            <p class="result-text" style="font-weight: 400; color: navy"><%- resulttext1; %></p>
+            <p class="result-text" style="margin-bottom: 10.5vw; font-size: 5vw;"><%- resulttext2; %></p>
+        <% } else { %>
+            <p class="result-text"><%- resulttext1; %></p>
+            <p class="result-text" style="margin-bottom: 12vw;"><%- resulttext2; %></p>
+        <% }; %>
         </div>
 
         <a class="section-link" href="/member/member_login">
@@ -61,7 +85,7 @@
         </a>
 
         <a class="section-link" href="/member/member_searchid">
-            <p class="link-text text-reset">처음부터</p>
+            <p class="link-text text-reset" style="margin-bottom: 12vw;">처음부터</p>
         </a>
     </div>
 </section>
