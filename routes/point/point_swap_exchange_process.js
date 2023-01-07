@@ -103,7 +103,7 @@ router.post('/point/point_swap_exchange_process', function(req, res) { // url(po
 
         // SELECT : point_swap - 포인트_일일잔여한도
         var sqlPointswap = `SELECT SUM(source_ea) AS useea FROM point_swap WHERE member_id = ? AND registdate = ? AND source_point = ?`;
-        var paramsPointswap = [memberid, moment().format('YYYY-MM-DD'), sourcePoint];
+        var paramsPointswap = [memberid, today, sourcePoint];
         connection.query(sqlPointswap, paramsPointswap, function(err, rowsPointswap, feilds) {
 
             // 일일잔여한도

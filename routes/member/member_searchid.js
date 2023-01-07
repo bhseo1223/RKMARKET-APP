@@ -49,9 +49,30 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
         var resultText1          = '휴대전화 인증정보 입력중입니다.';
         var resultText2          = '인증번호를 발송하였습니다.';
 
-        // SMS 로직
+        // INSERT member_searchid - data
+        var authNumberSMS = Math.floor(Math.random() * (111111 - 999999)) + 999999;
 
-        // SMS 로직
+        var membersearchidId            = `SI${iddate}${mobileNumber}`;  // member_searchid: id - 일련번호
+        var membersearchidMobilenumber  = mobileNumber;                  // member_searchid: mobilenumber - 휴대전화번호
+        var membersearchidAuthnumber    = authNumberSMS;                 // member_searchid: authnumber - 인증번호
+        var membersearchidSenddate      = todate;                        // member_searchid: senddate - 전송일시
+        var membersearchidCheckauth     = 'N';                           // member_searchid: check_auth - 확인_인증
+        var membersearchidAuthdate      = '';                            // member_searchid: authdate - 인증일시
+        // INSERT member_searchid - data
+
+        // INSERT member_searchid
+        var sqlMembersearchidINSERT = `INSERT INTO member_searchid
+                    (id, mobilenumber, authnumber, senddate, check_auth, authdate)
+                VALUES (?, ?, ?, ?, ?, ?)`;
+        var paramsMembersearchidINSERT = [
+                membersearchidId, membersearchidMobilenumber, membersearchidAuthnumber, 
+                membersearchidSenddate, membersearchidCheckauth, membersearchidAuthdate];
+        connection.query(sqlMembersearchidINSERT, paramsMembersearchidINSERT, function(err, rowsMembersearchidUPDATE, fields) {
+
+            // SMS
+
+        });
+        // INSERT member_searchid
 
     } else if (searchProcess == 2) { // 휴대전화번호 입력, 인증번호 입력
 
@@ -61,7 +82,7 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
         // var resultText2          = '새로고침이나 뒤로가기를 누르지 마세요.';
 
         // SELECT : member_searchid - 아이디찾기_인증
-        var sqlMembersearchid = `SELECT * FROM member_searchid WHERE mobilenumber = ? AND authnumber = ?`;
+        var sqlMembersearchid = `SELECT * FROM member_searchid WHERE senddate = (SELECT MAX(senddate) FROM member_searchid WHERE mobilenumber = ? AND authnumber = ?)`;
         var paramsMembersearchid = [mobileNumber, authNumber];
         connection.query(sqlMembersearchid, paramsMembersearchid, function(err, rowsMembersearchid, fields) {
 

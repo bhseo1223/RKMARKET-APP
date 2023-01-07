@@ -50,9 +50,31 @@ router.get('/member/member_searchpw', function(req, res) {  // url(get) : '/memb
         var resultText1          = '휴대전화 인증정보 입력중입니다.';
         var resultText2          = '인증번호를 발송하고 있습니다.';
 
-        // SMS 로직
-            // 인증번호 SMS로 보내고 member_searchpw 에 저장
-        // SMS 로직
+        // INSERT member_searchpw - data
+        var authNumberSMS = Math.floor(Math.random() * (111111 - 999999)) + 999999;
+
+        var membersearchpwId            = `SP${iddate}${mobileNumber}`;  // member_searchpw: id - 일련번호
+        var membersearchpwMemberid      = memberId;                      // member_searchpw: member_id - 아이디(회원)
+        var membersearchpwMobilenumber  = mobileNumber;                  // member_searchpw: mobilenumber - 휴대전화번호
+        var membersearchpwAuthnumber    = authNumberSMS;                 // member_searchpw: authnumber - 인증번호
+        var membersearchpwSenddate      = todate;                        // member_searchpw: senddate - 전송일시
+        var membersearchpwCheckauth     = 'N';                           // member_searchpw: check_auth - 확인_인증
+        var membersearchpwAuthdate      = '';                            // member_searchpw: authdate - 인증일시
+        // INSERT member_searchpw - data
+
+        // INSERT member_searchpw
+        var sqlMembersearchidINSERT = `INSERT INTO member_searchpw
+                    (id, member_id, mobilenumber, authnumber, senddate, check_auth, authdate)
+                VALUES (?, ?, ?, ?, ?, ?, ?)`;
+        var paramsMembersearchidINSERT = [
+                membersearchpwId, membersearchpwMemberid, membersearchpwMobilenumber, membersearchpwAuthnumber, 
+                membersearchpwSenddate, membersearchpwCheckauth, membersearchpwAuthdate];
+        connection.query(sqlMembersearchidINSERT, paramsMembersearchidINSERT, function(err, rowsMembersearchidUPDATE, fields) {
+
+            // SMS
+            
+        });
+        // INSERT member_searchpw
 
     } else if (searchProcess == 2) { // 휴대전화번호 입력, 인증번호 입력
 
@@ -91,8 +113,8 @@ router.get('/member/member_searchpw', function(req, res) {  // url(get) : '/memb
                             // 아이디와 휴대전화번호 확인
                             if (rowsMember.length > 0) {
 
-                                resultText1  = '비밀번호입니다. 새로고침 하지 마세요.';
-                                resultText2  = '인증받은 휴대전화번호에서 확인해 주세요.'; 
+                                resultText1  = '비밀번호 전송완료! 새로고침 하지 마세요.';
+                                resultText2  = '휴대전화번호로 전송하였습니다.'; 
                                 resultCheck  = 'Y';
 
                                 // SMS 처리

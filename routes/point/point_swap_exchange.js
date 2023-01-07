@@ -31,7 +31,7 @@ router.get('/point/point_swap_exchange', function(req, res) {  // url(get) : '/p
         // get
 
         // 공용
-        var memberid  = req.session.memberid;           // 아이디(회원)
+        var memberId  = req.session.memberid;           // 아이디(회원)
         var today     = moment().format('YYYY-MM-DD');  // 일자
         // 공용
 
@@ -41,7 +41,7 @@ router.get('/point/point_swap_exchange', function(req, res) {  // url(get) : '/p
                 FROM member 
                 LEFT JOIN code_class_level ON member.class_level = code_class_level.code 
                 WHERE member.id = ?`;
-        var paramsMember = [memberid];
+        var paramsMember = [memberId];
         connection.query(sqlMember, paramsMember, function(err, rowsMember, fields) {
 
             // code_class color에 따라 color, backgroud CSS 적용
@@ -50,7 +50,7 @@ router.get('/point/point_swap_exchange', function(req, res) {  // url(get) : '/p
 
             // SELECT : point_member - 포인트_회원별수량
             var sqlPointmember = `SELECT * FROM point_member WHERE member_id = ? AND regdate = (SELECT MAX(regdate) FROM point_member)`;
-            var paramsPointmember = [memberid];
+            var paramsPointmember = [memberId];
             connection.query(sqlPointmember, paramsPointmember, function(err, rowsPointmember, feilds) {
 
                 // SELECT : point_rate - 포인트_시세
@@ -79,7 +79,7 @@ router.get('/point/point_swap_exchange', function(req, res) {  // url(get) : '/p
 
                         // SELECT : point_swap - 포인트_일일잔여한도
                         var sqlPointswap = `SELECT source_point, SUM(source_ea) AS useea FROM point_swap WHERE member_id = ? AND registdate = ? GROUP BY source_point`;
-                        var paramsPointswap = [memberid, today];
+                        var paramsPointswap = [memberId, today];
                         connection.query(sqlPointswap, paramsPointswap, function(err, rowsPointswap, feilds) {
 
                             // 일일잔여한도
