@@ -1,4 +1,4 @@
-// bhseo1223 nodejs : routes - member_searchid : rkmarket_app
+// bhseo1223 nodejs : routes - member_searchpw : rkmarket_app
 
 var express = require('express');
 var router = express.Router();
@@ -14,10 +14,11 @@ connection.connect();
 var moment = require('moment');
 
 
-router.get('/member/member_searchid', function(req, res) {  // url(get) : '/member/member_searchid'
+router.get('/member/member_searchpw', function(req, res) {  // url(get) : '/member/member_searchpw'
     
     // get
     var searchProcess  = req.query.searchprocess;  // 인증프로세스
+    var memberId       = req.query.memberid;       // 아이디(회원)
     var mobileNumber   = req.query.mobilenumber;   // 휴대전화번호
     var authNumber     = req.query.authnumber;     // 인증번호
     // get
@@ -29,7 +30,7 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
     // 공용
 
     // 주의문구
-    var resultCheck  = 'N';  // 아이디 찾기 결과 _ 초기화
+    var resultCheck  = 'N';  // 비밀번호 찾기 결과 _ 초기화
 
     if (searchProcess == undefined) {
         searchProcess  = 0;
@@ -37,7 +38,7 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
 
     if (searchProcess == 0) { // 휴대전화번호 미입력, 인증번호 미입력
 
-        var mobilenumberCaution  = '등록된 휴대전화번호 입력후 전송받기를 눌러 주세요.';
+        var mobilenumberCaution  = '아이디와 휴대전화번호 입력후 전송받기를 눌러 주세요.';
         var authnumberCaution    = '인증번호를 전송 받은후 진행해 주세요.';
         var resultText1          = '휴대전화 인증정보 입력중입니다.';
         var resultText2          = '반드시 등록된 번호를 입력해 주세요.';
@@ -47,10 +48,10 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
         var mobilenumberCaution  = '인증하기를 진행해 주세요.';
         var authnumberCaution    = '전송받은 인증번호 입력후 인증하기를 눌러 주세요.';
         var resultText1          = '휴대전화 인증정보 입력중입니다.';
-        var resultText2          = '인증번호를 발송하였습니다.';
+        var resultText2          = '인증번호를 발송하고 있습니다.';
 
         // SMS 로직
-
+            // 인증번호 SMS로 보내고 member_searchpw 에 저장
         // SMS 로직
 
     } else if (searchProcess == 2) { // 휴대전화번호 입력, 인증번호 입력
@@ -60,47 +61,51 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
         // var resultText1          = '휴대전화 인증중이니 잠시만 기다려 주세요.';
         // var resultText2          = '새로고침이나 뒤로가기를 누르지 마세요.';
 
-        // SELECT : member_searchid - 아이디찾기_인증
-        var sqlMembersearchid = `SELECT * FROM member_searchid WHERE mobilenumber = ? AND authnumber = ?`;
-        var paramsMembersearchid = [mobileNumber, authNumber];
-        connection.query(sqlMembersearchid, paramsMembersearchid, function(err, rowsMembersearchid, fields) {
+        // SELECT : member_searchpw - 비밀번호찾기_인증
+        var sqlMembersearchpw = `SELECT * FROM member_searchpw WHERE member_id = ? AND mobilenumber = ? AND authnumber = ?`;
+        var paramsMembersearchpw = [memberId, mobileNumber, authNumber];
+        connection.query(sqlMembersearchpw, paramsMembersearchpw, function(err, rowsMembersearchpw, fields) {
 
             // 인증번호 확인
-            if (rowsMembersearchid.length > 0) {
+            if (rowsMembersearchpw.length > 0) {
 
                 // 사용처리 확인
-                if (rowsMembersearchid[0].check_auth == 'N') { // 미사용시
+                if (rowsMembersearchpw[0].check_auth == 'N') { // 미사용시
 
                     // 시간내 인증번호 입력 : 180초
-                    var checkDate = moment(rowsMembersearchid[0].senddate).add('180', 's').format('YYYY-MM-DD HH:mm:ss');
+                    var checkDate = moment(rowsMembersearchpw[0].senddate).add('180', 's').format('YYYY-MM-DD HH:mm:ss');
 
                     if (checkDate >= todate) {
 
-                        // UPDATE : member_searchid - 사용처리
-                        var sqlMembersearchidUPDATE = `UPDATE member_searchid SET check_auth = 'Y', authdate = ? WHERE id = ?`;
-                        var paramsMembersearchidUPDATE = [todate, rowsMembersearchid[0].id];
-                        connection.query(sqlMembersearchidUPDATE, paramsMembersearchidUPDATE, function(err, rowsMembersearchidUPDATE, fields) {});
-                        // UPDATE : member_searchid - 사용처리
+                        // UPDATE : member_searchpw - 사용처리
+                        var sqlMembersearchpwUPDATE = `UPDATE member_searchpw SET check_auth = 'Y', authdate = ? WHERE id = ?`;
+                        var paramsMembersearchpwUPDATE = [todate, rowsMembersearchpw[0].id];
+                        connection.query(sqlMembersearchpwUPDATE, paramsMembersearchpwUPDATE, function(err, rowsMembersearchpwUPDATE, fields) {});
+                        // UPDATE : member_searchpw - 사용처리
 
                         // SELECT : member - 회원정보
-                        var sqlMember = `SELECT id FROM member WHERE mobilenumber = ?`;
-                        var paramsMember = [mobileNumber];
+                        var sqlMember = `SELECT password FROM member WHERE id = ? AND mobilenumber = ?`;
+                        var paramsMember = [memberId, mobileNumber];
                         connection.query(sqlMember, paramsMember, function(err, rowsMember, fields) {
 
-                            // 휴대전화번호 확인
+                            // 아이디와 휴대전화번호 확인
                             if (rowsMember.length > 0) {
 
-                                resultText1  = '아이디입니다. 새로고침 하지 마세요.';
-                                resultText2  = rowsMember[0].id;
+                                resultText1  = '비밀번호입니다. 새로고침 하지 마세요.';
+                                resultText2  = '인증받은 휴대전화번호에서 확인해 주세요.'; 
                                 resultCheck  = 'Y';
+
+                                // SMS 처리
+                                    // 비밀번호 SMS로 보내기
+                                // SMS 처리
 
                             } else {
 
                                 resultText1  = '계정없음!  처음부터 다시 진행해 주세요.';
-                                resultText2  = '등록된 휴대전화번호인지 확인해 주세요.';
+                                resultText2  = '아이디와 휴대전화번호를 확인해 주세요.';
 
                             };
-                            // 휴대전화번호 확인
+                            // 아이디와 휴대전화번호 확인
 
                         });
                         // SELECT : member - 회원정보
@@ -130,7 +135,7 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
             // 인증번호 확인
 
         });
-        // SELECT : member_searchid - 아이디찾기_인증
+        // SELECT : member_searchpw - 아이디찾기_인증
 
     };
     // 주의 문구
@@ -141,12 +146,13 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
         connection.query(`SELECT * FROM sync`, function(err, rows, fields) {
 
             // render
-            res.render('member/member_searchid', {
+            res.render('member/member_searchpw', {
                 // 타이틀
                 title:                '아이디찾기',
                 // 타이틀
                 // 데이터
                 searchprocess:        searchProcess,        // 인증프로세스
+                memberid:             memberId,             // 아이디(회원)
                 mobilenumber:         mobileNumber,         // 휴대전화번호
                 authnumber:           authNumber,           // 인증번호
                 mobilenumbercaution:  mobilenumberCaution,  // 주의문구_휴대전화번호
@@ -169,4 +175,4 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
 module.exports = router;
 
 
-// bhseo1223 nodejs : routes - member_searchid : rkmarket_app
+// bhseo1223 nodejs : routes - member_searchpw : rkmarket_app

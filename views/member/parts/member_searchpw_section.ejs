@@ -1,0 +1,109 @@
+<!-- bhseo1223 nodejs : ejs - member_searchpw_section : rkmarket_app -->
+
+<section>
+    <div class="section-section">
+        <div class="section-title">
+            <p class="title-title">비밀번호찾기</p>
+    
+            <p class="title-text">아이디와 휴대전화번호로 비밀번호를 찾습니다.</p>
+        </div>
+
+        <div class="section-membersearchpw">
+            <form action="/member/member_searchpw" method="get">
+                <div class="membersearchpw-datas">
+                    <input type="hidden" name="searchprocess" id="searchProcess" value="">
+
+                <% if (searchprocess == 0) { %>
+                    <div class="datas-data">
+                        <input type="text" class="data-value value-memberid" name="memberid" id="memberId" placeholder="아이디를 입력해 주세요." value="">
+                        <input type="number" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" placeholder="숫자만 입력해 주세요." value="">
+                    </div>
+
+                    <div class="datas-data">
+                        <input type="submit" class="datas-submit submit-mobilenumber" value="전송받기" onclick="submitMobilenumber();">
+                    </div>
+                <% } else if (searchprocess >= 1) { %>
+                    <div class="datas-data">
+                        <input type="text" class="data-value value-memberid" name="memberid" id="memberId" value="<%- memberid; %>" style="background: var(--color-box-background);" disabled>
+                        <input type="number" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>" style="background: var(--color-box-background);" disabled>
+                    </div>
+
+                    <div class="datas-data">
+                        <input type="submit" class="datas-submit submit-mobilenumber" value="전송받기" style="background: gray;" disabled>
+                    </div>
+                <% }; %>
+                </div>
+
+                <p class="membersearchpw-caution"><%- mobilenumbercaution; %></p>
+            </form>
+
+            <form action="/member/member_searchpw" method="get">
+                <div class="membersearchpw-datas">
+                    <input type="hidden" name="searchprocess" id="searchProcess" value="2">
+
+                <% if (searchprocess == 0) { %>
+                    <div class="datas-data">
+                        <input type="hidden" class="data-value value-memberid" name="memberid" id="memberId" value="<%- memberid; %>">
+                        <input type="hidden" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>">
+
+                        <input type="number" class="data-value value-authnumber" name="authnumber" id="authNumber" value="" style="background: var(--color-box-background);" disabled>
+                    </div>
+
+                    <div class="datas-data">
+                        <input type="submit" class="datas-submit submit-authnumber" id="submitAuthnumber" value="인증하기" style="background: gray;" disabled>
+                    </div>
+                <% } else if (searchprocess == 1) { %>
+                    <div class="datas-data">
+                        <input type="hidden" class="data-value value-memberid" name="memberid" id="memberId" value="<%- memberid; %>">
+                        <input type="hidden" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>">
+
+                        <input type="number" class="data-value value-authnumber" name="authnumber" id="authNumber" placeholder="6자리 모두 입력해 주세요." value="">
+                    </div>
+
+                    <div class="datas-data">
+                        <input type="submit" class="datas-submit submit-authnumber" id="submitAuthnumber" value="인증하기">
+                    </div>
+                <% } else if (searchprocess == 2) { %>
+                    <div class="datas-data">
+                        <input type="hidden" class="data-value value-memberid" name="memberid" id="memberId" value="<%- memberid; %>">
+                        <input type="hidden" class="data-value value-mobilenumber" name="mobilenumber" id="mobileNumber" value="<%- mobilenumber; %>">
+
+                        <input type="number" class="data-value value-authnumber" name="authnumber" id="authNumber" value="<%- authnumber; %>"  style="background: var(--color-box-background);" disabled>
+                    </div>
+
+                    <div class="datas-data">
+                        <input type="submit" class="datas-submit submit-authnumber" id="submitAuthnumber" value="인증하기" style="background: gray;" disabled>
+                    </div>
+                <% }; %>
+                </div>
+
+                <p class="membersearchpw-caution"><%- authnumbercaution; %></p>
+            </form>
+        </div>
+
+        <div class="section-result">
+            <% if (resultcheck == 'Y') { %>
+                <p class="result-text" style="font-weight: 400; color: navy"><%- resulttext1; %></p>
+                <p class="result-text" style="margin-bottom: 10.5vw; font-size: 5vw;"><%- resulttext2; %></p>
+            <% } else { %>
+                <p class="result-text"><%- resulttext1; %></p>
+                <p class="result-text" style="margin-bottom: 12vw;"><%- resulttext2; %></p>
+            <% }; %>
+            </div>
+    
+            <a class="section-link" href="/member/member_login">
+                <p class="link-text text-memberlogin">로그인</p>
+            </a>
+    
+            <a class="section-link" href="/member/member_searchid">
+                <p class="link-text text-searchid">아이디찾기</p>
+            </a>
+    
+            <a class="section-link" href="/member/member_searchpw">
+                <p class="link-text text-reset" style="margin-bottom: 12vw;">처음부터</p>
+            </a>
+    </div>
+</section>
+
+
+<!-- bhseo1223 nodejs : ejs - member_searchpw_section : rkmarket_app -->

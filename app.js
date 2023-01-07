@@ -125,8 +125,10 @@ var memberloginRouter = require('./routes/member/member_login');
         app.use('/', memberloginprocessRouter);  // 회원_로그인_프로세스
 var membersearchidRouter = require('./routes/member/member_searchid');
     app.use('/', membersearchidRouter);  // 회원_아이디찾기
-    var membersearchidsmsRouter = require('./routes/member/member_searchid_sms');
-        app.use('/', membersearchidsmsRouter);  // 회원_아이디찾기_인증받기
+    // var membersearchidsmsRouter = require('./routes/member/member_searchid_sms');
+    //     app.use('/', membersearchidsmsRouter);  // 회원_아이디찾기_인증받기
+var membersearchpwRouter = require('./routes/member/member_searchpw');
+    app.use('/', membersearchpwRouter);  // 회원_비밀번호찾기
 
 // test
 var testRouter = require('./routes/test/test');

@@ -1,4 +1,4 @@
-/* bhseo1223 nodejs : script - member_searchid : rkmarket_app */
+/* bhseo1223 nodejs : script - member_searchpw : rkmarket_app */
 
 function submitMobilenumberDiabled() { // submitMobilenumber 버튼 비활성화
     document.getElementById('submitMobilenumber').style.border = 'gray';
@@ -25,4 +25,4 @@ function submitMobilenumber() { /* 휴대전화번호 입력후 전송받기 버
 };
 
 
-/* bhseo1223 nodejs : script - member_searchid : rkmarket_app */
+/* bhseo1223 nodejs : script - member_searchpw : rkmarket_app */
