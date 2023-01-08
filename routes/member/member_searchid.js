@@ -49,30 +49,74 @@ router.get('/member/member_searchid', function(req, res) {  // url(get) : '/memb
         var resultText1          = '휴대전화 인증정보 입력중입니다.';
         var resultText2          = '인증번호를 발송하였습니다.';
 
-        // INSERT member_searchid - data
-        var authNumberSMS = Math.floor(Math.random() * (111111 - 999999)) + 999999;
+        // SELECT : member - 회원정보
+        var sqlMember = `SELECT mobilenumber FROM member WHERE mobilenumber = ?`;
+        var paramsMember = [mobileNumber];
+        connection.query(sqlMember, paramsMember, function(err, rowsMember, fields) {
 
-        var membersearchidId            = `SI${iddate}${mobileNumber}`;  // member_searchid: id - 일련번호
-        var membersearchidMobilenumber  = mobileNumber;                  // member_searchid: mobilenumber - 휴대전화번호
-        var membersearchidAuthnumber    = authNumberSMS;                 // member_searchid: authnumber - 인증번호
-        var membersearchidSenddate      = todate;                        // member_searchid: senddate - 전송일시
-        var membersearchidCheckauth     = 'N';                           // member_searchid: check_auth - 확인_인증
-        var membersearchidAuthdate      = '';                            // member_searchid: authdate - 인증일시
-        // INSERT member_searchid - data
+            // 아이디와 휴대전화번호 확인
+            if (rowsMember.length > 0) {
 
-        // INSERT member_searchid
-        var sqlMembersearchidINSERT = `INSERT INTO member_searchid
-                    (id, mobilenumber, authnumber, senddate, check_auth, authdate)
-                VALUES (?, ?, ?, ?, ?, ?)`;
-        var paramsMembersearchidINSERT = [
-                membersearchidId, membersearchidMobilenumber, membersearchidAuthnumber, 
-                membersearchidSenddate, membersearchidCheckauth, membersearchidAuthdate];
-        connection.query(sqlMembersearchidINSERT, paramsMembersearchidINSERT, function(err, rowsMembersearchidUPDATE, fields) {
+                // SELECT : member_searchid - 아이디찾기_인증
+                var sqlMembersearchid = `SELECT MAX(senddate) AS maxsenddate FROM member_searchid WHERE mobilenumber = ?`;
+                var paramsMembersearchid = [mobileNumber];
+                connection.query(sqlMembersearchid, paramsMembersearchid, function(err, rowsMembersearchid, fields) {
 
-            // SMS
+                    // 시간내 인증번호 전송 제한 : 60초
+                    if (rowsMembersearchid[0].maxsenddate == null) {
+                        var checkDate = '';
+                    } else {
+                        var checkDate = moment(rowsMembersearchid[0].maxsenddate).add('60', 's').format('YYYY-MM-DD HH:mm:ss');
+                    };
+
+                    if (checkDate < todate) {
+
+                        // INSERT member_searchid - data
+                        var authNumberSMS = Math.floor(Math.random() * (111111 - 999999)) + 999999;
+
+                        var membersearchidId            = `SI${iddate}${mobileNumber}`;  // member_searchid: id - 일련번호
+                        var membersearchidMobilenumber  = mobileNumber;                  // member_searchid: mobilenumber - 휴대전화번호
+                        var membersearchidAuthnumber    = authNumberSMS;                 // member_searchid: authnumber - 인증번호
+                        var membersearchidSenddate      = todate;                        // member_searchid: senddate - 전송일시
+                        var membersearchidCheckauth     = 'N';                           // member_searchid: check_auth - 확인_인증
+                        var membersearchidAuthdate      = '';                            // member_searchid: authdate - 인증일시
+                        // INSERT member_searchid - data
+
+                        // INSERT member_searchid
+                        var sqlMembersearchidINSERT = `INSERT INTO member_searchid
+                                    (id, mobilenumber, authnumber, senddate, check_auth, authdate)
+                                VALUES (?, ?, ?, ?, ?, ?)`;
+                        var paramsMembersearchidINSERT = [
+                                membersearchidId, membersearchidMobilenumber, membersearchidAuthnumber, 
+                                membersearchidSenddate, membersearchidCheckauth, membersearchidAuthdate];
+                        connection.query(sqlMembersearchidINSERT, paramsMembersearchidINSERT, function(err, rowsMembersearchidUPDATE, fields) {
+
+                            // SMS
+
+                        });
+                        // INSERT member_searchid
+
+                    } else {
+
+                        resultText1  = '시간제한!  처음부터 다시 진행해 주세요.';
+                        resultText2  = '인증번호는 1분에 1번만 발송합니다.';
+
+                    };
+                    // 시간내 인증번호 전송 제한 : 60초
+
+                });
+                // SELECT : member_searchid - 아이디찾기_인증
+
+            } else {
+
+                resultText1  = '정보없음!  처음부터 다시 진행해 주세요.';
+                resultText2  = '휴대전화번호를 확인해 주세요.';
+
+            };
+            // 휴대전화번호 확인
 
         });
-        // INSERT member_searchid
+        // SELECT : member - 회원정보
 
     } else if (searchProcess == 2) { // 휴대전화번호 입력, 인증번호 입력
 

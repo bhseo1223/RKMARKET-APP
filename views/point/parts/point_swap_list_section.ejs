@@ -1,0 +1,264 @@
+<!-- bhseo1223 nodejs : ejs - point_swap_list_section : rkmarket_app -->
+
+<section>
+    <div class="section-section">
+        <hr class="section-hr">
+
+        <div class="section-infor">
+            <div class="infor-member">
+                <div class="member-memberleft">
+                    <div class="memberleft-nickname">
+                        <p class="nickname-nickname"><%- member[0].hname; %></p>
+                        <p class="nickname-end">님</p>
+                    </div>
+
+                    <div class="memberleft-classlevel">
+                        <p class="classlevel-label">LV</p>
+                        <p class="classlevel-name" style=<%- classlevelcss %>><%- member[0].classlevelhname; %></p>
+                    </div>
+                </div>
+
+                <div class="member-memberright">
+                    <div class="memberright-cashpointown">
+                        <p class="cashpointown-text">보유CP</p>
+                        <p class="cashpointown-ea"><%- pointmember[0].cp.toLocaleString(); %></p>
+                        <p class="cashpointown-unit">CP</p>
+                    </div>
+
+                    <div class="memberright-cashpointexchange">
+                        <p class="cashpointexchange-text">포인트가치</p>
+                        <p class="cashpointexchange-ea"><%- (Math.floor(pointmember[0].point_exp * rateexp) + Math.floor(pointmember[0].point_mc * ratemc) + Math.floor(pointmember[0].point_mctk * ratemctk) + Math.floor(pointmember[0].point_nton * ratenton) + Math.floor(pointmember[0].point_trvt * ratetrvt)).toLocaleString()  %></p>
+                        <p class="cashpointexchange-unit">CP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-hr">
+
+        <div class="section-points">
+    <% if (point == 'EXP') { %>
+        <div class="points-point point-exp">
+            <div class="point-infor">
+                <div class="infor-infortop">
+                    <div class="infortop-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">EXP</p>
+                    </div>
+
+                    <div class="infortop-rate">
+                        <p class="rate-text">CP시세</p>
+                        <p class="rate-ea1"><%- Number((rateexp.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                        <p class="rate-ea2"><%- ((rateexp.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                        <p class="rate-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="infor-infordown">
+                    <div></div>
+
+                    <div class="infordown-own">
+                        <div class="own-cashpoint">
+                            <p class="cashpoint-text">보유포인트</p>
+                            <p class="cashpoint-ea1 color-exp"><%- Number(((pointmember[0].point_exp).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="cashpoint-ea2 color-exp"><%- (((pointmember[0].point_exp).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="cashpoint-unit color-exp">EXP</p>
+                        </div>
+
+                        <div class="own-exchange">
+                            <p class="exchange-text">포인트가치</p>
+                            <p class="exchange-ea"><%- Math.floor(pointmember[0].point_exp * rateexp).toLocaleString() %></p>
+                            <p class="exchange-unit">CP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else if (point == 'MC') { %>
+        <div class="points-point point-mc">
+            <div class="point-infor">
+                <div class="infor-infortop">
+                    <div class="infortop-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">Mine Cash</p>
+                    </div>
+
+                    <div class="infortop-rate">
+                        <p class="rate-text">CP시세</p>
+                        <p class="rate-ea1"><%- Number((ratemc.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                        <p class="rate-ea2"><%- ((ratemc.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                        <p class="rate-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="infor-infordown">
+                    <div></div>
+
+                    <div class="infordown-own">
+                        <div class="own-cashpoint">
+                            <p class="cashpoint-text">보유포인트</p>
+                            <p class="cashpoint-ea1 color-mc"><%- Number(((pointmember[0].point_mc).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="cashpoint-ea2 color-mc"><%- (((pointmember[0].point_mc).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="cashpoint-unit color-mc">MC</p>
+                        </div>
+
+                        <div class="own-exchange">
+                            <p class="exchange-text">포인트가치</p>
+                            <p class="exchange-ea"><%- Math.floor(pointmember[0].point_mc * ratemc).toLocaleString() %></p>
+                            <p class="exchange-unit">CP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else if (point == 'MCTK') { %>
+        <div class="points-point point-mctk">
+            <div class="point-infor">
+                <div class="infor-infortop">
+                    <div class="infortop-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">Mine Token</p>
+                    </div>
+
+                    <div class="infortop-rate">
+                        <p class="rate-text">CP시세</p>
+                        <p class="rate-ea1"><%- Number((ratemctk.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                        <p class="rate-ea2"><%- ((ratemctk.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                        <p class="rate-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="infor-infordown">
+                    <div></div>
+
+                    <div class="infordown-own">
+                        <div class="own-cashpoint">
+                            <p class="cashpoint-text">보유포인트</p>
+                            <p class="cashpoint-ea1 color-mctk"><%- Number(((pointmember[0].point_mctk).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="cashpoint-ea2 color-mctk"><%- (((pointmember[0].point_mctk).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="cashpoint-unit color-mctk">MCTK</p>
+                        </div>
+
+                        <div class="own-exchange">
+                            <p class="exchange-text">포인트가치</p>
+                            <p class="exchange-ea"><%- Math.floor(pointmember[0].point_mctk * ratemctk).toLocaleString() %></p>
+                            <p class="exchange-unit">CP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else if (point == 'NTON') { %>
+        <div class="points-point point-nton" id="pointNton" onclick="heightSizeChange('pointNton', 'detailNton');">
+            <div class="point-infor">
+                <div class="infor-infortop">
+                    <div class="infortop-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">NTON point</p>
+                    </div>
+
+                    <div class="infortop-rate">
+                        <p class="rate-text">CP시세</p>
+                        <p class="rate-ea1"><%- Number((ratenton.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                        <p class="rate-ea2"><%- ((ratenton.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                        <p class="rate-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="infor-infordown">
+                    <div></div>
+
+                    <div class="infordown-own">
+                        <div class="own-cashpoint">
+                            <p class="cashpoint-text">보유포인트</p>
+                            <p class="cashpoint-ea1 color-nton"><%- Number(((pointmember[0].point_nton).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="cashpoint-ea2 color-nton"><%- (((pointmember[0].point_nton).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="cashpoint-unit color-nton">NTON</p>
+                        </div>
+
+                        <div class="own-exchange">
+                            <p class="exchange-text">포인트가치</p>
+                            <p class="exchange-ea"><%- Math.floor(pointmember[0].point_nton * ratenton).toLocaleString() %></p>
+                            <p class="exchange-unit">CP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else if (point == 'TRVT') { %>
+        <div class="points-point point-trvt" id="pointTrvt" onclick="heightSizeChange('pointTrvt', 'detailTrvt');">
+            <div class="point-infor">
+                <div class="infor-infortop">
+                    <div class="infortop-pointname">
+                        <img class="pointname-image" src="/icon/point_symbol_mctk.svg" alt="">
+                        <p class="pointname-name">TRV Token</p>
+                    </div>
+
+                    <div class="infortop-rate">
+                        <p class="rate-text">CP시세</p>
+                        <p class="rate-ea1"><%- Number((ratetrvt.toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                        <p class="rate-ea2"><%- ((ratetrvt.toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                        <p class="rate-unit">CP</p>
+                    </div>
+                </div>
+
+                <div class="infor-infordown">
+                    <div></div>
+
+                    <div class="infordown-own">
+                        <div class="own-cashpoint">
+                            <p class="cashpoint-text">보유포인트</p>
+                            <p class="cashpoint-ea1 color-trvt"><%- Number(((pointmember[0].point_trvt).toFixed(4)).split('.')[0]).toLocaleString(); %>.</p>
+                            <p class="cashpoint-ea2 color-trvt"><%- (((pointmember[0].point_trvt).toFixed(4)).split('.')[1] + '0000').substr(0,4); %></p>
+                            <p class="cashpoint-unit color-trvt">TRVT</p>
+                        </div>
+
+                        <div class="own-exchange">
+                            <p class="exchange-text">포인트가치</p>
+                            <p class="exchange-ea"><%- Math.floor(pointmember[0].point_trvt * ratetrvt).toLocaleString() %></p>
+                            <p class="exchange-unit">CP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }; %>
+
+        <div class="section-list">
+            <div class="list-column">
+                <div class="column-line">
+                    <p class="column-name">스왑일시</p>
+                    <p class="column-name">대상포인트</p>
+                </div>
+
+                <div class="column-line">
+                    <p class="column-name">스왑수량</p>
+                    <p class="column-name">대상수량</p>
+                </div>
+            </div>
+
+        <% for (var i=0; i<pointswap.length; i++) { %>
+            <div class="list-data">
+                <div class="data-line">
+                    <p class="data-value"><%- pointswap[i].regdate; %></p>
+                    <p class="data-value"><%- pointswap[i].target_point; %></p>
+
+
+                    
+                </div>
+
+                <div class="data-line">
+                    <p class="data-value"><%- pointswap[i].source_ea; %></p>
+                    <p class="data-value"><%- pointswap[i].target_ea; %></p>
+                </div>
+            </div>
+        <% }; %>
+
+        </div>
+    </div>
+
+    <div class="section-blank"></div>
+</section>
+
+
+<!-- bhseo1223 nodejs : ejs - point_swap_list_section : rkmarket_app -->

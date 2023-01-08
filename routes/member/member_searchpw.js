@@ -48,33 +48,77 @@ router.get('/member/member_searchpw', function(req, res) {  // url(get) : '/memb
         var mobilenumberCaution  = '인증하기를 진행해 주세요.';
         var authnumberCaution    = '전송받은 인증번호 입력후 인증하기를 눌러 주세요.';
         var resultText1          = '휴대전화 인증정보 입력중입니다.';
-        var resultText2          = '인증번호를 발송하고 있습니다.';
+        var resultText2          = '인증번호를 발송하였습니다.';
 
-        // INSERT member_searchpw - data
-        var authNumberSMS = Math.floor(Math.random() * (111111 - 999999)) + 999999;
+        // SELECT : member - 회원정보
+        var sqlMember = `SELECT password FROM member WHERE id = ? AND mobilenumber = ?`;
+        var paramsMember = [memberId, mobileNumber];
+        connection.query(sqlMember, paramsMember, function(err, rowsMember, fields) {
 
-        var membersearchpwId            = `SP${iddate}${mobileNumber}`;  // member_searchpw: id - 일련번호
-        var membersearchpwMemberid      = memberId;                      // member_searchpw: member_id - 아이디(회원)
-        var membersearchpwMobilenumber  = mobileNumber;                  // member_searchpw: mobilenumber - 휴대전화번호
-        var membersearchpwAuthnumber    = authNumberSMS;                 // member_searchpw: authnumber - 인증번호
-        var membersearchpwSenddate      = todate;                        // member_searchpw: senddate - 전송일시
-        var membersearchpwCheckauth     = 'N';                           // member_searchpw: check_auth - 확인_인증
-        var membersearchpwAuthdate      = '';                            // member_searchpw: authdate - 인증일시
-        // INSERT member_searchpw - data
+            // 아이디와 휴대전화번호 확인
+            if (rowsMember.length > 0) {
 
-        // INSERT member_searchpw
-        var sqlMembersearchidINSERT = `INSERT INTO member_searchpw
-                    (id, member_id, mobilenumber, authnumber, senddate, check_auth, authdate)
-                VALUES (?, ?, ?, ?, ?, ?, ?)`;
-        var paramsMembersearchidINSERT = [
-                membersearchpwId, membersearchpwMemberid, membersearchpwMobilenumber, membersearchpwAuthnumber, 
-                membersearchpwSenddate, membersearchpwCheckauth, membersearchpwAuthdate];
-        connection.query(sqlMembersearchidINSERT, paramsMembersearchidINSERT, function(err, rowsMembersearchidUPDATE, fields) {
+                // SELECT : member_searchpw - 비밀번호찾기_인증
+                var sqlMembersearchpw = `SELECT MAX(senddate) AS maxsenddate FROM member_searchpw WHERE member_id = ? AND mobilenumber = ?`;
+                var paramsMembersearchpw = [memberId, mobileNumber];
+                connection.query(sqlMembersearchpw, paramsMembersearchpw, function(err, rowsMembersearchpw, fields) {
 
-            // SMS
-            
+                    // 시간내 인증번호 전송 제한 : 60초
+                    if (rowsMembersearchpw[0].maxsenddate == null) {
+                        var checkDate = '';
+                    } else {
+                        var checkDate = moment(rowsMembersearchpw[0].maxsenddate).add('60', 's').format('YYYY-MM-DD HH:mm:ss');
+                    };
+
+                    if (checkDate < todate) {
+
+                        // INSERT member_searchpw - data
+                        var authNumberSMS = Math.floor(Math.random() * (111111 - 999999)) + 999999;
+
+                        var membersearchpwId            = `SP${iddate}${mobileNumber}`;  // member_searchpw: id - 일련번호
+                        var membersearchpwMemberid      = memberId;                      // member_searchpw: member_id - 아이디(회원)
+                        var membersearchpwMobilenumber  = mobileNumber;                  // member_searchpw: mobilenumber - 휴대전화번호
+                        var membersearchpwAuthnumber    = authNumberSMS;                 // member_searchpw: authnumber - 인증번호
+                        var membersearchpwSenddate      = todate;                        // member_searchpw: senddate - 전송일시
+                        var membersearchpwCheckauth     = 'N';                           // member_searchpw: check_auth - 확인_인증
+                        var membersearchpwAuthdate      = '';                            // member_searchpw: authdate - 인증일시
+                        // INSERT member_searchpw - data
+
+                        // INSERT member_searchpw
+                        var sqlMembersearchidINSERT = `INSERT INTO member_searchpw
+                                    (id, member_id, mobilenumber, authnumber, senddate, check_auth, authdate)
+                                VALUES (?, ?, ?, ?, ?, ?, ?)`;
+                        var paramsMembersearchidINSERT = [
+                                membersearchpwId, membersearchpwMemberid, membersearchpwMobilenumber, membersearchpwAuthnumber, 
+                                membersearchpwSenddate, membersearchpwCheckauth, membersearchpwAuthdate];
+                        connection.query(sqlMembersearchidINSERT, paramsMembersearchidINSERT, function(err, rowsMembersearchidUPDATE, fields) {
+
+                            // SMS
+                            
+                        });
+                        // INSERT member_searchpw
+                        
+                    } else {
+
+                        resultText1  = '시간제한!  처음부터 다시 진행해 주세요.';
+                        resultText2  = '인증번호는 1분에 1번만 발송합니다.';
+
+                    };
+                    // 시간내 인증번호 전송 제한 : 60초
+
+                });
+                // SELECT : member_searchpw - 비밀번호찾기_인증
+
+            } else {
+
+                resultText1  = '계정없음!  처음부터 다시 진행해 주세요.';
+                resultText2  = '아이디와 휴대전화번호를 확인해 주세요.';
+
+            };
+            // 아이디와 휴대전화번호 확인
+
         });
-        // INSERT member_searchpw
+        // SELECT : member - 회원정보
 
     } else if (searchProcess == 2) { // 휴대전화번호 입력, 인증번호 입력
 
@@ -84,7 +128,7 @@ router.get('/member/member_searchpw', function(req, res) {  // url(get) : '/memb
         // var resultText2          = '새로고침이나 뒤로가기를 누르지 마세요.';
 
         // SELECT : member_searchpw - 비밀번호찾기_인증
-        var sqlMembersearchpw = `SELECT * FROM member_searchpw WHERE member_id = ? AND mobilenumber = ? AND authnumber = ?`;
+        var sqlMembersearchpw = `SELECT * FROM member_searchpw WHERE senddate = (SELECT MAX(senddate) FROM member_searchpw WHERE member_id = ? AND mobilenumber = ? AND authnumber = ?)`;
         var paramsMembersearchpw = [memberId, mobileNumber, authNumber];
         connection.query(sqlMembersearchpw, paramsMembersearchpw, function(err, rowsMembersearchpw, fields) {
 

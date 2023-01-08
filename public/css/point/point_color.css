@@ -1,0 +1,50 @@
+/* bhseo1223 nodejs : css - point_color : rkmarket_app */
+
+.color-exp { /* 글자색-EXP */
+    color: navy;
+}
+.color-mc { /* 글자색-MC */
+    color: green;
+}
+.color-mctk { /* 글자색-MCTK */
+    color: green;
+}
+.color-nton { /* 글자색-NTON */
+    color: darkcyan;
+}
+.color-trvt { /* 글자색-TRVT */
+    color: purple;
+}
+.background-exp { /* 배경-EXP */
+    background: navy;
+}
+.background-mc { /* 배경-MC */
+    background: green;
+}
+.background-mctk { /* 배경-MCTK */
+    background: green;
+}
+.background-nton { /* 배경-NTON */
+    background: darkcyan;
+}
+.background-trvt { /* 배경-TRVT */
+    background: purple;
+}
+.point-exp { /* 배경-EXP */
+    background: rgba(0, 0, 128, 0.05);
+}
+.point-mc { /* 배경-MC */
+    background: rgba(0, 128, 0, 0.05);
+}
+.point-mctk { /* 배경-MCTK */
+    background: rgba(0, 128, 0, 0.05);
+}
+.point-nton { /* 배경-NTON */
+    background:rgba(0, 139, 139, 0.05);
+}
+.point-trvt { /* 배경-TRVT */
+    background: rgba(128, 0, 128, 0.05);
+}
+
+
+/* bhseo1223 nodejs : css - point_color : rkmarket_app */

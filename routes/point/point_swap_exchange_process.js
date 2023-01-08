@@ -223,8 +223,6 @@ router.post('/point/point_swap_exchange_process', function(req, res) { // url(po
                         var logpointLog    = `point_swap : 성공(일련번호_${pointswapId}_${pointmemberId})`;  // 로그
                         connection.query(sqlPointmemberINSERT, paramsPointmemberINSERT, function(err, rowsPointmemberINSERT, feilds) {
 
-console.log(paramsPointmemberINSERT)
-
                             // log_point save
                             var logpointMemberid      = memberid;       // (session)log_point: member_id - 아이디(회원)
                             var logpointMemberhname   = memberhname;    // log_point: member_hname - 회원명

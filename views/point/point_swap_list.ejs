@@ -1,0 +1,50 @@
+<!-- bhseo1223 nodejs : ejs - point_swap_list : rkmarket_app -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <title>Crypto Market Place</title>
+
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/point/point_color.css">
+        <link rel="stylesheet" href="/css/point/point_header.css">
+        <link rel="stylesheet" href="/css/point/point_swap_list_section.css">
+        <link rel="stylesheet" href="/css/point/point_footer.css">
+
+        <script src="/script/point_swap_list.js"></script>
+    </head>
+
+    <style>
+        header {
+            height: 16vw;
+            background: white;
+        }
+        section {
+            background: var(--color-point-background);
+        }
+        .cashpointown-ea, .cashpointown-unit {
+            color: var(--color-point-text);
+        }
+        .section-blank {
+            background: var(--color-point-background);
+        }
+    </style>
+
+    <body>
+        <%- include('parts/point_header'); %>
+        <%- include('parts/point_swap_list_section'); %>
+        <%- include('parts/point_footer'); %>
+    </body>
+</html>
+
+
+<!-- bhseo1223 nodejs : ejs - point_swap_list : rkmarket_app -->
